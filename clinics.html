@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>提携院 | KOMI ARTMAKE</title>
+<meta name="description" content="KOMI ARTMAKEの提携院一覧。東京・横浜・群馬（太田・高崎）・長野・福岡。各院のアクセス・料金・Googleマップ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.clinic-tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 0.5px solid var(--border); margin-bottom: 48px; }
+.clinic-tab-btn { padding: 14px 24px; font-size: 13px; font-weight: 300; letter-spacing: 0.08em; color: var(--text-muted); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; font-family: var(--font-sans); transition: all 0.2s; white-space: nowrap; }
+.clinic-tab-btn:hover { color: var(--gold); }
+.clinic-tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+.clinic-panel { display: none; }
+.clinic-panel.active { display: block; }
+.clinic-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.clinic-map-wrap { width: 100%; aspect-ratio: 16/9; background: var(--beige-light); border: 0.5px solid var(--border); overflow: hidden; }
+.clinic-map-wrap iframe { width: 100%; height: 100%; border: none; }
+.clinic-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; }
+.clinic-photo { aspect-ratio: 4/3; object-fit: cover; background: var(--beige); width: 100%; }
+.clinic-info-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.clinic-info-table tr { border-bottom: 0.5px solid var(--border-light); }
+.clinic-info-table th { padding: 12px 0; font-size: 12px; font-weight: 400; color: var(--text-muted); letter-spacing: 0.06em; text-align: left; width: 80px; vertical-align: top; }
+.clinic-info-table td { padding: 12px 0; font-size: 13px; font-weight: 300; color: var(--text); line-height: 1.7; }
+.clinic-name-heading { font-family: var(--font-serif-ja); font-size: 24px; font-weight: 300; color: var(--brown); letter-spacing: 0.06em; margin-bottom: 8px; }
+.clinic-area-badge { display: inline-block; font-size: 11px; font-weight: 400; color: var(--gold); letter-spacing: 0.1em; border: 0.5px solid var(--gold); padding: 3px 12px; margin-bottom: 20px; }
+.price-section-title { font-family: var(--font-serif-ja); font-size: 18px; font-weight: 300; color: var(--brown); margin: 32px 0 16px; }
+@media(max-width:768px){ .clinic-detail{grid-template-columns:1fr;} .clinic-tab-btn{padding:12px 14px;font-size:12px;} }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-en">KOMI</span><span class="logo-divider">|</span><span class="logo-ja">ARTMAKE</span></a>
+    <nav class="global-nav">
+      <ul>
+        <li><a href="artmake.html">アートメイク</a></li>
+        <li><a href="amarapink.html">アマラピンク</a></li>
+        <li><a href="paramedical.html">パラメディカル</a></li>
+        <li><a href="clinics.html" class="active">提携院</a></li>
+        <li><a href="cases.html">症例写真</a></li>
+        <li><a href="artists.html">アーティスト</a></li>
+        <li><a href="contact.html" class="nav-cta">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-nav">
+  <ul>
+    <li><a href="artmake.html">アートメイク</a></li>
+    <li><a href="amarapink.html">アマラピンク</a></li>
+    <li><a href="paramedical.html">パラメディカル</a></li>
+    <li><a href="clinics.html">提携院</a></li>
+    <li><a href="cases.html">症例写真</a></li>
+    <li><a href="artists.html">アーティスト</a></li>
+    <li><a href="contact.html">お問い合わせ</a></li>
+  </ul>
+</div>
+
+<section class="page-hero" style="background-image:url('images/hero-clinics.jpg')">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="section-label">Clinics</p>
+    <h1 class="page-hero-title">提携院</h1>
+    <p class="page-hero-desc">全国6エリア・7院で施術を承っています</p>
+  </div>
+</section>
+
+<!-- 全院マップ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">All Clinics</span>
+      <h2 class="section-title">提携院マップ</h2>
+    </div>
+    <div class="clinic-map-wrap" style="aspect-ratio:21/9; margin-bottom:48px">
+      <!-- 全院マップ：実際のGoogle Maps埋め込みURLに差し替え -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207133.47099803!2d139.4428975!3d35.6891499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b857628235d%3A0xcdd8514cf8307c06!2z5p2x5Lqs5biC!5e0!3m2!1sja!2sjp!4v1700000000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- タブ -->
+    <div class="clinic-tabs" id="clinicTabs">
+      <button class="clinic-tab-btn active" onclick="switchTab('tokyo')">東京</button>
+      <button class="clinic-tab-btn" onclick="switchTab('yokohama')">横浜</button>
+      <button class="clinic-tab-btn" onclick="switchTab('gunma-ota')">群馬・太田</button>
+      <button class="clinic-tab-btn" onclick="switchTab('gunma-takasaki')">群馬・高崎</button>
+
+      <button class="clinic-tab-btn" onclick="switchTab('nagano')">長野</button>
+      <button class="clinic-tab-btn" onclick="switchTab('fukuoka')">福岡</button>
+    </div>
+
+    <!-- 東京 -->
+    <div class="clinic-panel active" id="panel-tokyo">
+      <div class="clinic-detail">
+        <div>
+          <div class="clinic-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.5530879577323!2d139.7400495112409!3d35.68800482948779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188dfe66fe081b%3A0x6af15c60ed6695c7!2z5LiA55Wq55S644G-44Gk44KK44GL44Kv44Oq44OL44OD44Kv!5e0!3m2!1sja!2sjp!4v1776214356928!5m2!1sja!2sjp" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="clinic-photos">
+            <img src="images/clinic-tokyo-out.jpg" alt="一番町まつりかクリニック外観" class="clinic-photo">
+            <img src="images/clinic-tokyo-in.jpg" alt="一番町まつりかクリニック内観" class="clinic-photo">
+          </div>
+        </div>
+        <div>
+          <div class="clinic-area-badge">東京</div>
+          <h2 class="clinic-name-heading">一番町まつりかクリニック</h2>
+          <table class="clinic-info-table">
+            <tr><th>住所</th><td>〒102-0082 東京都千代田区一番町4-65 一番町大石ビル1階101</td></tr>
+            <tr><th>アクセス</th><td>東京メトロ半蔵門線 半蔵門駅 5番出口 徒歩3分</td></tr>
+            <tr><th>営業時間</th><td>完全予約制（詳細はクリニックへご確認ください）</td></tr>
+            <tr><th>Web</th><td><a href="https://www.m1clinic.com/" target="_blank" rel="noopener" style="color:var(--gold)">公式サイト</a></td></tr>
+          </table>
+          <h3 class="price-section-title">料金表</h3>
+          <img src="images/price-tokyo.jpg" alt="東京院料金表" style="width:100%;border:0.5px solid var(--border)">
+        </div>
+      </div>
+    </div>
+
+    <!-- 横浜 -->
+    <div class="clinic-panel" id="panel-yokohama">
+      <div class="clinic-detail">
+        <div>
+          <div class="clinic-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13006.187180692164!2d139.55560323140602!3d35.416482587195155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185b04a626780d%3A0x421fc73f89dac27a!2z44Gw44KT44Gw5pW05b2i5aSW56eR!5e0!3m2!1sja!2sjp!4v1776214397389!5m2!1sja!2sjp" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="clinic-photos">
+            <img src="images/clinic-yokohama-out.jpg" alt="ばんば整形外科外観" class="clinic-photo">
+            <img src="images/clinic-yokohama-in.jpg" alt="ばんば整形外科内観" class="clinic-photo">
+          </div>
+        </div>
+        <div>
+          <div class="clinic-area-badge">横浜</div>
+          <h2 class="clinic-name-heading">ばんば整形外科</h2>
+          <table class="clinic-info-table">
+            <tr><th>住所</th><td>〒233-0006 神奈川県横浜市港南区芹が谷2-8-11 芹が谷クリニックビル2F</td></tr>
+            <tr><th>アクセス</th><td>上永谷駅より約2.1km・芹が谷バス停すぐ</td></tr>
+            <tr><th>Web</th><td><a href="https://www.banba-seikei.com/" target="_blank" rel="noopener" style="color:var(--gold)">公式サイト</a></td></tr>
+          </table>
+          <h3 class="price-section-title">料金表</h3>
+          <img src="images/price-yokohama.jpg" alt="横浜院料金表" style="width:100%;border:0.5px solid var(--border)">
+        </div>
+      </div>
+    </div>
+
+    <!-- 群馬・太田 -->
+    <div class="clinic-panel" id="panel-gunma-ota">
+      <div class="clinic-detail">
+        <div>
+          <div class="clinic-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3217.0180716204814!2d139.38234501126465!3d36.26334019766335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f2735528a612f%3A0x7d92b190ed318286!2z44K344Oz44K344Ki44Ks44O844OH44Oz44Kv44Oq44OL44OD44KvIOWkqueUsOmZog!5e0!3m2!1sja!2sjp!4v1776214264492!5m2!1sja!2sjp" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="clinic-photos">
+            <img src="images/clinic-ota-out.jpg" alt="シンシアガーデンクリニック太田院外観" class="clinic-photo">
+            <img src="images/clinic-ota-in.jpg" alt="シンシアガーデンクリニック太田院内観" class="clinic-photo">
+          </div>
+        </div>
+        <div>
+          <div class="clinic-area-badge">群馬・太田</div>
+          <h2 class="clinic-name-heading">シンシアガーデンクリニック 太田院</h2>
+          <table class="clinic-info-table">
+            <tr><th>住所</th><td>〒373-0816 群馬県太田市東矢島町284</td></tr>
+            <tr><th>アクセス</th><td>太田駅より車で15分・太田桐生ICより車で約30分</td></tr>
+            <tr><th>営業時間</th><td>火〜日 10:00〜19:00</td></tr>
+            <tr><th>定休日</th><td>月曜日</td></tr>
+            <tr><th>Web</th><td><a href="https://www.sincere-gc.com/clinic/ota/" target="_blank" rel="noopener" style="color:var(--gold)">公式サイト</a></td></tr>
+          </table>
+          <h3 class="price-section-title">料金表</h3>
+          <img src="images/price-ota.jpg" alt="群馬太田院料金表" style="width:100%;border:0.5px solid var(--border)">
+        </div>
+      </div>
+    </div>
+
+    <!-- 群馬・高崎 -->
+    <div class="clinic-panel" id="panel-gunma-takasaki">
+      <div class="clinic-detail">
+        <div>
+          <div class="clinic-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6428.515668997194!2d139.02460271126748!3d36.330300493931944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601e92a5d570867d%3A0x363ef4612d39e7cc!2z44K344Oz44K344Ki44Ks44O844OH44Oz44Kv44Oq44OL44OD44Kv6auY5bSO6Zmi!5e0!3m2!1sja!2sjp!4v1776214241827!5m2!1sja!2sjp" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="clinic-photos">
+            <img src="images/clinic-takasaki-out.jpg" alt="シンシアガーデンクリニック高崎院外観" class="clinic-photo">
+            <img src="images/clinic-takasaki-in.jpg" alt="シンシアガーデンクリニック高崎院内観" class="clinic-photo">
+          </div>
+        </div>
+        <div>
+          <div class="clinic-area-badge">群馬・高崎</div>
+          <h2 class="clinic-name-heading">シンシアガーデンクリニック 高崎院</h2>
+          <table class="clinic-info-table">
+            <tr><th>住所</th><td>〒370-0046 群馬県高崎市江木町1718-4</td></tr>
+            <tr><th>アクセス</th><td>高崎環状線沿い・駐車場16台完備</td></tr>
+            <tr><th>営業時間</th><td>火〜日 10:00〜19:00</td></tr>
+            <tr><th>定休日</th><td>月曜日</td></tr>
+            <tr><th>Web</th><td><a href="https://www.sincere-gc.com/clinic/takasaki/" target="_blank" rel="noopener" style="color:var(--gold)">公式サイト</a></td></tr>
+          </table>
+          <h3 class="price-section-title">料金表</h3>
+          <img src="images/price-takasaki.jpg" alt="群馬高崎院料金表" style="width:100%;border:0.5px solid var(--border)">
+        </div>
+      </div>
+    </div>
+
+    <!-- 長野 -->
+    <div class="clinic-panel" id="panel-nagano">
+      <div class="clinic-detail">
+        <div>
+          <div class="clinic-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3216.1722221069367!2d138.4587223112655!3d36.28387089651995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601dcbd393e94217%3A0x1f04821eff2c3423!2z5L2Q5LmF5bmz44Ko44Oz44K844Or44Kv44Oq44OL44OD44KvIHRoZSBCZWF1dHnvvIjnvo7lrrnnmq7ohprnp5HvvIk!5e0!3m2!1sja!2sjp!4v1776214329787!5m2!1sja!2sjp" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="clinic-photos">
+            <img src="images/clinic-nagano-out.jpg" alt="佐久平エンゼルクリニック外観" class="clinic-photo">
+            <img src="images/clinic-nagano-in.jpg" alt="佐久平エンゼルクリニック内観" class="clinic-photo">
+          </div>
+        </div>
+        <div>
+          <div class="clinic-area-badge">長野</div>
+          <h2 class="clinic-name-heading">佐久平エンゼルクリニック</h2>
+          <table class="clinic-info-table">
+            <tr><th>住所</th><td>〒385-0021 長野県佐久市長土呂1210-1</td></tr>
+            <tr><th>アクセス</th><td>佐久平駅より車で約5分</td></tr>
+            <tr><th>営業時間</th><td>月〜火 9:00〜18:30 / 水 9:00〜18:30 / 木〜日 9:30〜18:30</td></tr>
+            <tr><th>Web</th><td><a href="https://www.sakudaira-angel-clinic.jp/" target="_blank" rel="noopener" style="color:var(--gold)">公式サイト</a></td></tr>
+          </table>
+          <h3 class="price-section-title">料金表</h3>
+          <img src="images/price-nagano.jpg" alt="長野院料金表" style="width:100%;border:0.5px solid var(--border)">
+        </div>
+      </div>
+    </div>
+
+    <!-- 福岡 -->
+    <div class="clinic-panel" id="panel-fukuoka">
+      <div class="clinic-detail">
+        <div>
+          <div class="clinic-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.9293436272656!2d130.26927851115678!3d33.58118374234583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541ebd7e5d7dbc7%3A0xef57d02e494b92e1!2z5p2-55Sw55-l5a2Q55qu6Iaa56eR5Yy76Zmi!5e0!3m2!1sja!2sjp!4v1776214373488!5m2!1sja!2sjp" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="clinic-photos">
+            <img src="images/clinic-fukuoka-out.jpg" alt="松田知子皮膚科医院外観" class="clinic-photo">
+            <img src="images/clinic-fukuoka-in.jpg" alt="松田知子皮膚科医院内観" class="clinic-photo">
+          </div>
+        </div>
+        <div>
+          <div class="clinic-area-badge">福岡</div>
+          <h2 class="clinic-name-heading">松田知子皮膚科医院</h2>
+          <table class="clinic-info-table">
+            <tr><th>住所</th><td>〒819-0168 福岡県福岡市西区今宿1-5-27</td></tr>
+            <tr><th>アクセス</th><td>今宿駅より徒歩5分・駐車場完備</td></tr>
+            <tr><th>営業時間</th><td>月〜水・金 10:00〜13:00 / 15:00〜18:00<br>木・土 10:00〜14:00</td></tr>
+            <tr><th>定休日</th><td>日曜・祝日</td></tr>
+            <tr><th>Web</th><td><a href="https://matsuda-d.com/" target="_blank" rel="noopener" style="color:var(--gold)">公式サイト</a></td></tr>
+          </table>
+          <h3 class="price-section-title">料金表</h3>
+          <img src="images/price-fukuoka.jpg" alt="福岡院料金表" style="width:100%;border:0.5px solid var(--border)">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner">
+      <span class="section-label">Contact</span>
+      <h2 class="cta-title">ご予約・お問い合わせ</h2>
+      <p class="cta-desc">施術のご予約はLINEまたはInstagramのDMよりご連絡ください。</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn btn-primary">LINE公式で相談</a>
+        <a href="contact.html" class="btn btn-outline">Instagramで相談</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">KOMI ARTMAKE</p>
+        <p class="footer-tagline">医療アートメイク・パラメディカル</p>
+        <p class="footer-area">東京 / 横浜 / 群馬 / 長野 / 福岡</p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="artmake.html">アートメイク</a></li>
+          <li><a href="amarapink.html">アマラピンク</a></li>
+          <li><a href="paramedical.html">パラメディカル</a></li>
+          <li><a href="clinics.html">提携院</a></li>
+          <li><a href="cases.html">症例写真</a></li>
+          <li><a href="artists.html">アーティスト</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 KOMI ARTMAKE. All rights reserved.</p>
+      <p class="footer-note">※施術は全て提携医療クリニック内で行います</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.clinic-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.clinic-tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+</script>
+</body>
+</html>

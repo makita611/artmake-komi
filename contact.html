@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ | KOMI ARTMAKE</title>
+<meta name="description" content="KOMI ARTMAKEへのお問い合わせ・ご予約はLINE公式またはInstagramのDMよりご連絡ください。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 760px; margin: 0 auto; }
+.contact-card { background: var(--white); border: 0.5px solid var(--border); padding: 48px 40px; text-align: center; }
+.contact-card-icon { font-family: var(--font-serif-en); font-size: 11px; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 24px; display: block; }
+.contact-card-title { font-family: var(--font-serif-ja); font-size: 20px; font-weight: 300; color: var(--brown); letter-spacing: 0.08em; margin-bottom: 20px; }
+.qr-wrap { width: 160px; height: 160px; margin: 0 auto 20px; background: var(--beige-light); border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.qr-wrap img { width: 100%; height: 100%; object-fit: contain; }
+.qr-placeholder { font-size: 11px; color: var(--text-muted); font-weight: 300; letter-spacing: 0.08em; text-align: center; line-height: 1.8; padding: 20px; }
+.contact-card-desc { font-size: 12px; color: var(--text-muted); font-weight: 300; line-height: 1.9; margin-bottom: 24px; }
+.contact-card-btn { display: inline-block; padding: 12px 28px; font-size: 13px; font-weight: 300; letter-spacing: 0.1em; border: 0.5px solid var(--gold); color: var(--gold); transition: all 0.25s; }
+.contact-card-btn:hover { background: var(--gold); color: var(--white); }
+.contact-card-btn.line { background: #06C755; border-color: #06C755; color: #fff; }
+.contact-card-btn.line:hover { background: #04a844; border-color: #04a844; }
+.faq-list { max-width: 700px; margin: 0 auto; }
+.faq-item { border-bottom: 0.5px solid var(--border); }
+.faq-q { width: 100%; text-align: left; padding: 20px 0; font-size: 14px; font-weight: 300; color: var(--brown); letter-spacing: 0.05em; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-sans); }
+.faq-q::after { content: '+'; font-family: var(--font-serif-en); font-size: 20px; color: var(--gold); font-weight: 300; transition: transform 0.3s; }
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a { display: none; padding: 0 0 20px; font-size: 13px; font-weight: 300; color: var(--text-light); line-height: 1.9; }
+.faq-item.open .faq-a { display: block; }
+@media(max-width:600px){ .contact-grid{grid-template-columns:1fr;} .contact-card{padding:36px 24px;} }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-en">KOMI</span><span class="logo-divider">|</span><span class="logo-ja">ARTMAKE</span></a>
+    <nav class="global-nav">
+      <ul>
+        <li><a href="artmake.html">アートメイク</a></li>
+        <li><a href="amarapink.html">アマラピンク</a></li>
+        <li><a href="paramedical.html">パラメディカル</a></li>
+        <li><a href="clinics.html">提携院</a></li>
+        <li><a href="cases.html">症例写真</a></li>
+        <li><a href="artists.html">アーティスト</a></li>
+        <li><a href="contact.html" class="nav-cta active">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-nav">
+  <ul>
+    <li><a href="artmake.html">アートメイク</a></li>
+    <li><a href="amarapink.html">アマラピンク</a></li>
+    <li><a href="paramedical.html">パラメディカル</a></li>
+    <li><a href="clinics.html">提携院</a></li>
+    <li><a href="cases.html">症例写真</a></li>
+    <li><a href="artists.html">アーティスト</a></li>
+    <li><a href="contact.html">お問い合わせ</a></li>
+  </ul>
+</div>
+
+<section class="page-hero" style="background-image:url('images/hero-contact.jpg')">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="section-label">Contact</p>
+    <h1 class="page-hero-title">お問い合わせ</h1>
+    <p class="page-hero-desc">ご予約・ご相談はLINEまたはInstagramよりどうぞ</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Contact</span>
+      <h2 class="section-title">ご連絡方法</h2>
+      <p class="section-note">お気軽にメッセージをお送りください。通常2〜3営業日以内にご返信します。</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- LINE -->
+      <div class="contact-card">
+        <span class="contact-card-icon">LINE</span>
+        <h2 class="contact-card-title">LINE公式</h2>
+        <div class="qr-wrap">
+          <!-- QRコード画像を入れる: images/qr-line.png -->
+          <img src="images/qr-line.png" alt="LINE QRコード" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <div class="qr-placeholder" style="display:none">LINE QRコード<br>（画像を差し替え）</div>
+        </div>
+        <p class="contact-card-desc">QRコードを読み取るか、ボタンよりLINE公式アカウントを友だち追加してください。</p>
+        <!-- href を実際のLINEリンクに差し替え -->
+        <a href="https://line.me/R/ti/p/（LINEIDを入力）" class="contact-card-btn line" target="_blank" rel="noopener">LINE で相談する</a>
+      </div>
+
+      <!-- Instagram -->
+      <div class="contact-card">
+        <span class="contact-card-icon">Instagram</span>
+        <h2 class="contact-card-title">Instagram</h2>
+        <div class="qr-wrap">
+          <!-- QRコード画像を入れる: images/qr-instagram.png -->
+          <img src="images/qr-instagram.png" alt="Instagram QRコード" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <div class="qr-placeholder" style="display:none">Instagram QRコード<br>（画像を差し替え）</div>
+        </div>
+        <p class="contact-card-desc">QRコードを読み取るか、ボタンよりInstagramプロフィールへ。DMよりご連絡ください。</p>
+        <!-- href を実際のInstagramリンクに差し替え -->
+        <a href="https://www.instagram.com/（Instagramアカウント名）" class="contact-card-btn" target="_blank" rel="noopener">Instagram を開く</a>
+      </div>
+
+    </div>
+
+    <p style="text-align:center;margin-top:32px;font-size:12px;color:var(--text-muted);font-weight:300;line-height:1.9">
+      ※お電話・メールでのご対応はしておりません。<br>
+      ※施術のご予約はカウンセリング後に確定となります。
+    </p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--beige-light)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">カウンセリングは無料ですか？</button>
+        <p class="faq-a">オンラインカウンセリングは無料です。対面カウンセリングは¥5,500（税込）となります。</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">痛みはありますか？</button>
+        <p class="faq-a">麻酔クリームを使用するため、痛みを最小限に抑えた状態で施術を行います。個人差はありますが、多くの方がほとんど痛みを感じないとおっしゃっています。</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">どのくらい持続しますか？</button>
+        <p class="faq-a">個人差はありますが、一般的に1〜3年程度が目安です。代謝や肌質、生活習慣により変わります。色が薄くなってきたタイミングでのリタッチをおすすめしています。</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">施術後のダウンタイムは？</button>
+        <p class="faq-a">施術直後は赤みや腫れが出ることがありますが、通常1〜3日で落ち着きます。1〜2週間でかさぶたが剥がれ、色が定着します。</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">どこで施術を受けられますか？</button>
+        <p class="faq-a">東京・横浜・群馬（太田・高崎）・長野・福岡の提携医療クリニックにて施術を行っています。ご希望のエリアをLINEにてお知らせください。</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">モニター価格はありますか？</button>
+        <p class="faq-a">はい、ございます。InstagramなどSNSに写真（全顔もしくは部分）を掲載いただける方を対象にモニター価格でご提供しています。詳しくはLINEにてお問い合わせください。</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">パラメディカルは誰でも受けられますか？</button>
+        <p class="faq-a">施術部位の状態・施術歴などによって対応可否が変わります。まずは写真をLINEにてお送りいただき、カウンセリングにてご確認させていただきます。</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">アレルギーが心配です。</button>
+        <p class="faq-a">パッチテスト（¥5,500）を行うことができます。アレルギーが心配な方は事前にご相談ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">KOMI ARTMAKE</p>
+        <p class="footer-tagline">医療アートメイク・パラメディカル</p>
+        <p class="footer-area">東京 / 横浜 / 群馬 / 長野 / 福岡</p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="artmake.html">アートメイク</a></li>
+          <li><a href="amarapink.html">アマラピンク</a></li>
+          <li><a href="paramedical.html">パラメディカル</a></li>
+          <li><a href="clinics.html">提携院</a></li>
+          <li><a href="cases.html">症例写真</a></li>
+          <li><a href="artists.html">アーティスト</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 KOMI ARTMAKE. All rights reserved.</p>
+      <p class="footer-note">※施術は全て提携医療クリニック内で行います</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  item.classList.toggle('open');
+}
+</script>
+</body>
+</html>

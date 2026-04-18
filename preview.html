@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOMI ARTMAKE - Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #FDFAF7;
+  --beige-light: #F5EDE3;
+  --beige: #E8D9C8;
+  --beige-dark: #C9A882;
+  --gold: #B8946A;
+  --brown: #3D3028;
+  --brown-light: #7A6355;
+  --black: #1A1410;
+  --text: #3D3028;
+  --text-light: #7A6355;
+  --text-muted: #A8927E;
+  --border: #E0D0BE;
+  --border-light: #EDE3D7;
+  --font-serif-en: 'Cormorant Garamond', Georgia, serif;
+  --font-serif-ja: 'Noto Serif JP', serif;
+  --font-sans: 'Noto Sans JP', sans-serif;
+  --max-w: 1100px;
+  --header-h: 72px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); color: var(--text); background: var(--white); font-size: 15px; line-height: 1.8; font-weight: 300; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* Header */
+.site-header { position: sticky; top: 0; z-index: 100; height: var(--header-h); background: rgba(253,250,247,0.97); border-bottom: 0.5px solid var(--border); }
+.header-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: baseline; gap: 10px; letter-spacing: 0.12em; }
+.logo-en { font-family: var(--font-serif-en); font-size: 22px; font-weight: 400; color: var(--brown); }
+.logo-divider { color: var(--beige-dark); font-weight: 300; }
+.logo-ja { font-family: var(--font-serif-en); font-size: 13px; font-weight: 300; letter-spacing: 0.18em; color: var(--brown-light); }
+.global-nav ul { display: flex; align-items: center; gap: 24px; }
+.global-nav a { font-size: 13px; font-weight: 300; letter-spacing: 0.08em; color: var(--text-light); transition: color 0.2s; }
+.global-nav a:hover { color: var(--gold); }
+.nav-cta { padding: 8px 20px !important; border: 0.5px solid var(--gold) !important; color: var(--gold) !important; }
+.hamburger { display: none; }
+
+/* Hero */
+.hero { position: relative; height: 92vh; min-height: 560px; display: flex; align-items: center; overflow: hidden; background: var(--brown); }
+.hero-bg { position: absolute; inset: 0; }
+.hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.2s; }
+.hero-slide.active { opacity: 1; }
+/* ヒーロー背景：画像なしの場合のグラデーション */
+.hero-gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #3D3028 0%, #7A6355 40%, #C9A882 100%);
+}
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(29,20,16,0.6) 0%, rgba(29,20,16,0.15) 100%); }
+.hero-content { position: relative; z-index: 2; max-width: var(--max-w); margin: 0 auto; padding: 0 48px; width: 100%; }
+.hero-sub { font-family: var(--font-serif-en); font-size: 13px; font-weight: 300; letter-spacing: 0.28em; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+.hero-title { font-family: var(--font-serif-ja); font-size: 44px; font-weight: 300; color: #fff; line-height: 1.65; margin-bottom: 18px; letter-spacing: 0.06em; }
+.hero-title em { font-style: italic; font-family: var(--font-serif-en); font-size: 50px; color: var(--beige-dark); display: block; }
+.hero-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.55); letter-spacing: 0.14em; margin-bottom: 40px; }
+.hero-btns { display: flex; gap: 16px; }
+.hero-scroll { position: absolute; bottom: 40px; right: 48px; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 2; }
+.hero-scroll span { font-family: var(--font-serif-en); font-size: 10px; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); writing-mode: vertical-rl; transform: rotate(180deg); }
+.scroll-line { width: 0.5px; height: 48px; background: rgba(255,255,255,0.25); position: relative; overflow: hidden; }
+.scroll-line::after { content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 100%; background: var(--beige-dark); animation: scrollDown 2s ease-in-out infinite; }
+@keyframes scrollDown { 0% { top: -100%; } 100% { top: 100%; } }
+
+/* Buttons */
+.btn { display: inline-block; padding: 14px 32px; font-family: var(--font-sans); font-size: 13px; font-weight: 300; letter-spacing: 0.1em; border-radius: 0; cursor: pointer; transition: all 0.25s; border: 0.5px solid transparent; }
+.btn-primary { background: var(--gold); color: var(--white); border-color: var(--gold); }
+.btn-primary:hover { background: var(--brown); border-color: var(--brown); }
+.btn-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,0.5); }
+.btn-outline:hover { background: rgba(255,255,255,0.1); }
+.btn-secondary { background: transparent; color: var(--gold); border-color: var(--gold); }
+.btn-secondary:hover { background: var(--gold); color: var(--white); }
+
+/* Notice */
+.notice-bar { background: var(--beige-light); border-bottom: 0.5px solid var(--border); padding: 12px 32px; text-align: center; }
+.notice-bar p { font-size: 12px; font-weight: 300; letter-spacing: 0.08em; color: var(--text-light); }
+
+/* Section Commons */
+.section { padding: 96px 0; }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-label { font-family: var(--font-serif-en); font-size: 11px; font-weight: 300; letter-spacing: 0.35em; color: var(--gold); margin-bottom: 12px; display: block; }
+.section-title { font-family: var(--font-serif-ja); font-size: 30px; font-weight: 300; color: var(--brown); letter-spacing: 0.08em; }
+.section-note { margin-top: 12px; font-size: 13px; color: var(--text-muted); font-weight: 300; }
+.section-cta { text-align: center; margin-top: 48px; }
+
+/* Services */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 0.5px solid var(--border); }
+.service-card { display: block; background: var(--white); overflow: hidden; transition: background 0.3s; }
+.service-card:hover { background: var(--beige-light); }
+.service-card--pink { background: #FDF8F5; }
+.service-card--dark { background: #FAF6F2; }
+.service-img-wrap { overflow: hidden; aspect-ratio: 4/3; }
+.service-img { width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 0.6s; }
+/* 画像なし時のプレースホルダー */
+.service-img-placeholder { width: 100%; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
+.service-img-placeholder.s1 { background: linear-gradient(135deg, #E8D9C8, #C9A882); }
+.service-img-placeholder.s2 { background: linear-gradient(135deg, #F5E6E8, #DBA8B0); }
+.service-img-placeholder.s3 { background: linear-gradient(135deg, #D4C8BE, #9E8A7E); }
+.service-img-placeholder span { font-family: var(--font-serif-en); font-size: 13px; letter-spacing: 0.2em; color: rgba(255,255,255,0.8); font-weight: 300; }
+.service-card:hover .service-img { transform: scale(1.04); }
+.service-body { padding: 32px 28px; }
+.service-num { font-family: var(--font-serif-en); font-size: 11px; font-weight: 300; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 8px; }
+.service-name { font-family: var(--font-serif-ja); font-size: 20px; font-weight: 300; color: var(--brown); letter-spacing: 0.08em; margin-bottom: 14px; line-height: 1.4; }
+.service-name small { font-size: 13px; color: var(--text-muted); }
+.service-desc { font-size: 13px; color: var(--text-light); line-height: 1.9; margin-bottom: 16px; font-weight: 300; }
+.service-menu { border-top: 0.5px solid var(--border-light); padding-top: 14px; margin-bottom: 20px; }
+.service-menu li { font-size: 12px; color: var(--text-muted); padding: 4px 0 4px 14px; position: relative; font-weight: 300; }
+.service-menu li::before { content: '—'; position: absolute; left: 0; color: var(--beige-dark); font-size: 10px; top: 6px; }
+.service-link { font-family: var(--font-serif-en); font-size: 12px; font-weight: 400; letter-spacing: 0.1em; color: var(--gold); }
+
+/* Artist */
+.artist-section { background: var(--beige-light); }
+.artist-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.artist-img-frame { position: relative; }
+.artist-photo-placeholder { width: 100%; aspect-ratio: 3/4; background: linear-gradient(160deg, #C9A882, #7A6355); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 32px; }
+.artist-photo-placeholder span { font-family: var(--font-serif-en); font-size: 28px; font-weight: 300; letter-spacing: 0.2em; color: rgba(255,255,255,0.7); font-style: italic; }
+.artist-img-deco { position: absolute; bottom: -16px; right: -16px; width: 60%; height: 60%; border: 0.5px solid var(--beige-dark); pointer-events: none; }
+.artist-catch { font-family: var(--font-serif-ja); font-size: 18px; font-weight: 300; color: var(--brown); line-height: 1.9; letter-spacing: 0.06em; margin: 16px 0 20px; }
+.artist-body { font-size: 14px; color: var(--text-light); line-height: 2.1; font-weight: 300; margin-bottom: 32px; }
+
+/* Clinics */
+.map-placeholder { background: #EEE5D8; border: 0.5px solid var(--border); height: 320px; display: flex; align-items: center; justify-content: center; margin-bottom: 32px; flex-direction: column; gap: 8px; }
+.map-placeholder p { color: var(--text-muted); font-size: 13px; font-weight: 300; }
+.map-placeholder small { color: var(--text-muted); font-size: 11px; opacity: 0.6; }
+.clinics-list { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.clinic-chip { display: flex; align-items: center; gap: 8px; padding: 10px 20px; border: 0.5px solid var(--border); font-size: 13px; font-weight: 300; color: var(--text); background: var(--white); }
+.chip-area { font-size: 11px; font-weight: 400; color: var(--gold); letter-spacing: 0.05em; }
+
+/* Reviews */
+.reviews-section { background: var(--beige-light); }
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.review-card { background: var(--white); padding: 28px 24px; border: 0.5px solid var(--border); }
+.review-card.hidden-review { display: none; }
+.review-stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 14px; }
+.review-text { font-size: 13px; font-weight: 300; color: var(--text); line-height: 1.9; margin-bottom: 16px; }
+.review-author { font-size: 12px; color: var(--text-muted); font-weight: 300; border-top: 0.5px solid var(--border-light); padding-top: 12px; }
+.reviews-more { text-align: center; margin-top: 40px; }
+.reviews-more .btn-outline { color: var(--gold); border-color: var(--gold); }
+.reviews-more .btn-outline:hover { background: var(--gold); color: var(--white); }
+
+/* Cases */
+.cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.case-img-wrap { overflow: hidden; aspect-ratio: 1; }
+.case-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.case-placeholder.c1 { background: #DDD0C4; }
+.case-placeholder.c2 { background: #E8D9CE; }
+.case-placeholder.c3 { background: #D4C5BA; }
+.case-placeholder.c4 { background: #C9BBB0; }
+.case-placeholder.c5 { background: #DECCBE; }
+.case-placeholder.c6 { background: #CEC0B4; }
+.case-placeholder span { font-family: var(--font-serif-en); font-size: 11px; letter-spacing: 0.2em; color: rgba(255,255,255,0.7); font-weight: 300; }
+
+/* CTA */
+.cta-section { background: var(--brown); padding: 80px 0; }
+.cta-section .section-label { color: var(--beige-dark); }
+.cta-inner { text-align: center; }
+.cta-title { font-family: var(--font-serif-ja); font-size: 26px; font-weight: 300; color: var(--white); letter-spacing: 0.08em; margin-bottom: 16px; }
+.cta-desc { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 300; line-height: 2.1; margin-bottom: 40px; }
+.cta-btns { display: flex; gap: 16px; justify-content: center; }
+.cta-section .btn-primary { background: var(--beige-dark); border-color: var(--beige-dark); color: var(--white); }
+.cta-section .btn-primary:hover { background: var(--gold); border-color: var(--gold); }
+
+/* Footer */
+.site-footer { background: var(--black); padding: 60px 0 32px; }
+.footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 60px; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 0.5px solid rgba(255,255,255,0.08); }
+.footer-logo { font-family: var(--font-serif-en); font-size: 20px; font-weight: 300; letter-spacing: 0.2em; color: var(--beige-dark); margin-bottom: 8px; }
+.footer-tagline { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; margin-bottom: 6px; }
+.footer-area { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.25); letter-spacing: 0.08em; }
+.footer-nav ul { display: flex; flex-wrap: wrap; gap: 14px 28px; max-width: 480px; }
+.footer-nav a { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; transition: color 0.2s; }
+.footer-nav a:hover { color: var(--beige-dark); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); font-weight: 300; }
+.footer-note { font-size: 11px; color: rgba(255,255,255,0.15); font-weight: 300; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-en">KOMI</span>
+      <span class="logo-divider">|</span>
+      <span class="logo-ja">ARTMAKE</span>
+    </a>
+    <nav class="global-nav">
+      <ul>
+        <li><a href="#">アートメイク</a></li>
+        <li><a href="#">アマラピンク</a></li>
+        <li><a href="#">パラメディカル</a></li>
+        <li><a href="#">提携院</a></li>
+        <li><a href="#">症例写真</a></li>
+        <li><a href="#">アーティスト</a></li>
+        <li><a href="#" class="nav-cta">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-gradient"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-sub">Medical Art Make &amp; Paramedical</p>
+    <h1 class="hero-title">
+      あなたらしい美しさを、
+      <em>丁寧に刻む。</em>
+    </h1>
+    <p class="hero-desc">医療クリニック提携｜東京・横浜・群馬・長野・福岡</p>
+    <div class="hero-btns">
+      <a href="#" class="btn btn-primary">LINEで相談する</a>
+      <a href="#" class="btn btn-outline">症例を見る</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<div class="notice-bar">
+  <p>施術は全て医療クリニック内で行います。麻酔使用可能。安心・安全な環境です。</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Services</span>
+      <h2 class="section-title">3つのサービス</h2>
+    </div>
+    <div class="services-grid">
+      <a href="#" class="service-card">
+        <div class="service-img-placeholder s1"><span>Art Make</span></div>
+        <div class="service-body">
+          <p class="service-num">01</p>
+          <h3 class="service-name">アートメイク</h3>
+          <p class="service-desc">眉・アイライン・リップ・ヘアライン・ヘアスカルプ。24時間美しい状態をキープ。</p>
+          <ul class="service-menu">
+            <li>眉（毛並み / パウダー / ミックス）</li>
+            <li>アイライン（上・下）</li>
+            <li>リップ</li>
+            <li>ヘアライン / ヘアスカルプ</li>
+          </ul>
+          <span class="service-link">詳しく見る →</span>
+        </div>
+      </a>
+      <a href="#" class="service-card service-card--pink">
+        <div class="service-img-placeholder s2"><span>Amara Pink</span></div>
+        <div class="service-body">
+          <p class="service-num">02</p>
+          <h3 class="service-name">アマラピンク<br><small>メラニンケア</small></h3>
+          <p class="service-desc">色素沈着・黒ずみにアプローチ。ニップル・デリケートゾーン・ボディケア。</p>
+          <ul class="service-menu">
+            <li>ニップル（乳輪・乳頭）</li>
+            <li>デリケートゾーン</li>
+            <li>ボディ（脇・脱毛後など）</li>
+          </ul>
+          <span class="service-link">詳しく見る →</span>
+        </div>
+      </a>
+      <a href="#" class="service-card service-card--dark">
+        <div class="service-img-placeholder s3"><span>Paramedical</span></div>
+        <div class="service-body">
+          <p class="service-num">03</p>
+          <h3 class="service-name">パラメディカル</h3>
+          <p class="service-desc">傷跡・白斑・ストレッチマーク・乳輪再建。医療補助としての施術。</p>
+          <ul class="service-menu">
+            <li>傷跡・白斑カモフラージュ</li>
+            <li>ストレッチマーク修正</li>
+            <li>乳輪乳頭再建</li>
+          </ul>
+          <span class="service-link">詳しく見る →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section artist-section">
+  <div class="container">
+    <div class="artist-inner">
+      <div class="artist-img-frame">
+        <div class="artist-photo-placeholder"><span>komi</span></div>
+        <div class="artist-img-deco"></div>
+      </div>
+      <div class="artist-text-col">
+        <span class="section-label">Artist</span>
+        <h2 class="section-title">komi</h2>
+        <p class="artist-catch">一人ひとりの骨格・肌色・ライフスタイルに<br>寄り添った施術を。</p>
+        <p class="artist-body">東京・横浜・群馬・長野・福岡の提携クリニックで施術を行っています。アートメイクからパラメディカルまで、幅広い施術に対応。安心してご相談ください。</p>
+        <a href="#" class="btn btn-secondary">プロフィールを見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Clinics</span>
+      <h2 class="section-title">提携院</h2>
+      <p class="section-note">全国6エリア・7院で施術を承っています</p>
+    </div>
+    <div class="map-placeholder">
+      <p>Googleマップ（提携院ピン表示）</p>
+      <small>clinics.htmlにて各院タブ切替で詳細表示</small>
+    </div>
+    <div class="clinics-list">
+      <div class="clinic-chip"><span class="chip-area">東京</span>一番町まつりかクリニック</div>
+      <div class="clinic-chip"><span class="chip-area">横浜</span>（クリニック名）</div>
+      <div class="clinic-chip"><span class="chip-area">群馬・太田</span>（クリニック名）</div>
+      <div class="clinic-chip"><span class="chip-area">群馬・高崎</span>（クリニック名）</div>
+      <div class="clinic-chip"><span class="chip-area">長野</span>（クリニック名）</div>
+      <div class="clinic-chip"><span class="chip-area">福岡</span>（クリニック名）</div>
+    </div>
+    <div class="section-cta">
+      <a href="#" class="btn btn-secondary">提携院の詳細・アクセス</a>
+    </div>
+  </div>
+</section>
+
+<section class="section reviews-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Reviews</span>
+      <h2 class="section-title">お客様の声</h2>
+    </div>
+    <div class="reviews-grid" id="reviewsGrid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">初めてのアートメイクで不安でしたが、丁寧なカウンセリングで安心して施術を受けられました。仕上がりも自然で毎朝のメイクが楽になりました。</p>
+        <p class="review-author">K.M. 様・眉アートメイク</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">パラメディカルで長年悩んでいた傷跡が目立たなくなり、本当に感謝しています。施術前後の変化に感動しました。</p>
+        <p class="review-author">T.S. 様・パラメディカル</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">アマラピンクで色素沈着が気になっていた部分が明るくなりました。プライバシーにも配慮していただき、安心して受けられました。</p>
+        <p class="review-author">A.Y. 様・アマラピンク</p>
+      </div>
+      <div class="review-card hidden-review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">リップアートメイクを施術していただきました。自然な血色感が出て、すっぴんでも自信が持てるようになりました。</p>
+        <p class="review-author">M.H. 様・リップアートメイク</p>
+      </div>
+      <div class="review-card hidden-review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">ヘアラインのアートメイクで気になっていた生え際が自然に。カウンセリングから仕上がりまで丁寧に対応していただきました。</p>
+        <p class="review-author">N.T. 様・ヘアラインアートメイク</p>
+      </div>
+      <div class="review-card hidden-review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">アイラインのアートメイクを受けました。目力が増して毎朝のアイライン引きの手間がなくなり快適です。仕上がりにも大満足。</p>
+        <p class="review-author">R.I. 様・アイラインアートメイク</p>
+      </div>
+    </div>
+    <div class="reviews-more">
+      <button class="btn btn-outline" id="reviewsMoreBtn" onclick="toggleReviews()">口コミをもっと見る</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Cases</span>
+      <h2 class="section-title">症例写真</h2>
+    </div>
+    <div class="cases-grid">
+      <div class="case-img-wrap"><div class="case-placeholder c1"><span>症例 01</span></div></div>
+      <div class="case-img-wrap"><div class="case-placeholder c2"><span>症例 02</span></div></div>
+      <div class="case-img-wrap"><div class="case-placeholder c3"><span>症例 03</span></div></div>
+      <div class="case-img-wrap"><div class="case-placeholder c4"><span>症例 04</span></div></div>
+      <div class="case-img-wrap"><div class="case-placeholder c5"><span>症例 05</span></div></div>
+      <div class="case-img-wrap"><div class="case-placeholder c6"><span>症例 06</span></div></div>
+    </div>
+    <div class="section-cta">
+      <a href="#" class="btn btn-secondary">全ての症例写真を見る</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner">
+      <span class="section-label">Contact</span>
+      <h2 class="cta-title">まずはお気軽にご相談ください</h2>
+      <p class="cta-desc">LINE公式またはInstagramのDMよりご連絡いただけます。<br>カウンセリングのご予約もお気軽にどうぞ。</p>
+      <div class="cta-btns">
+        <a href="#" class="btn btn-primary">LINE公式で相談</a>
+        <a href="#" class="btn btn-outline">Instagramで相談</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">KOMI ARTMAKE</p>
+        <p class="footer-tagline">医療アートメイク・パラメディカル</p>
+        <p class="footer-area">東京 / 横浜 / 群馬 / 長野 / 福岡</p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="#">アートメイク</a></li>
+          <li><a href="#">アマラピンク</a></li>
+          <li><a href="#">パラメディカル</a></li>
+          <li><a href="#">提携院</a></li>
+          <li><a href="#">症例写真</a></li>
+          <li><a href="#">アーティスト</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 KOMI ARTMAKE. All rights reserved.</p>
+      <p class="footer-note">※施術は全て提携医療クリニック内で行います</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleReviews() {
+  const hidden = document.querySelectorAll('.hidden-review');
+  const btn = document.getElementById('reviewsMoreBtn');
+  const isShowing = hidden[0] && hidden[0].style.display === 'block';
+  hidden.forEach(el => { el.style.display = isShowing ? 'none' : 'block'; });
+  btn.textContent = isShowing ? '口コミをもっと見る' : '閉じる';
+}
+</script>
+</body>
+</html>

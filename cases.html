@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>症例写真 | KOMI ARTMAKE</title>
+<meta name="description" content="KOMI ARTMAKEの症例写真一覧。眉・アイライン・リップ・ヘアライン・アマラピンク・パラメディカルの施術ビフォーアフター。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.filter-bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 48px; }
+.filter-btn { padding: 8px 20px; font-size: 12px; font-weight: 300; letter-spacing: 0.1em; color: var(--text-muted); background: none; border: 0.5px solid var(--border); cursor: pointer; font-family: var(--font-sans); transition: all 0.2s; }
+.filter-btn:hover, .filter-btn.active { color: var(--gold); border-color: var(--gold); background: transparent; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.gallery-item { position: relative; aspect-ratio: 1; overflow: hidden; cursor: pointer; background: var(--beige); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item-overlay { position: absolute; inset: 0; background: rgba(61,48,40,0); display: flex; align-items: flex-end; padding: 16px; transition: background 0.3s; }
+.gallery-item:hover .gallery-item-overlay { background: rgba(61,48,40,0.45); }
+.gallery-item-tag { font-size: 11px; font-weight: 300; letter-spacing: 0.1em; color: rgba(255,255,255,0); transition: color 0.3s; font-family: var(--font-serif-en); }
+.gallery-item:hover .gallery-item-tag { color: rgba(255,255,255,0.9); }
+.gallery-item[style*="display: none"] { display: none !important; }
+/* Lightbox */
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(26,20,16,0.92); z-index: 200; align-items: center; justify-content: center; }
+.lightbox.open { display: flex; }
+.lightbox-img { max-width: 90vw; max-height: 85vh; object-fit: contain; }
+.lightbox-close { position: absolute; top: 24px; right: 32px; font-size: 28px; color: rgba(255,255,255,0.6); cursor: pointer; background: none; border: none; font-weight: 300; transition: color 0.2s; }
+.lightbox-close:hover { color: var(--beige-dark); }
+.lightbox-caption { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); font-size: 12px; font-weight: 300; letter-spacing: 0.15em; color: rgba(255,255,255,0.5); font-family: var(--font-serif-en); white-space: nowrap; }
+@media(max-width:600px){ .gallery-grid{grid-template-columns:repeat(2,1fr);} }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-en">KOMI</span><span class="logo-divider">|</span><span class="logo-ja">ARTMAKE</span></a>
+    <nav class="global-nav">
+      <ul>
+        <li><a href="artmake.html">アートメイク</a></li>
+        <li><a href="amarapink.html">アマラピンク</a></li>
+        <li><a href="paramedical.html">パラメディカル</a></li>
+        <li><a href="clinics.html">提携院</a></li>
+        <li><a href="cases.html" class="active">症例写真</a></li>
+        <li><a href="artists.html">アーティスト</a></li>
+        <li><a href="contact.html" class="nav-cta">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-nav">
+  <ul>
+    <li><a href="artmake.html">アートメイク</a></li>
+    <li><a href="amarapink.html">アマラピンク</a></li>
+    <li><a href="paramedical.html">パラメディカル</a></li>
+    <li><a href="clinics.html">提携院</a></li>
+    <li><a href="cases.html">症例写真</a></li>
+    <li><a href="artists.html">アーティスト</a></li>
+    <li><a href="contact.html">お問い合わせ</a></li>
+  </ul>
+</div>
+
+<section class="page-hero" style="background-image:url('images/hero-cases.jpg')">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="section-label">Cases</p>
+    <h1 class="page-hero-title">症例写真</h1>
+    <p class="page-hero-desc">施術ビフォーアフター・仕上がり実例</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="notice-box" style="background:var(--beige-light);border:0.5px solid var(--border);padding:16px 24px;margin-bottom:48px;font-size:12px;color:var(--text-muted);font-weight:300;line-height:1.9">
+      ※掲載写真はご本人の同意をいただいた施術実例です。個人が特定されないよう配慮しています。施術結果は個人差があります。
+    </div>
+
+    <!-- フィルター -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterGallery('all', this)">すべて</button>
+      <button class="filter-btn" onclick="filterGallery('eyebrow', this)">眉</button>
+      <button class="filter-btn" onclick="filterGallery('eyeliner', this)">アイライン</button>
+      <button class="filter-btn" onclick="filterGallery('lip', this)">リップ</button>
+      <button class="filter-btn" onclick="filterGallery('hairline', this)">ヘアライン</button>
+      <button class="filter-btn" onclick="filterGallery('scalp', this)">ヘアスカルプ</button>
+      <button class="filter-btn" onclick="filterGallery('amarapink', this)">アマラピンク</button>
+      <button class="filter-btn" onclick="filterGallery('paramedical', this)">パラメディカル</button>
+    </div>
+
+    <!-- ギャラリー -->
+    <!-- 
+      画像の追加方法：
+      1. Googleフォトで共有URLを取得
+      2. <img src="Googleフォト共有URL"> または images/フォルダに入れてパス指定
+      3. data-category="カテゴリ名" でフィルター対応
+      カテゴリ: eyebrow / eyeliner / lip / hairline / scalp / amarapink / paramedical
+    -->
+    <div class="gallery-grid" id="galleryGrid">
+
+      <div class="gallery-item" data-category="eyebrow" onclick="openLightbox(this)">
+        <img src="images/case-eyebrow-01.jpg" alt="眉アートメイク症例01" data-caption="眉 / Eyebrow">
+        <div class="gallery-item-overlay"><span class="gallery-item-tag">眉</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="eyebrow" onclick="openLightbox(this)">
+        <img src="images/case-eyebrow-02.jpg" alt="眉アートメイク症例02" data-caption="眉 / Eyebrow">
+        <div class="gallery-item-overlay"><span class="gallery-item-tag">眉</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="eyebrow" onclick="openLightbox(this)">
+        <img src="images/case-eyebrow-03.jpg" alt="眉アートメイク症例03" data-caption="眉 / Eyebrow">
+        <div class="gallery-item-overlay"><span class="gallery-item-tag">眉</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="lip" onclick="openLightbox(this)">
+        <img src="images/case-lip-01.jpg" alt="リップアートメイク症例01" data-caption="リップ / Lip">
+        <div class="gallery-item-overlay"><span class="gallery-item-tag">リップ</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="lip" onclick="openLightbox(this)">
+        <img src="images/case-lip-02.jpg" alt="リップアートメイク症例02" data-caption="リップ / Lip">
+        <div class="gallery-item-overlay"><span class="gallery-item-tag">リップ</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="eyeliner" onclick="openLightbox(this)">
+        <img src="images/case-eyeliner-01.jpg" alt="アイライン症例01" data-caption="アイライン / Eyeliner">
+        <div class="gallery-item-overlay"><span class="gallery-item-tag">アイライン</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="hairline" onclick="openLightbox(this)">
+        <img src="images/case-hairline-01.jpg" alt="ヘアライン症例01" data-caption="ヘアライン / Hairline">
+        <div class="gallery-item-overlay"><span class="gallery-item-tag">ヘアライン</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="scalp" onclick="openLightbox(this)">
+        <img src="images/case-scalp-01.jpg" alt="ヘアスカルプ症例01" data-caption="ヘアスカルプ / Scalp">
+        <div class="gallery-item-overlay"><span class="gallery-item-tag">ヘアスカルプ</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="amarapink" onclick="openLightbox(this)">
+        <img src="images/case-amarapink-01.jpg" alt="アマラピンク症例01" data-caption="アマラピンク / Amara Pink">
+        <div class="gallery-item-overlay"><span class="gallery-item-tag">アマラピンク</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="paramedical" onclick="openLightbox(this)">
+        <img src="images/case-paramedical-01.jpg" alt="パラメディカル症例01" data-caption="パラメディカル / Paramedical">
+        <div class="gallery-item-overlay"><span class="gallery-item-tag">パラメディカル</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="paramedical" onclick="openLightbox(this)">
+        <img src="images/case-paramedical-02.jpg" alt="パラメディカル症例02" data-caption="パラメディカル / Paramedical">
+        <div class="gallery-item-overlay"><span class="gallery-item-tag">パラメディカル</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="eyebrow" onclick="openLightbox(this)">
+        <img src="images/case-eyebrow-04.jpg" alt="眉アートメイク症例04" data-caption="眉 / Eyebrow">
+        <div class="gallery-item-overlay"><span class="gallery-item-tag">眉</span></div>
+      </div>
+
+    </div>
+    <!-- 写真追加はここに同じフォーマットで追加 -->
+
+    <p style="text-align:center;margin-top:40px;font-size:12px;color:var(--text-muted);font-weight:300">
+      随時症例写真を追加しています。InstagramでもBefore/Afterをご確認いただけます。<br>
+      <a href="contact.html" style="color:var(--gold)">→ Instagramはこちら</a>
+    </p>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <p class="lightbox-caption" id="lightboxCaption"></p>
+</div>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner">
+      <span class="section-label">Contact</span>
+      <h2 class="cta-title">施術のご相談はお気軽に</h2>
+      <p class="cta-desc">症例写真についての質問もLINEよりどうぞ。</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn btn-primary">LINE公式で相談</a>
+        <a href="contact.html" class="btn btn-outline">Instagramで相談</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">KOMI ARTMAKE</p>
+        <p class="footer-tagline">医療アートメイク・パラメディカル</p>
+        <p class="footer-area">東京 / 横浜 / 群馬 / 長野 / 福岡</p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="artmake.html">アートメイク</a></li>
+          <li><a href="amarapink.html">アマラピンク</a></li>
+          <li><a href="paramedical.html">パラメディカル</a></li>
+          <li><a href="clinics.html">提携院</a></li>
+          <li><a href="cases.html">症例写真</a></li>
+          <li><a href="artists.html">アーティスト</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 KOMI ARTMAKE. All rights reserved.</p>
+      <p class="footer-note">※施術は全て提携医療クリニック内で行います</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    if (cat === 'all' || item.dataset.category === cat) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+function openLightbox(el) {
+  const img = el.querySelector('img');
+  document.getElementById('lightboxImg').src = img.src;
+  document.getElementById('lightboxImg').alt = img.alt;
+  document.getElementById('lightboxCaption').textContent = img.dataset.caption || '';
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>

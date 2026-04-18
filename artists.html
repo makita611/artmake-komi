@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アーティスト komi | KOMI ARTMAKE</title>
+<meta name="description" content="アートメイクアーティスト komi。東京・横浜・群馬・長野・福岡の提携クリニックで施術。医療アートメイク・パラメディカル専門。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.artist-profile-grid { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: start; }
+.artist-profile-img { position: relative; }
+.artist-profile-img img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: var(--beige); }
+.artist-deco { position: absolute; bottom: -20px; right: -20px; width: 65%; height: 65%; border: 0.5px solid var(--beige-dark); pointer-events: none; }
+.artist-sns { display: flex; gap: 12px; margin-top: 24px; }
+.artist-sns-btn { display: flex; align-items: center; gap: 8px; padding: 10px 20px; border: 0.5px solid var(--border); font-size: 12px; font-weight: 300; letter-spacing: 0.08em; color: var(--text-light); transition: all 0.2s; }
+.artist-sns-btn:hover { border-color: var(--gold); color: var(--gold); }
+.artist-skills { margin-top: 40px; }
+.skill-title { font-family: var(--font-serif-en); font-size: 11px; letter-spacing: 0.25em; color: var(--gold); margin-bottom: 16px; font-weight: 300; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tag { padding: 6px 14px; border: 0.5px solid var(--border-light); font-size: 12px; font-weight: 300; color: var(--text-light); }
+.artist-schedule { margin-top: 48px; }
+.schedule-title { font-family: var(--font-serif-ja); font-size: 18px; font-weight: 300; color: var(--brown); margin-bottom: 20px; letter-spacing: 0.06em; }
+.schedule-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.schedule-card { padding: 16px 20px; border: 0.5px solid var(--border); background: var(--white); }
+.schedule-area { font-size: 11px; font-weight: 400; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 6px; }
+.schedule-clinic { font-size: 13px; font-weight: 300; color: var(--text); }
+.schedule-note { font-size: 11px; color: var(--text-muted); margin-top: 4px; font-weight: 300; }
+@media(max-width:900px){ .artist-profile-grid{grid-template-columns:1fr;} .artist-profile-img{max-width:360px;margin:0 auto 40px;} .schedule-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:600px){ .schedule-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-en">KOMI</span><span class="logo-divider">|</span><span class="logo-ja">ARTMAKE</span></a>
+    <nav class="global-nav">
+      <ul>
+        <li><a href="artmake.html">アートメイク</a></li>
+        <li><a href="amarapink.html">アマラピンク</a></li>
+        <li><a href="paramedical.html">パラメディカル</a></li>
+        <li><a href="clinics.html">提携院</a></li>
+        <li><a href="cases.html">症例写真</a></li>
+        <li><a href="artists.html" class="active">アーティスト</a></li>
+        <li><a href="contact.html" class="nav-cta">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-nav">
+  <ul>
+    <li><a href="artmake.html">アートメイク</a></li>
+    <li><a href="amarapink.html">アマラピンク</a></li>
+    <li><a href="paramedical.html">パラメディカル</a></li>
+    <li><a href="clinics.html">提携院</a></li>
+    <li><a href="cases.html">症例写真</a></li>
+    <li><a href="artists.html">アーティスト</a></li>
+    <li><a href="contact.html">お問い合わせ</a></li>
+  </ul>
+</div>
+
+<section class="page-hero" style="background-image:url('images/hero-artist.jpg')">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="section-label">Artist</p>
+    <h1 class="page-hero-title">komi</h1>
+    <p class="page-hero-desc">医療アートメイクアーティスト</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="artist-profile-grid">
+
+      <div class="artist-profile-img">
+        <img src="images/artist-komi.jpg" alt="アーティスト komi">
+        <div class="artist-deco"></div>
+        <div class="artist-sns">
+          <!-- LINE QRコード・Instagram QRコードは contact.html へ -->
+          <a href="contact.html" class="artist-sns-btn">LINE 公式</a>
+          <a href="contact.html" class="artist-sns-btn">Instagram</a>
+        </div>
+      </div>
+
+      <div>
+        <span class="section-label">Profile</span>
+        <h2 class="section-title" style="margin-bottom:24px">komi</h2>
+        <p class="body-text">医療アートメイクアーティストとして、東京・横浜・群馬・長野・福岡の提携クリニックで施術を行っています。</p>
+        <p class="body-text" style="margin-top:16px">アートメイクからパラメディカル、アマラピンクまで、幅広い施術に対応。一人ひとりの骨格・肌色・ライフスタイルに合わせたデザインを丁寧にご提案します。</p>
+        <p class="body-text" style="margin-top:16px">プライバシーへの配慮を最優先に、安心してご相談いただける環境づくりを大切にしています。施術についてのご質問は、LINEまたはInstagramのDMよりお気軽にどうぞ。</p>
+
+        <div class="artist-skills">
+          <p class="skill-title">Specialties</p>
+          <div class="skill-tags">
+            <span class="skill-tag">眉アートメイク</span>
+            <span class="skill-tag">アイライン</span>
+            <span class="skill-tag">リップ</span>
+            <span class="skill-tag">ヘアライン</span>
+            <span class="skill-tag">ヘアスカルプ</span>
+            <span class="skill-tag">アマラピンク</span>
+            <span class="skill-tag">パラメディカル</span>
+            <span class="skill-tag">乳輪乳頭再建</span>
+            <span class="skill-tag">白斑カモフラージュ</span>
+            <span class="skill-tag">傷跡修正</span>
+          </div>
+        </div>
+
+        <div class="artist-schedule">
+          <h3 class="schedule-title">施術エリア</h3>
+          <div class="schedule-grid">
+            <div class="schedule-card">
+              <p class="schedule-area">東京</p>
+              <p class="schedule-clinic">一番町まつりかクリニック</p>
+            </div>
+            <div class="schedule-card">
+              <p class="schedule-area">横浜</p>
+              <p class="schedule-clinic">ばんば整形外科</p>
+            </div>
+            <div class="schedule-card">
+              <p class="schedule-area">群馬・太田</p>
+              <p class="schedule-clinic">シンシアガーデンクリニック 太田院</p>
+            </div>
+            <div class="schedule-card">
+              <p class="schedule-area">群馬・高崎</p>
+              <p class="schedule-clinic">シンシアガーデンクリニック 高崎院</p>
+            </div>
+            <div class="schedule-card">
+              <p class="schedule-area">長野</p>
+              <p class="schedule-clinic">佐久平エンゼルクリニック</p>
+            </div>
+            <div class="schedule-card">
+              <p class="schedule-area">福岡</p>
+              <p class="schedule-clinic">松田知子皮膚科医院</p>
+            </div>
+          </div>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:16px;font-weight:300">※スケジュールは変動する場合があります。ご希望エリアをLINEにてご相談ください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Instagram gallery teaser -->
+<section class="section" style="background:var(--beige-light)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Instagram</span>
+      <h2 class="section-title">Instagramでも発信中</h2>
+      <p class="section-note">施術実例・ビフォーアフター・お知らせなどを随時投稿しています</p>
+    </div>
+    <div class="cases-grid">
+      <div class="case-img-wrap"><img src="images/insta-01.jpg" alt="Instagram投稿1" class="case-img"></div>
+      <div class="case-img-wrap"><img src="images/insta-02.jpg" alt="Instagram投稿2" class="case-img"></div>
+      <div class="case-img-wrap"><img src="images/insta-03.jpg" alt="Instagram投稿3" class="case-img"></div>
+      <div class="case-img-wrap"><img src="images/insta-04.jpg" alt="Instagram投稿4" class="case-img"></div>
+      <div class="case-img-wrap"><img src="images/insta-05.jpg" alt="Instagram投稿5" class="case-img"></div>
+      <div class="case-img-wrap"><img src="images/insta-06.jpg" alt="Instagram投稿6" class="case-img"></div>
+    </div>
+    <div class="section-cta">
+      <a href="contact.html" class="btn btn-secondary">Instagramをフォローする</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner">
+      <span class="section-label">Contact</span>
+      <h2 class="cta-title">komiへのご相談・ご予約</h2>
+      <p class="cta-desc">LINEまたはInstagramのDMよりご連絡ください。<br>施術のご質問もお気軽にどうぞ。</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn btn-primary">LINE公式で相談</a>
+        <a href="contact.html" class="btn btn-outline">Instagramで相談</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">KOMI ARTMAKE</p>
+        <p class="footer-tagline">医療アートメイク・パラメディカル</p>
+        <p class="footer-area">東京 / 横浜 / 群馬 / 長野 / 福岡</p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="artmake.html">アートメイク</a></li>
+          <li><a href="amarapink.html">アマラピンク</a></li>
+          <li><a href="paramedical.html">パラメディカル</a></li>
+          <li><a href="clinics.html">提携院</a></li>
+          <li><a href="cases.html">症例写真</a></li>
+          <li><a href="artists.html">アーティスト</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 KOMI ARTMAKE. All rights reserved.</p>
+      <p class="footer-note">※施術は全て提携医療クリニック内で行います</p>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
