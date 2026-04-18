@@ -16,7 +16,7 @@
 .clinic-panel { display: none; }
 .clinic-panel.active { display: block; }
 .clinic-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-.clinic-map-wrap { width: 100%; aspect-ratio: 16/9; background: var(--beige-light); border: 0.5px solid var(--border); overflow: hidden; }
+.clinic-map-wrap { width: 100%; height: 260px; background: var(--beige-light); border: 0.5px solid var(--border); overflow: hidden; }
 .clinic-map-wrap iframe { width: 100%; height: 100%; border: none; }
 .clinic-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; }
 .clinic-photo { aspect-ratio: 4/3; object-fit: cover; background: var(--beige); width: 100%; }
@@ -70,17 +70,8 @@
   </div>
 </section>
 
-<!-- 全院マップ -->
 <section class="section">
   <div class="container">
-    <div class="section-header">
-      <span class="section-label">All Clinics</span>
-      <h2 class="section-title">提携院マップ</h2>
-    </div>
-    <div class="clinic-map-wrap" style="aspect-ratio:21/9; margin-bottom:48px">
-      <!-- 全院マップ：実際のGoogle Maps埋め込みURLに差し替え -->
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207133.47099803!2d139.4428975!3d35.6891499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b857628235d%3A0xcdd8514cf8307c06!2z5p2x5Lqs5biC!5e0!3m2!1sja!2sjp!4v1700000000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
 
     <!-- タブ -->
     <div class="clinic-tabs" id="clinicTabs">
