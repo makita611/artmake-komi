@@ -16,8 +16,9 @@
 .clinic-panel { display: none; }
 .clinic-panel.active { display: block; }
 .clinic-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.clinic-detail > div { min-width: 0; overflow: hidden; }
 .clinic-map-wrap { width: 100%; height: 260px; background: var(--beige-light); border: 0.5px solid var(--border); overflow: hidden; }
-.clinic-map-wrap iframe { width: 100%; height: 100%; border: none; }
+.clinic-map-wrap iframe { width: 100%; height: 260px; border: none; display: block; }
 .clinic-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; }
 .clinic-photo { aspect-ratio: 4/3; object-fit: cover; background: var(--beige); width: 100%; }
 .clinic-info-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
@@ -75,17 +76,16 @@
 
     <!-- タブ -->
     <div class="clinic-tabs" id="clinicTabs">
-      <button class="clinic-tab-btn active" onclick="switchTab('tokyo')">東京</button>
-      <button class="clinic-tab-btn" onclick="switchTab('yokohama')">横浜</button>
+      <button class="clinic-tab-btn active" onclick="switchTab('yokohama')">横浜</button>
+      <button class="clinic-tab-btn" onclick="switchTab('tokyo')">東京</button>
       <button class="clinic-tab-btn" onclick="switchTab('gunma-ota')">群馬・太田</button>
       <button class="clinic-tab-btn" onclick="switchTab('gunma-takasaki')">群馬・高崎</button>
-
       <button class="clinic-tab-btn" onclick="switchTab('nagano')">長野</button>
       <button class="clinic-tab-btn" onclick="switchTab('fukuoka')">福岡</button>
     </div>
 
     <!-- 東京 -->
-    <div class="clinic-panel active" id="panel-tokyo">
+    <div class="clinic-panel" id="panel-tokyo">
       <div class="clinic-detail">
         <div>
           <div class="clinic-map-wrap">
@@ -112,7 +112,7 @@
     </div>
 
     <!-- 横浜 -->
-    <div class="clinic-panel" id="panel-yokohama">
+    <div class="clinic-panel active" id="panel-yokohama">
       <div class="clinic-detail">
         <div>
           <div class="clinic-map-wrap">
