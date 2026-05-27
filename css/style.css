@@ -891,6 +891,8 @@ ul { list-style: none; }
 .booking-qr { width: 140px; border: 0.5px solid var(--border); display: block; }
 .booking-note { font-size: 12px; font-weight: 300; color: var(--text-muted); line-height: 1.9; margin-bottom: 12px; border-left: 2px solid var(--beige-dark); padding-left: 12px; text-align: left; }
 .booking-message { font-family: var(--font-serif-ja); font-size: 14px; font-weight: 300; color: var(--brown-light); letter-spacing: 0.06em; margin-top: 20px; }
+.booking-line-link { color: var(--green, #06C755); text-decoration: none; }
+.booking-line-link:hover { text-decoration: underline; }
 
 /* ===== FAQ ===== */
 .faq-list { max-width: 720px; margin: 0 auto; }
