@@ -874,6 +874,18 @@ ul { list-style: none; }
 .case-type-name { font-family: var(--font-serif-ja); font-size: 16px; font-weight: 300; color: var(--brown); margin-bottom: 12px; letter-spacing: 0.05em; }
 .case-type-desc { font-size: 13px; color: var(--text-light); line-height: 1.9; font-weight: 300; }
 
+/* ===== Booking section ===== */
+.booking-wrap { display: grid; grid-template-columns: auto 1fr; gap: 56px; align-items: center; }
+.booking-komi-img { width: 260px; object-fit: cover; display: block; }
+.booking-title { font-family: var(--font-serif-ja); font-size: 22px; font-weight: 300; color: var(--brown); letter-spacing: 0.06em; margin-bottom: 28px; }
+.booking-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+.booking-num { font-family: var(--font-serif-en); font-size: 28px; font-weight: 300; color: var(--gold); line-height: 1; flex-shrink: 0; padding-top: 4px; }
+.booking-desc { font-size: 15px; font-weight: 300; color: var(--text); line-height: 1.8; margin-bottom: 16px; }
+.booking-qr { width: 140px; border: 0.5px solid var(--border); display: block; }
+.booking-note { font-size: 12px; font-weight: 300; color: var(--text-muted); line-height: 1.9; margin-bottom: 12px; border-left: 2px solid var(--beige-dark); padding-left: 12px; }
+.booking-message { font-family: var(--font-serif-ja); font-size: 14px; font-weight: 300; color: var(--brown-light); letter-spacing: 0.06em; margin-top: 20px; }
+@media(max-width:768px){ .booking-wrap{grid-template-columns:1fr;} .booking-komi-img{width:100%;max-width:280px;margin:0 auto;} }
+
 /* ===== Nav active ===== */
 .global-nav a.active { color: var(--gold); border-bottom-color: var(--gold); }
 
