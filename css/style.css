@@ -474,10 +474,11 @@ ul { list-style: none; }
 }
 .artist-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 320px 1fr;
   gap: 80px;
   align-items: center;
 }
+.artist-img-col { max-width: 320px; }
 .artist-img-frame {
   position: relative;
 }
@@ -889,8 +890,8 @@ ul { list-style: none; }
 .booking-num { font-family: var(--font-serif-en); font-size: 28px; font-weight: 300; color: var(--gold); line-height: 1; flex-shrink: 0; padding-top: 4px; }
 .booking-desc { font-size: 15px; font-weight: 300; color: var(--text); line-height: 1.8; margin-bottom: 16px; }
 .booking-qr { width: 140px; border: 0.5px solid var(--border); display: block; }
-.booking-note { font-size: 12px; font-weight: 300; color: var(--text-muted); line-height: 1.9; margin-bottom: 12px; border-left: 2px solid var(--beige-dark); padding-left: 12px; text-align: left; }
-.booking-message { font-family: var(--font-serif-ja); font-size: 14px; font-weight: 300; color: var(--brown-light); letter-spacing: 0.06em; margin-top: 20px; }
+.booking-note { font-size: 12px; font-weight: 300; color: var(--text-muted); line-height: 1.9; margin-bottom: 12px; border-left: 2px solid var(--beige-dark); padding-left: 12px; text-align: center; }
+.booking-message { font-family: var(--font-serif-ja); font-size: 14px; font-weight: 300; color: var(--brown-light); letter-spacing: 0.06em; margin-top: 20px; text-align: center; }
 .booking-line-link { color: var(--green, #06C755); text-decoration: none; }
 .booking-line-link:hover { text-decoration: underline; }
 
@@ -914,6 +915,38 @@ ul { list-style: none; }
 .faq-answer { overflow: hidden; max-height: 0; transition: max-height 0.35s ease; }
 .faq-answer.open { max-height: 300px; }
 .faq-answer p { padding: 0 0 22px 0; font-size: 13px; font-weight: 300; color: var(--text-light); line-height: 2; }
+
+/* ===== Fade-in animation ===== */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { opacity: 0; }
+.fade-in.visible { animation: fadeInUp 0.7s ease forwards; }
+.fade-in:nth-child(2).visible { animation-delay: 0.15s; }
+.fade-in:nth-child(3).visible { animation-delay: 0.3s; }
+.fade-in:nth-child(4).visible { animation-delay: 0.45s; }
+
+/* ===== Top stats (concept section) ===== */
+.top-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 0.5px solid var(--border); margin-bottom: 72px; }
+.top-stat-item { background: var(--white); padding: 28px 20px; text-align: center; }
+.top-stat-num { font-family: var(--font-serif-en); font-size: 32px; font-weight: 300; color: var(--brown); letter-spacing: 0.02em; display: block; line-height: 1; }
+.top-stat-num small { font-size: 14px; margin-left: 2px; }
+.top-stat-label { font-size: 11px; font-weight: 300; color: var(--text-muted); letter-spacing: 0.06em; margin-top: 10px; line-height: 1.7; }
+
+/* ===== Concept alt layout ===== */
+.concept-alt { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 60px; align-items: center; margin-bottom: 72px; }
+.concept-alt-divider { background: var(--border); height: 120px; align-self: center; }
+.concept-alt-text { }
+.concept-alt-right { text-align: right; }
+.concept-lead { font-family: var(--font-serif-ja); font-size: clamp(18px, 2.2vw, 24px); font-weight: 300; color: var(--brown); letter-spacing: 0.06em; line-height: 1.7; margin-bottom: 16px; }
+.concept-lead em { font-style: italic; color: var(--gold); }
+.concept-body { font-size: 13px; font-weight: 300; color: var(--text-light); line-height: 2; }
+
+/* ===== Feature cards ===== */
+.concept-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 0.5px solid var(--border); }
+.feature-card { background: var(--white); padding: 36px 28px; }
+.feature-number { font-family: var(--font-serif-en); font-size: 11px; letter-spacing: 0.2em; color: var(--gold); display: block; margin-bottom: 12px; }
+.feature-title { font-family: var(--font-serif-ja); font-size: 16px; font-weight: 400; color: var(--brown); margin-bottom: 14px; letter-spacing: 0.04em; }
+.feature-desc { font-size: 12px; font-weight: 300; color: var(--text-light); line-height: 2; }
+@media(max-width:900px) { .top-stats { grid-template-columns: repeat(2, 1fr); } .concept-alt { grid-template-columns: 1fr; gap: 40px; } .concept-alt-divider { display: none; } .concept-alt-right { text-align: left; } .concept-features { grid-template-columns: 1fr; } }
 
 /* ===== Tokyo schedule ===== */
 .tokyo-schedule { background: var(--beige-light); padding: 48px 0; text-align: center; border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }

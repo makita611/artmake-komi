@@ -44,8 +44,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.service-card, .review-card, .case-img-wrap, .artist-inner').forEach(el => {
-  el.classList.add('fade-in');
+document.querySelectorAll('.service-card, .review-card, .case-img-wrap, .artist-inner, .fade-in').forEach(el => {
   observer.observe(el);
 });
 
