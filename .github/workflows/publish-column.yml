@@ -1,0 +1,106 @@
+name: Publish Scheduled Column Article
+
+on:
+  schedule:
+    - cron: '0 23 * * 0,2,4'  # Mon/Wed/Fri 8:00 AM JST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Find next scheduled article
+        id: find
+        run: |
+          NEXT=$(ls column/scheduled/*.html 2>/dev/null | sort | head -1)
+          if [ -z "$NEXT" ]; then
+            echo "No scheduled articles found. Skipping."
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=true" >> "$GITHUB_OUTPUT"
+            echo "file=$NEXT" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Parse metadata, move file, update index
+        id: meta
+        if: steps.find.outputs.found == 'true'
+        env:
+          ARTICLE_FILE: ${{ steps.find.outputs.file }}
+          GITHUB_OUTPUT_FILE: ${{ env.GITHUB_OUTPUT }}
+        run: |
+          python3 << 'EOF'
+          import re, sys, json, os, shutil
+          from datetime import date
+
+          article_file = os.environ["ARTICLE_FILE"]
+          filename = os.path.basename(article_file)
+
+          with open(article_file, encoding="utf-8") as f:
+              content = f.read()
+
+          m = re.search(r'<!--\s*ARTICLE_META\s*(\{.*?\})\s*-->', content, re.DOTALL)
+          if not m:
+              print("ERROR: ARTICLE_META block not found", file=sys.stderr)
+              sys.exit(1)
+
+          meta     = json.loads(m.group(1))
+          title    = meta.get("title", "新規記事")
+          category = meta.get("category", "")
+          summary  = meta.get("summary", "")
+          slug     = meta.get("slug", filename.replace(".html", ""))
+          today    = date.today().strftime("%Y.%m.%d")
+
+          # Move article to column/
+          dest = f"column/{filename}"
+          shutil.move(article_file, dest)
+
+          # Build card HTML
+          card = (
+              f'      <article class="col-card">\n'
+              f'        <a href="{slug}.html" class="col-card-link">\n'
+              f'          <span class="col-cat">{category}</span>\n'
+              f'          <h2 class="col-title">{title}</h2>\n'
+              f'          <p class="col-summary">{summary}</p>\n'
+              f'          <span class="col-date">{today}</span>\n'
+              f'        </a>\n'
+              f'      </article>'
+          )
+
+          # Insert card after ARTICLES_START in column/index.html
+          marker = "<!-- ARTICLES_START -->"
+          with open("column/index.html", encoding="utf-8") as f:
+              html = f.read()
+
+          if marker not in html:
+              print("ERROR: ARTICLES_START marker not found", file=sys.stderr)
+              sys.exit(1)
+
+          html = html.replace(marker, marker + "\n" + card, 1)
+
+          with open("column/index.html", "w", encoding="utf-8") as f:
+              f.write(html)
+
+          # Write step output
+          github_output = os.environ.get("GITHUB_OUTPUT", "")
+          if github_output:
+              with open(github_output, "a") as f:
+                  f.write(f"title={title}\n")
+
+          print(f"Done: {title}")
+          EOF
+
+      - name: Commit and push
+        if: steps.find.outputs.found == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add column/
+          git commit -m "publish: ${{ steps.meta.outputs.title }}"
+          git push
