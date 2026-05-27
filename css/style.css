@@ -894,6 +894,16 @@ ul { list-style: none; }
 .booking-line-link { color: var(--green, #06C755); text-decoration: none; }
 .booking-line-link:hover { text-decoration: underline; }
 
+/* ===== Credential bar (artists page) ===== */
+.komi-credential-bar { background: var(--brown); padding: 48px 0; }
+.komi-credential-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+.komi-credential-item { padding: 0 12px; border-right: 0.5px solid rgba(255,255,255,0.15); }
+.komi-credential-item:last-child { border-right: none; }
+.credential-num { font-family: var(--font-serif-en); font-size: 36px; font-weight: 300; color: var(--beige-light); letter-spacing: 0.04em; line-height: 1; display: block; }
+.credential-num small { font-size: 16px; font-weight: 300; margin-left: 2px; }
+.credential-label { font-size: 11px; font-weight: 300; color: rgba(245,240,232,0.7); letter-spacing: 0.08em; line-height: 1.8; margin-top: 12px; }
+@media(max-width:768px){ .komi-credential-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } .komi-credential-item { border-right: none; border-bottom: 0.5px solid rgba(255,255,255,0.1); padding-bottom: 20px; } .komi-credential-item:nth-child(2n) { border-right: none; } .komi-credential-item:last-child { border-bottom: none; } }
+
 /* ===== FAQ ===== */
 .faq-list { max-width: 720px; margin: 0 auto; }
 .faq-item { border-bottom: 0.5px solid var(--border); }
