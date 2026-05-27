@@ -33,9 +33,14 @@
 .price-section-title { font-family: var(--font-serif-ja); font-size: 18px; font-weight: 300; color: var(--brown); margin: 40px 0 16px; text-align: center; }
 .price-full-section { margin-top: 8px; text-align: center; }
 .price-img-large { width: 75%; max-width: 900px; border: 0.5px solid var(--border); display: inline-block; }
-.clinic-photos-5 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 8px; }
+.clinic-photos-5 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-bottom: 8px; }
+.clinic-photos-5 .clinic-photo:nth-child(1),
+.clinic-photos-5 .clinic-photo:nth-child(2) { grid-column: span 3; }
+.clinic-photos-5 .clinic-photo:nth-child(3),
+.clinic-photos-5 .clinic-photo:nth-child(4),
+.clinic-photos-5 .clinic-photo:nth-child(5) { grid-column: span 2; }
 .clinic-photo-single { width: 100%; height: 260px; object-fit: cover; display: block; margin-bottom: 8px; }
-@media(max-width:768px){ .clinic-detail{grid-template-columns:1fr;} .clinic-tab-btn{padding:12px 14px;font-size:12px;} .price-img-large{width:100%;} .clinic-photos-5{grid-template-columns:1fr 1fr;} }
+@media(max-width:768px){ .clinic-detail{grid-template-columns:1fr;} .clinic-tab-btn{padding:12px 14px;font-size:12px;} .price-img-large{width:100%;} .clinic-photos-5{grid-template-columns:repeat(2,1fr);} .clinic-photos-5 .clinic-photo:nth-child(1),.clinic-photos-5 .clinic-photo:nth-child(2),.clinic-photos-5 .clinic-photo:nth-child(3),.clinic-photos-5 .clinic-photo:nth-child(4),.clinic-photos-5 .clinic-photo:nth-child(5){grid-column:span 1;} }
 </style>
 </head>
 <body>

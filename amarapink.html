@@ -11,6 +11,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<style>
+.amara-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.amara-gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+@media(max-width:600px){ .amara-gallery{grid-template-columns:repeat(2,1fr);} }
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -103,6 +108,23 @@
         <li>税込価格・診察料・麻酔料・薬代含む</li>
         <li>モニター価格あり（SNS掲載条件）</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--beige-light)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Gallery</span>
+      <h2 class="section-title">施術・カラーギャラリー</h2>
+    </div>
+    <div class="amara-gallery">
+      <img src="images/amara1.jpg" alt="アマラピンク1">
+      <img src="images/amara2.jpg" alt="アマラピンク2">
+      <img src="images/amara3.jpg" alt="アマラピンク3">
+      <img src="images/amara4.jpg" alt="アマラピンク4">
+      <img src="images/amara5.jpg" alt="アマラピンク5">
+      <img src="images/amara6.jpg" alt="アマラピンク6">
     </div>
   </div>
 </section>
