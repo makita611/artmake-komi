@@ -30,8 +30,24 @@
 .schedule-area { font-size: 11px; font-weight: 400; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 6px; }
 .schedule-clinic { font-size: 13px; font-weight: 300; color: var(--text); }
 .schedule-note { font-size: 11px; color: var(--text-muted); margin-top: 4px; font-weight: 300; }
-@media(max-width:900px){ .artist-profile-grid{grid-template-columns:1fr;} .artist-profile-img{max-width:360px;margin:0 auto 40px;} .schedule-grid{grid-template-columns:1fr 1fr;} }
-@media(max-width:600px){ .schedule-grid{grid-template-columns:1fr;} }
+.artist-bio-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+.artist-bio-table tr { border-bottom: 0.5px solid var(--border-light); }
+.artist-bio-table th { padding: 10px 0; font-size: 12px; font-weight: 400; color: var(--text-muted); letter-spacing: 0.06em; text-align: left; width: 56px; vertical-align: top; white-space: nowrap; }
+.artist-bio-table td { padding: 10px 0; font-size: 13px; font-weight: 300; color: var(--text); line-height: 1.9; }
+.cert-label { font-size: 11px; font-weight: 400; color: var(--gold); letter-spacing: 0.12em; margin: 20px 0 8px; }
+.cert-list { list-style: none; padding: 0; }
+.cert-list li { font-size: 13px; font-weight: 300; color: var(--text-light); line-height: 2; padding-left: 14px; position: relative; }
+.cert-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 11px; top: 5px; }
+.artist-message { margin-top: 48px; padding: 28px 32px; background: var(--beige-light); border-left: 2px solid var(--gold); }
+.artist-message p { font-size: 13px; font-weight: 300; color: var(--text); line-height: 2.1; }
+.artist-message p + p { margin-top: 16px; }
+.reason-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.reason-card { padding: 28px 24px; border: 0.5px solid var(--border); background: var(--white); }
+.reason-num { font-family: var(--font-serif-en); font-size: 28px; font-weight: 300; color: var(--gold); margin-bottom: 12px; line-height: 1; }
+.reason-title { font-family: var(--font-serif-ja); font-size: 15px; font-weight: 400; color: var(--brown); margin-bottom: 12px; line-height: 1.6; }
+.reason-desc { font-size: 12px; font-weight: 300; color: var(--text-light); line-height: 2; }
+@media(max-width:900px){ .artist-profile-grid{grid-template-columns:1fr;} .artist-profile-img{max-width:360px;margin:0 auto 40px;} .schedule-grid{grid-template-columns:1fr 1fr;} .reason-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:600px){ .schedule-grid{grid-template-columns:1fr;} .reason-grid{grid-template-columns:1fr;} }
 </style>
 </head>
 <body>
@@ -144,6 +160,84 @@
           </div>
           <p style="font-size:12px;color:var(--text-muted);margin-top:16px;font-weight:300">※スケジュールは変動する場合があります。ご希望エリアをLINEにてご相談ください。</p>
         </div>
+
+        <div class="artist-skills" style="margin-top:48px">
+          <p class="skill-title">Background</p>
+          <table class="artist-bio-table">
+            <tr><th>出身</th><td>茨城（埼玉在住）</td></tr>
+            <tr><th>職歴</th><td>病院 → 美容皮膚科 / 外科 → 大手アートメイク専門クリニック → 4年の経験を得て、独立しフリーランスへ</td></tr>
+            <tr><th>趣味</th><td>旅行、キャンプ、温泉、映画、漫画、料理、散歩、お香集め、猫</td></tr>
+          </table>
+        </div>
+
+        <div class="artist-skills" style="margin-top:40px">
+          <p class="skill-title">Qualifications</p>
+          <p class="cert-label">アートメイク関連</p>
+          <ul class="cert-list">
+            <li>JAPAN BROWTIST SCHOOL アートメイク眉デザインコース</li>
+            <li>PhiBrows Artist</li>
+            <li>Beauty Angels リムーバルコース</li>
+            <li>Artmake Artist School</li>
+            <li>THE SCALP &amp; HAIRLINE ACADEMY</li>
+            <li>文部科学省後援 色彩検定 3級 / UC級</li>
+            <li>パラメディカル講習（PGC）　など</li>
+          </ul>
+          <p class="cert-label">その他</p>
+          <ul class="cert-list">
+            <li>登録販売者、正看護師</li>
+            <li>アロマテラピー &amp; ハーブ リンパトリートメント</li>
+            <li>腸セラピー、美マナー接客</li>
+            <li>パーソナルカラー &amp; 色彩心理アドバンス</li>
+            <li>乗馬5級、耳ツボジュエリー</li>
+            <li>心理カウンセリング</li>
+            <li>アイブロウケアインストラクター　など</li>
+          </ul>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:12px;font-weight:300">常にアップデートを心掛け、知識や技術の見直しを心がけています。</p>
+        </div>
+
+        <div class="artist-message">
+          <p>お客様の大切なお身体をお任せいただくことへの責任感を持ち、その方にとって、より良い施術ができるよう精進して参ります。施術を通し、施術をして良かったと、少しでも幸せを感じていただけたら本望です。</p>
+          <p>もう既にお会いしている方も、これからお会いする方も、心よりご来院お待ちしております。</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 選ばれる理由 -->
+<section class="section" style="background:var(--beige-light)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Why Choose</span>
+      <h2 class="section-title">私が選ばれる理由</h2>
+      <p class="section-note">私のアートメイクが選ばれている理由は、次の5つです。</p>
+    </div>
+    <div class="reason-grid">
+      <div class="reason-card">
+        <div class="reason-num">01</div>
+        <h3 class="reason-title">無理に濃くしない、<br>段階的な施術</h3>
+        <p class="reason-desc">初回で完成させず、肌の反応や定着を見ながら少しずつ進めます。やりすぎず、失敗しにくい設計を大切にしています。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">02</div>
+        <h3 class="reason-title">ナチュラルで上品な<br>仕上がりが得意</h3>
+        <p class="reason-desc">骨格・表情・肌質に合わせて調整し、濃すぎない、自然で上品な仕上がりを目指しています。年齢を問わず、日常になじむデザインが得意です。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">03</div>
+        <h3 class="reason-title">定着や左右差まで<br>考えた施術</h3>
+        <p class="reason-desc">仕上がりのきれいさだけでなく、「どう残るか」「どう馴染むか」まで想定し、事前に確認しながら進めます。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">04</div>
+        <h3 class="reason-title">失敗したくない方にも、<br>安心して受けられる施術</h3>
+        <p class="reason-desc">派手すぎる仕上がりが不安な方や、慎重に考えたい方にも多く選ばれています。無理のないご提案を心がけています。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">05</div>
+        <h3 class="reason-title">不安なことは、一つずつ<br>確認しながら進めます</h3>
+        <p class="reason-desc">疑問や不安はその場で確認し、初めての方にも分かりやすくご説明しながら施術を行います。</p>
       </div>
     </div>
   </div>
