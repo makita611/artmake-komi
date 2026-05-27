@@ -11,6 +11,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<style>
+.para-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.para-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+@media(max-width:600px){ .para-gallery{grid-template-columns:1fr;} }
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -46,7 +51,7 @@
   </ul>
 </div>
 
-<section class="page-hero" style="background-image:url('images/hero-paramedical.jpg')">
+<section class="page-hero" style="background-image:url('images/para1.jpg')">
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
     <p class="section-label">Paramedical</p>
@@ -174,6 +179,16 @@
         <h3 class="flow-title">経過確認</h3>
         <p class="flow-desc">施術後の経過を確認しながら、必要に応じて追加施術を行います。</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="para-gallery">
+      <img src="images/para2.jpg" alt="パラメディカル施術2">
+      <img src="images/para3.jpg" alt="パラメディカル施術3">
+      <img src="images/para4.jpg" alt="パラメディカル施術4">
     </div>
   </div>
 </section>
