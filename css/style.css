@@ -1024,7 +1024,7 @@ ul { list-style: none; }
 .float-social a:hover { transform: scale(1.1); }
 .float-line-btn { background: #06C755; }
 .float-insta-btn { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
-.float-social svg { width: 26px; height: 26px; fill: #fff; }
+.float-social svg { width: 22px !important; height: 22px !important; fill: #fff; display: block; flex-shrink: 0; }
 @media(min-width:769px){ .float-social { bottom: 36px; right: 28px; } }
 
 /* ===== スマホ動画 全幅 ===== */
