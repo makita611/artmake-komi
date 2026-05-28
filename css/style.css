@@ -1026,3 +1026,7 @@ ul { list-style: none; }
 .float-insta-btn { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
 .float-social svg { width: 26px; height: 26px; fill: #fff; }
 @media(min-width:769px){ .float-social { bottom: 36px; right: 28px; } }
+
+/* ===== スマホ動画 全幅 ===== */
+@media(max-width:768px){ .video-wrap { margin-left: -32px; margin-right: -32px; max-width: none; } }
+@media(max-width:600px){ .video-wrap { margin-left: -20px; margin-right: -20px; } }
