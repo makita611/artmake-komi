@@ -382,6 +382,48 @@ ul { list-style: none; }
   margin-top: 48px;
 }
 
+/* ===== Video section ===== */
+.video-wrap {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--brown);
+  overflow: hidden;
+}
+.sejutsu-video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(29, 20, 16, 0.42);
+  cursor: pointer;
+  transition: opacity 0.35s;
+}
+.video-play-overlay.hidden { opacity: 0; pointer-events: none; }
+.video-play-btn {
+  width: 80px;
+  height: 80px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  margin-bottom: 14px;
+  transition: background 0.2s;
+}
+.video-play-overlay:hover .video-play-btn { background: rgba(196,163,110,0.18); }
+.video-play-btn svg { width: 30px; height: 30px; margin-left: 5px; }
+.video-play-label { font-size: 11px; letter-spacing: 0.18em; color: rgba(255,255,255,0.75); font-family: var(--font-serif-en); }
+
 /* ===== Services ===== */
 .services-grid {
   display: grid;
