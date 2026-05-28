@@ -12,9 +12,60 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-.para-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.para-gallery img { width: 100%; height: auto; display: block; }
-@media(max-width:600px){ .para-gallery{grid-template-columns:1fr;} }
+.para-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.two-col-img .content-img{aspect-ratio:unset;height:auto;object-fit:contain;}
+.para-gallery img{width:100%;height:auto;display:block;}
+.detail-accordion{border-top:0.5px solid var(--border);}
+details.detail-item{border-bottom:0.5px solid var(--border);}
+details.detail-item summary{list-style:none;}
+details.detail-item summary::-webkit-details-marker{display:none;}
+.detail-summary{display:flex;align-items:center;gap:14px;padding:18px 4px;cursor:pointer;}
+.detail-summary:hover .detail-label{color:var(--gold);}
+.detail-icon-wrap{width:28px;height:28px;border:0.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;color:var(--gold);}
+.detail-label{flex:1;font-family:var(--font-serif-ja);font-size:15px;font-weight:300;color:var(--brown);letter-spacing:0.04em;}
+.detail-chevron{font-size:10px;color:var(--text-muted);transition:transform 0.2s;}
+details[open] .detail-chevron{transform:rotate(180deg);}
+.detail-body{padding:4px 0 28px 42px;}
+.d-p{font-size:14px;font-weight:300;color:var(--text);line-height:2.1;margin-bottom:14px;}
+.d-ul{list-style:none;padding:0;margin:0 0 14px;}
+.d-ul li{font-size:14px;font-weight:300;color:var(--text);line-height:2;padding:8px 0 8px 16px;border-bottom:0.5px solid var(--border-light);position:relative;}
+.d-ul li:last-child{border-bottom:none;}
+.d-ul li::before{content:'—';position:absolute;left:0;color:var(--gold);}
+.d-time-card{background:var(--beige-light);border-left:2px solid var(--gold);padding:14px 18px;margin-bottom:12px;}
+.d-time-card h4{font-family:var(--font-serif-ja);font-size:13px;font-weight:400;color:var(--brown);margin-bottom:8px;}
+.d-time-card ul{list-style:none;padding:0;margin:0;}
+.d-time-card ul li{font-size:13px;font-weight:300;color:var(--text);line-height:1.9;padding-left:12px;position:relative;}
+.d-time-card ul li::before{content:'·';position:absolute;left:0;color:var(--gold);font-size:18px;line-height:1.5;}
+.d-caution-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 12px;}
+.d-caution-box{padding:14px 16px;}
+.d-caution-box.forbidden{background:#fdf7f2;border:0.5px solid #e8c49a;}
+.d-caution-box.caution{background:var(--beige-light);border:0.5px solid var(--border);}
+.d-caution-label{font-size:10px;letter-spacing:0.12em;font-weight:400;margin-bottom:10px;display:block;}
+.d-caution-box.forbidden .d-caution-label{color:#b07040;}
+.d-caution-box.caution .d-caution-label{color:var(--text-muted);}
+.d-caution-ol{list-style:none;padding:0;counter-reset:item;}
+.d-caution-ol li{font-size:12px;font-weight:300;color:var(--text);line-height:1.9;counter-increment:item;}
+.d-caution-ol li::before{content:counter(item) '. ';color:var(--text-muted);font-size:11px;}
+.d-note{font-size:12px;font-weight:300;color:var(--text-muted);line-height:1.8;margin-top:12px;}
+.d-qa-item{border-bottom:0.5px solid var(--border-light);padding:14px 0;}
+.d-qa-item:last-child{border-bottom:none;}
+.d-qa-q{font-family:var(--font-serif-ja);font-size:14px;font-weight:400;color:var(--brown);margin-bottom:8px;}
+.d-qa-q::before{content:'Q. ';color:var(--gold);}
+.d-qa-a{font-size:13px;font-weight:300;color:var(--text-light);line-height:2;}
+.d-qa-a::before{content:'A. ';color:var(--text-muted);font-weight:400;}
+@media(max-width:600px){.para-gallery{grid-template-columns:1fr;}.d-caution-grid{grid-template-columns:1fr;}.detail-body{padding-left:16px;}}
+/* 予約の流れ */
+.res-flow{max-width:640px;margin:0 auto;}
+.res-step{display:flex;gap:20px;padding:28px 0;border-bottom:0.5px solid var(--border);}
+.res-step:last-child{border-bottom:none;}
+.res-num{font-family:var(--font-serif-en);font-size:22px;font-weight:300;color:var(--gold);letter-spacing:0.05em;flex-shrink:0;padding-top:2px;min-width:32px;}
+.res-step-content{flex:1;}
+.res-step-head{display:flex;align-items:baseline;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
+.res-step-title{font-family:var(--font-serif-ja);font-size:15px;font-weight:400;color:var(--brown);}
+.res-time{font-size:11px;color:var(--text-muted);font-family:var(--font-serif-en);letter-spacing:0.05em;}
+.res-ul{list-style:none;padding:0;margin:0;}
+.res-ul li{font-size:13px;font-weight:300;color:var(--text);line-height:2;padding-left:14px;position:relative;}
+.res-ul li::before{content:'·';position:absolute;left:0;color:var(--gold);font-size:18px;line-height:1.5;}
 </style>
 </head>
 <body>
@@ -191,6 +242,235 @@
   </div>
 </section>
 
+<!-- 詳細情報 -->
+<section class="section detail-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Detail</span>
+      <h2 class="section-title">詳細情報</h2>
+    </div>
+    <div class="detail-accordion">
+
+      <details class="detail-item">
+        <summary class="detail-summary">
+          <span class="detail-icon-wrap">○</span>
+          <span class="detail-label">パラメディカルアートメイクとは</span>
+          <span class="detail-chevron">▾</span>
+        </summary>
+        <div class="detail-body">
+          <p class="d-p">パラメディカルアートメイクは、病気・事故・手術などによって生じた外見の変化を、色素を使って自然に整える医療補助的な施術です。身体的なコンプレックスを軽減するだけでなく、日常生活への前向きな気持ちにもつながります。</p>
+          <p class="d-p">スキンリジュビネーション技術を用いることで、肌本来の再生力を活かしながら、傷跡やストレッチマークを目立ちにくくします。色素によるカモフラージュと、肌の自然な回復を組み合わせたアプローチです。</p>
+          <ul class="d-ul">
+            <li>心理的負担の軽減——外見の悩みが解消されることで、自信を持って日常生活を送れるようになります</li>
+            <li>医療知識に基づく施術——医師管理のもとで行われる、安全で確かな施術です</li>
+            <li>プライバシーへの最大限の配慮——施術内容・ご来院の事実を含め、完全な守秘義務のもとで対応します</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="detail-item">
+        <summary class="detail-summary">
+          <span class="detail-icon-wrap">☐</span>
+          <span class="detail-label">施術前のご注意</span>
+          <span class="detail-chevron">▾</span>
+        </summary>
+        <div class="detail-body">
+          <div class="d-time-card">
+            <h4>施術1ヶ月前〜</h4>
+            <ul>
+              <li>レーザー・ピーリングなどの美容施術はお控えください</li>
+              <li>レチノール系スキンケアは中止してください</li>
+              <li>施術部位の保湿ケアを続けてください</li>
+            </ul>
+          </div>
+          <div class="d-time-card">
+            <h4>前日〜当日</h4>
+            <ul>
+              <li>飲酒・カフェインの過剰摂取はお控えください</li>
+              <li>十分な睡眠をとってください</li>
+              <li>施術部位を清潔に保ってください</li>
+              <li>日焼けはお避けください</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="detail-item">
+        <summary class="detail-summary">
+          <span class="detail-icon-wrap">○</span>
+          <span class="detail-label">アフターケア・経過観察</span>
+          <span class="detail-chevron">▾</span>
+        </summary>
+        <div class="detail-body">
+          <div class="d-time-card">
+            <h4>施術後24時間</h4>
+            <ul>
+              <li>施術部位は絶対に濡らさないでください</li>
+              <li>触ったり、こすったりしないでください</li>
+              <li>感染予防のため清潔を保ってください</li>
+            </ul>
+          </div>
+          <div class="d-time-card">
+            <h4>施術後1週間</h4>
+            <ul>
+              <li>1日2回、保護剤（ワセリン）を薄く塗布してください</li>
+              <li>紫外線対策を徹底してください</li>
+              <li>かさぶたは自然に剥がれるのを待ってください</li>
+              <li>アルコール・激しい運動・プール・海水浴はお避けください</li>
+            </ul>
+          </div>
+          <div class="d-time-card">
+            <h4>経過観察</h4>
+            <ul>
+              <li>1週間後：かさぶたが剥がれ始めます</li>
+              <li>2週間後：肌の再生が進みます</li>
+              <li>1ヶ月後：改善効果を確認します</li>
+              <li>2〜3ヶ月後：必要に応じて2回目の施術を行います</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="detail-item">
+        <summary class="detail-summary">
+          <span class="detail-icon-wrap">△</span>
+          <span class="detail-label">施術を受けられない方・注意が必要な方</span>
+          <span class="detail-chevron">▾</span>
+        </summary>
+        <div class="detail-body">
+          <div class="d-caution-grid">
+            <div class="d-caution-box forbidden">
+              <span class="d-caution-label">禁忌 施術できない方</span>
+              <ol class="d-caution-ol">
+                <li>妊娠中・授乳中の方</li>
+                <li>感染症をお持ちの方</li>
+                <li>糖尿病の方</li>
+                <li>ケロイド体質の方</li>
+                <li>麻酔・金属アレルギーのある方</li>
+                <li>6ヶ月以内に施術部位の切開手術をされた方</li>
+                <li>ストレッチマークが新しすぎる方（6ヶ月以内の赤紫色）</li>
+              </ol>
+            </div>
+            <div class="d-caution-box caution">
+              <span class="d-caution-label">注意 要相談の方</span>
+              <ol class="d-caution-ol">
+                <li>アトピー体質・お肌が弱い方</li>
+                <li>血友病・抗凝固薬を服用中の方</li>
+                <li>生理中の方</li>
+                <li>1ヶ月以内に施術部位周辺の美容施術を受けた方</li>
+                <li>日焼けをしている方</li>
+              </ol>
+            </div>
+          </div>
+          <p class="d-note">※ パラメディカルアートメイクは適応条件がございます。まずはカウンセリングでご相談ください。</p>
+        </div>
+      </details>
+
+      <details class="detail-item">
+        <summary class="detail-summary">
+          <span class="detail-icon-wrap">◎</span>
+          <span class="detail-label">よくあるご質問</span>
+          <span class="detail-chevron">▾</span>
+        </summary>
+        <div class="detail-body">
+          <div class="d-qa-item">
+            <p class="d-qa-q">どのくらい目立たなくなりますか？</p>
+            <p class="d-qa-a">個人差はありますが、傷跡・白斑のカモフラージュは色の差を大幅に軽減できます。ストレッチマークは50〜80%程度目立たなくなることが多いです。まずカウンセリングで写真を見ながらご確認ください。</p>
+          </div>
+          <div class="d-qa-item">
+            <p class="d-qa-q">何回の施術が必要ですか？</p>
+            <p class="d-qa-a">部位・状態によります。傷跡・白斑は1〜2回で効果を感じる方が多く、ストレッチマークは2〜3回の施術で仕上げるケースが一般的です。施術ごとに経過を確認しながら進めます。</p>
+          </div>
+          <div class="d-qa-item">
+            <p class="d-qa-q">痛みはありますか？</p>
+            <p class="d-qa-a">麻酔クリームを使用するため、痛みは最小限に抑えられます。チクチクする感覚程度とお考えください。</p>
+          </div>
+          <div class="d-qa-item">
+            <p class="d-qa-q">他の部位と同時に施術できますか？</p>
+            <p class="d-qa-a">状態により対応できる場合があります。カウンセリングでご相談ください。</p>
+          </div>
+          <div class="d-qa-item">
+            <p class="d-qa-q">施術部位はどこでも対応できますか？</p>
+            <p class="d-qa-a">顔・体幹・四肢など幅広く対応しています。ただし部位・状態によっては施術困難な場合もあります。写真をLINEでお送りいただくと事前にある程度ご判断できます。</p>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- 予約の流れ -->
+<section class="section" style="background:var(--beige-light)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Reservation Flow</span>
+      <h2 class="section-title">ご予約の流れ</h2>
+    </div>
+    <div class="res-flow">
+      <div class="res-step">
+        <span class="res-num">01</span>
+        <div class="res-step-content">
+          <div class="res-step-head"><h3 class="res-step-title">LINEでカウンセリング予約</h3><span class="res-time">約5分</span></div>
+          <ul class="res-ul">
+            <li>公式LINEを友だち追加する</li>
+            <li>施術希望部位・お悩みの内容をお伝えください</li>
+            <li>写真をお送りいただくと事前にある程度ご案内できます</li>
+            <li>24時間受付（返信は営業時間内）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="res-step">
+        <span class="res-num">02</span>
+        <div class="res-step-content">
+          <div class="res-step-head"><h3 class="res-step-title">無料カウンセリング・問診</h3><span class="res-time">約30分</span></div>
+          <ul class="res-ul">
+            <li>お悩みや施術歴を丁寧にヒアリング</li>
+            <li>施術方針・リスク・期待できる効果のご説明</li>
+            <li>料金・回数のご案内</li>
+            <li>施術の可否確認（適応外の場合も正直にお伝えします）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="res-step">
+        <span class="res-num">03</span>
+        <div class="res-step-content">
+          <div class="res-step-head"><h3 class="res-step-title">色味・範囲の確認</h3><span class="res-time">約20分</span></div>
+          <ul class="res-ul">
+            <li>肌色に合わせた色素を選定</li>
+            <li>施術範囲をご確認いただいてから進めます</li>
+          </ul>
+        </div>
+      </div>
+      <div class="res-step">
+        <span class="res-num">04</span>
+        <div class="res-step-content">
+          <div class="res-step-head"><h3 class="res-step-title">麻酔・施術</h3><span class="res-time">30〜90分</span></div>
+          <ul class="res-ul">
+            <li>麻酔クリームを塗布し、しっかり効かせてから開始</li>
+            <li>スキンリジュビネーション技術で丁寧に施術</li>
+            <li>完全個室・プライバシー配慮の環境で行います</li>
+          </ul>
+        </div>
+      </div>
+      <div class="res-step">
+        <span class="res-num">05</span>
+        <div class="res-step-content">
+          <div class="res-step-head"><h3 class="res-step-title">アフターケア説明・経過確認</h3><span class="res-time">約10分＋追跡</span></div>
+          <ul class="res-ul">
+            <li>ケア方法・注意事項をご説明</li>
+            <li>経過はLINEでいつでもご報告ください</li>
+            <li>必要に応じて2〜3回目の施術を行います</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで無料カウンセリングを予約する</a>
+    </div>
+  </div>
+</section>
+
 <section class="section" style="background:var(--beige-light)">
   <div class="container">
     <div class="section-header">
@@ -248,6 +528,15 @@
     </div>
   </div>
 </footer>
+<!-- 固定ソーシャルアイコン -->
+<div class="float-social">
+  <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="float-line-btn" aria-label="LINE公式で相談">
+    <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+  </a>
+  <a href="https://www.instagram.com/artmake_komi/" target="_blank" rel="noopener" class="float-insta-btn" aria-label="Instagramで相談">
+    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+  </a>
+</div>
 <script src="js/main.js"></script>
 </body>
 </html>

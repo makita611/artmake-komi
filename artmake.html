@@ -11,6 +11,47 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<style>
+.detail-accordion{border-top:0.5px solid var(--border);}
+details.detail-item{border-bottom:0.5px solid var(--border);}
+details.detail-item summary{list-style:none;}
+details.detail-item summary::-webkit-details-marker{display:none;}
+.detail-summary{display:flex;align-items:center;gap:14px;padding:18px 4px;cursor:pointer;}
+.detail-summary:hover .detail-label{color:var(--gold);}
+.detail-icon-wrap{width:28px;height:28px;border:0.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;color:var(--gold);}
+.detail-label{flex:1;font-family:var(--font-serif-ja);font-size:15px;font-weight:300;color:var(--brown);letter-spacing:0.04em;}
+.detail-chevron{font-size:10px;color:var(--text-muted);transition:transform 0.2s;}
+details[open] .detail-chevron{transform:rotate(180deg);}
+.detail-body{padding:4px 0 28px 42px;}
+.d-p{font-size:14px;font-weight:300;color:var(--text);line-height:2.1;margin-bottom:14px;}
+.d-ul{list-style:none;padding:0;margin:0 0 14px;}
+.d-ul li{font-size:14px;font-weight:300;color:var(--text);line-height:2;padding:8px 0 8px 16px;border-bottom:0.5px solid var(--border-light);position:relative;}
+.d-ul li:last-child{border-bottom:none;}
+.d-ul li::before{content:'—';position:absolute;left:0;color:var(--gold);}
+.d-time-card{background:var(--beige-light);border-left:2px solid var(--gold);padding:14px 18px;margin-bottom:12px;}
+.d-time-card h4{font-family:var(--font-serif-ja);font-size:13px;font-weight:400;color:var(--brown);margin-bottom:8px;}
+.d-time-card ul{list-style:none;padding:0;margin:0;}
+.d-time-card ul li{font-size:13px;font-weight:300;color:var(--text);line-height:1.9;padding-left:12px;position:relative;}
+.d-time-card ul li::before{content:'·';position:absolute;left:0;color:var(--gold);font-size:18px;line-height:1.5;}
+.d-caution-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 12px;}
+.d-caution-box{padding:14px 16px;}
+.d-caution-box.forbidden{background:#fdf7f2;border:0.5px solid #e8c49a;}
+.d-caution-box.caution{background:var(--beige-light);border:0.5px solid var(--border);}
+.d-caution-label{font-size:10px;letter-spacing:0.12em;font-weight:400;margin-bottom:10px;display:block;}
+.d-caution-box.forbidden .d-caution-label{color:#b07040;}
+.d-caution-box.caution .d-caution-label{color:var(--text-muted);}
+.d-caution-ol{list-style:none;padding:0;counter-reset:item;}
+.d-caution-ol li{font-size:12px;font-weight:300;color:var(--text);line-height:1.9;counter-increment:item;}
+.d-caution-ol li::before{content:counter(item) '. ';color:var(--text-muted);font-size:11px;}
+.d-note{font-size:12px;font-weight:300;color:var(--text-muted);line-height:1.8;margin-top:12px;}
+.d-qa-item{border-bottom:0.5px solid var(--border-light);padding:14px 0;}
+.d-qa-item:last-child{border-bottom:none;}
+.d-qa-q{font-family:var(--font-serif-ja);font-size:14px;font-weight:400;color:var(--brown);margin-bottom:8px;}
+.d-qa-q::before{content:'Q. ';color:var(--gold);}
+.d-qa-a{font-size:13px;font-weight:300;color:var(--text-light);line-height:2;}
+.d-qa-a::before{content:'A. ';color:var(--text-muted);font-weight:400;}
+@media(max-width:600px){.d-caution-grid{grid-template-columns:1fr;}.detail-body{padding-left:16px;}}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -186,6 +227,236 @@
   </div>
 </section>
 
+<!-- 詳細情報 -->
+<section class="section detail-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Detail</span>
+      <h2 class="section-title">詳細情報</h2>
+    </div>
+    <div class="detail-accordion">
+
+      <details class="detail-item">
+        <summary class="detail-summary">
+          <span class="detail-icon-wrap">○</span>
+          <span class="detail-label">アートメイクとタトゥーの違い</span>
+          <span class="detail-chevron">▾</span>
+        </summary>
+        <div class="detail-body">
+          <p class="d-p">アートメイクとタトゥーはどちらも皮膚に色素を入れる施術ですが、深度・目的・持続期間が大きく異なります。</p>
+          <ul class="d-ul">
+            <li><strong>アートメイク</strong> — 真皮の浅い層への施術。体の代謝とともに1〜3年かけて徐々に薄れます。医師の管理下で行われる医療行為です。</li>
+            <li><strong>タトゥー</strong> — 真皮の深い層への永久的な色入れ。自然に消えることはなく、除去にはレーザー治療が必要です。</li>
+          </ul>
+          <p class="d-p">アートメイクは時間とともに色が変化するため、ライフスタイルや年齢に合わせてデザインを更新できます。これが多くの方に選ばれる理由のひとつです。</p>
+        </div>
+      </details>
+
+      <details class="detail-item">
+        <summary class="detail-summary">
+          <span class="detail-icon-wrap">◇</span>
+          <span class="detail-label">施術の特徴と持続期間</span>
+          <span class="detail-chevron">▾</span>
+        </summary>
+        <div class="detail-body">
+          <ul class="d-ul">
+            <li>施術時間：部位により1〜2時間（カウンセリング含む）</li>
+            <li>持続期間：個人差はありますが1〜3年程度</li>
+            <li>定着まで：施術後1〜2ヶ月で完成（補色後）</li>
+            <li>完成回数：通常2回（初回施術＋補色）</li>
+            <li>リタッチ：定期的な補色で長期的に美しい状態を維持できます</li>
+          </ul>
+          <p class="d-p">持続期間は代謝・生活環境・肌質によって異なります。日焼け・サウナ・スキンケア製品によって色落ちが早まる傾向があります。</p>
+        </div>
+      </details>
+
+      <details class="detail-item">
+        <summary class="detail-summary">
+          <span class="detail-icon-wrap">♡</span>
+          <span class="detail-label">肌質と色の入り方</span>
+          <span class="detail-chevron">▾</span>
+        </summary>
+        <div class="detail-body">
+          <p class="d-p">肌質によって色の入り方・定着の仕方が変わります。カウンセリング時に肌の状態をお伝えください。</p>
+          <ul class="d-ul">
+            <li><strong>脂性肌</strong> — 皮脂が多いため色が入りにくく、抜けやすい傾向があります。複数回の施術で仕上げていきます。</li>
+            <li><strong>乾燥肌</strong> — 色が定着しやすい一方、肌が繊細なためダウンタイムが長めになることがあります。</li>
+            <li><strong>敏感肌・アトピー体質</strong> — 反応が出やすい場合があります。事前に必ずお申し出ください。</li>
+            <li><strong>日焼け肌</strong> — 色素の定着が不均一になりやすいため、日焼けが落ち着いてからの施術をおすすめします。</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="detail-item">
+        <summary class="detail-summary">
+          <span class="detail-icon-wrap">☐</span>
+          <span class="detail-label">施術前のご注意</span>
+          <span class="detail-chevron">▾</span>
+        </summary>
+        <div class="detail-body">
+          <div class="d-time-card">
+            <h4>施術1ヶ月前〜</h4>
+            <ul>
+              <li>レーザー・ピーリングなどの美容施術はお控えください</li>
+              <li>レチノール系スキンケアは中止してください</li>
+              <li>施術部位の保湿ケアを始めてください</li>
+            </ul>
+          </div>
+          <div class="d-time-card">
+            <h4>施術1週間前〜</h4>
+            <ul>
+              <li>過度な飲酒はお控えください</li>
+              <li>日焼けはお避けください</li>
+            </ul>
+          </div>
+          <div class="d-time-card">
+            <h4>前日〜当日</h4>
+            <ul>
+              <li>飲酒・カフェインの過剰摂取はお控えください</li>
+              <li>十分な睡眠をとってください</li>
+              <li>施術部位を清潔に保ってください</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="detail-item">
+        <summary class="detail-summary">
+          <span class="detail-icon-wrap">○</span>
+          <span class="detail-label">ダウンタイムについて</span>
+          <span class="detail-chevron">▾</span>
+        </summary>
+        <div class="detail-body">
+          <div class="d-time-card">
+            <h4>施術直後〜翌日</h4>
+            <ul>
+              <li>施術部位の赤みや軽い腫れが出ることがあります</li>
+              <li>色が濃く見えますが、これは正常な経過です</li>
+            </ul>
+          </div>
+          <div class="d-time-card">
+            <h4>施術後1週間</h4>
+            <ul>
+              <li>かさぶたが形成されます（触らないでください）</li>
+              <li>色がさらに濃く見えることがあります</li>
+            </ul>
+          </div>
+          <div class="d-time-card">
+            <h4>施術後2週間</h4>
+            <ul>
+              <li>かさぶたが自然に剥がれ、本来の定着色に近づきます</li>
+              <li>色が薄く感じることがありますが、この段階では完成ではありません</li>
+            </ul>
+          </div>
+          <div class="d-time-card">
+            <h4>1〜2ヶ月後（補色）</h4>
+            <ul>
+              <li>色の定着を確認し、補色（手直し）を行います</li>
+              <li>補色で仕上がりが整い、完成です</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="detail-item">
+        <summary class="detail-summary">
+          <span class="detail-icon-wrap">○</span>
+          <span class="detail-label">術後の過ごし方</span>
+          <span class="detail-chevron">▾</span>
+        </summary>
+        <div class="detail-body">
+          <div class="d-time-card">
+            <h4>施術後24時間</h4>
+            <ul>
+              <li>施術部位を水で濡らさないようにしてください</li>
+              <li>触ったり、こすったりしないでください</li>
+            </ul>
+          </div>
+          <div class="d-time-card">
+            <h4>施術後1週間</h4>
+            <ul>
+              <li>1日2回、保護剤（ワセリン）を薄く塗布してください</li>
+              <li>紫外線対策を徹底してください</li>
+              <li>かさぶたは自然に剥がれるのを待ってください（無理に剥がさないこと）</li>
+              <li>アルコール・激しい運動・プール・サウナはお避けください</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="detail-item">
+        <summary class="detail-summary">
+          <span class="detail-icon-wrap">△</span>
+          <span class="detail-label">施術を受けられない方・注意が必要な方</span>
+          <span class="detail-chevron">▾</span>
+        </summary>
+        <div class="detail-body">
+          <div class="d-caution-grid">
+            <div class="d-caution-box forbidden">
+              <span class="d-caution-label">禁忌 施術できない方</span>
+              <ol class="d-caution-ol">
+                <li>妊娠中・授乳中の方</li>
+                <li>感染症（ヘルペス等）をお持ちの方</li>
+                <li>糖尿病の方</li>
+                <li>ケロイド体質の方</li>
+                <li>麻酔・金属アレルギーのある方</li>
+                <li>6ヶ月以内に施術部位の切開手術をされた方</li>
+                <li>抗凝固薬を服用中の方</li>
+              </ol>
+            </div>
+            <div class="d-caution-box caution">
+              <span class="d-caution-label">注意 要相談の方</span>
+              <ol class="d-caution-ol">
+                <li>アトピー体質・お肌が弱い方</li>
+                <li>生理中の方</li>
+                <li>1ヶ月以内に施術部位周辺の美容施術を受けた方</li>
+                <li>強い日焼けをしている方</li>
+                <li>献血予定のある方</li>
+              </ol>
+            </div>
+          </div>
+          <p class="d-note">※ 上記に該当する方でもカウンセリングにてご相談ください。状況によっては対応可能な場合があります。</p>
+        </div>
+      </details>
+
+      <details class="detail-item">
+        <summary class="detail-summary">
+          <span class="detail-icon-wrap">◎</span>
+          <span class="detail-label">よくあるご質問</span>
+          <span class="detail-chevron">▾</span>
+        </summary>
+        <div class="detail-body">
+          <div class="d-qa-item">
+            <p class="d-qa-q">当日はメイクをして来ても大丈夫ですか？</p>
+            <p class="d-qa-a">基本的にはメイクをしたままご来院いただいて問題ありません。施術前にメイクを落とし、デザイン確認をしてから進めます。</p>
+          </div>
+          <div class="d-qa-item">
+            <p class="d-qa-q">他院のアートメイクの上から重ねることはできますか？</p>
+            <p class="d-qa-a">状態によります。色が残っている場合はその色味が影響することがあります。まずカウンセリングで現状をご確認ください。写真をLINEでお送りいただくとスムーズです。</p>
+          </div>
+          <div class="d-qa-item">
+            <p class="d-qa-q">完成まで何回来院が必要ですか？</p>
+            <p class="d-qa-a">通常2回です。初回施術から1〜2ヶ月後に補色（手直し）を行い、仕上がりを整えます。肌の状態によっては追加施術が必要な場合もあります。</p>
+          </div>
+          <div class="d-qa-item">
+            <p class="d-qa-q">仕上がりが気に入らなかった場合はどうなりますか？</p>
+            <p class="d-qa-a">補色の時点でご要望をお聞きしながら調整します。カウンセリング段階から丁寧に希望を確認しますので、不安なことはどうぞ遠慮なく。</p>
+          </div>
+          <div class="d-qa-item">
+            <p class="d-qa-q">未成年でも施術を受けられますか？</p>
+            <p class="d-qa-a">18歳未満の方は施術をお受けしていません。18〜19歳の方は保護者の同意書が必要です。</p>
+          </div>
+          <div class="d-qa-item">
+            <p class="d-qa-q">妊娠中・授乳中は施術できますか？</p>
+            <p class="d-qa-a">妊娠中・授乳中の方は施術をお受けできません。授乳が終了してからご相談ください。</p>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="section" style="background:var(--beige-light)">
   <div class="container">
@@ -244,6 +515,15 @@
     </div>
   </div>
 </footer>
+<!-- 固定ソーシャルアイコン -->
+<div class="float-social">
+  <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="float-line-btn" aria-label="LINE公式で相談">
+    <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+  </a>
+  <a href="https://www.instagram.com/artmake_komi/" target="_blank" rel="noopener" class="float-insta-btn" aria-label="Instagramで相談">
+    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+  </a>
+</div>
 <script src="js/main.js"></script>
 </body>
 </html>

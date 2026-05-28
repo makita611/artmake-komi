@@ -41,6 +41,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<style>
+/* 予約の流れ */
+.res-flow{max-width:640px;margin:0 auto;}
+.res-step{display:flex;gap:20px;padding:28px 0;border-bottom:0.5px solid var(--border);}
+.res-step:last-child{border-bottom:none;}
+.res-num{font-family:var(--font-serif-en);font-size:22px;font-weight:300;color:var(--gold);letter-spacing:0.05em;flex-shrink:0;padding-top:2px;min-width:32px;}
+.res-step-content{flex:1;}
+.res-step-head{display:flex;align-items:baseline;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
+.res-step-title{font-family:var(--font-serif-ja);font-size:15px;font-weight:400;color:var(--brown);}
+.res-time{font-size:11px;color:var(--text-muted);font-family:var(--font-serif-en);letter-spacing:0.05em;}
+.res-ul{list-style:none;padding:0;margin:0;}
+.res-ul li{font-size:13px;font-weight:300;color:var(--text);line-height:2;padding-left:14px;position:relative;}
+.res-ul li::before{content:'·';position:absolute;left:0;color:var(--gold);font-size:18px;line-height:1.5;}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -199,7 +213,7 @@
       <h2 class="section-title" style="color:var(--beige-light)">実際の施術をご覧ください</h2>
     </div>
     <div class="video-wrap fade-in">
-      <video id="sejutsuVideo" src="images/sejutsu.mp4" preload="none" playsinline class="sejutsu-video"></video>
+      <video id="sejutsuVideo" src="images/sejutsu.mp4" preload="metadata" playsinline class="sejutsu-video"></video>
       <div class="video-play-overlay" id="videoOverlay">
         <div class="video-play-btn">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -447,24 +461,82 @@
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"アートメイクは痛いですか？","acceptedAnswer":{"@type":"Answer","text":"施術前に専用の表面麻酔を使用します。個人差はありますが、ほとんどの方が「思ったより痛くなかった」とおっしゃいます。"}},{"@type":"Question","name":"どのくらい持続しますか？","acceptedAnswer":{"@type":"Answer","text":"個人差はありますが、1〜2年程度です。定期的なリタッチで美しい状態を保てます。"}},{"@type":"Question","name":"東京での施術日はいつですか？","acceptedAnswer":{"@type":"Answer","text":"東京（一番町まつりかクリニック）での施術は月に数日の完全予約制です。最新のスケジュールはLINE公式よりお問い合わせください。"}}]}
 </script>
 
-<!-- 予約方法 -->
+<!-- ご予約の流れ -->
 <section class="section" style="background:var(--beige-light)">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">Reservation</span>
-      <h2 class="section-title">ご予約方法</h2>
+      <span class="section-label">Reservation Flow</span>
+      <h2 class="section-title">ご予約の流れ</h2>
     </div>
-    <div class="booking-center">
-      <div class="booking-item">
-        <span class="booking-num">①</span>
-        <div>
-          <p class="booking-desc">LINEのQRコードを読み込む<br>→ <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="booking-line-link"><strong>こみの公式LINE</strong></a>へ</p>
-          <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener"><img src="images/lineqr.png" alt="LINE QRコード" class="booking-qr"></a>
+    <div class="res-flow">
+      <div class="res-step">
+        <span class="res-num">01</span>
+        <div class="res-step-content">
+          <div class="res-step-head"><h3 class="res-step-title">LINEでカウンセリング予約</h3><span class="res-time">約5分</span></div>
+          <ul class="res-ul">
+            <li>QRコードから公式LINEを友だち追加する</li>
+            <li>ご希望の日時を3つ・施術希望部位をお知らせください</li>
+            <li>24時間受付（返信は営業時間内）</li>
+          </ul>
+          <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;"><img src="images/lineqr.png" alt="LINE QRコード" class="booking-qr"></a>
         </div>
       </div>
-      <p class="booking-note">※ Instagramのトップページにあるリンクからも、直通LINEへ飛ぶことができます。</p>
-      <p class="booking-message">ご予約、ご連絡心よりお待ちしております。</p>
+      <div class="res-step">
+        <span class="res-num">02</span>
+        <div class="res-step-content">
+          <div class="res-step-head"><h3 class="res-step-title">無料カウンセリング・問診</h3><span class="res-time">約30分</span></div>
+          <ul class="res-ul">
+            <li>お悩みやご希望を丁寧にヒアリング</li>
+            <li>施術内容・リスク・料金のご説明</li>
+            <li>写真をお送りいただくとより具体的なご提案ができます</li>
+          </ul>
+        </div>
+      </div>
+      <div class="res-step">
+        <span class="res-num">03</span>
+        <div class="res-step-content">
+          <div class="res-step-head"><h3 class="res-step-title">デザイン確認</h3><span class="res-time">約30分</span></div>
+          <ul class="res-ul">
+            <li>ペンシルで実際にデザインを描きながら確認</li>
+            <li>形・色・濃さをご納得いただいてから施術へ</li>
+            <li>骨格・肌色に合わせてプロとして提案します</li>
+          </ul>
+        </div>
+      </div>
+      <div class="res-step">
+        <span class="res-num">04</span>
+        <div class="res-step-content">
+          <div class="res-step-head"><h3 class="res-step-title">麻酔・施術</h3><span class="res-time">1〜2時間</span></div>
+          <ul class="res-ul">
+            <li>麻酔クリームをしっかり塗布してから開始</li>
+            <li>痛みが出た際は追加麻酔で対応</li>
+            <li>完全個室でリラックスして受けていただけます</li>
+          </ul>
+        </div>
+      </div>
+      <div class="res-step">
+        <span class="res-num">05</span>
+        <div class="res-step-content">
+          <div class="res-step-head"><h3 class="res-step-title">アフターケア説明</h3><span class="res-time">約10分</span></div>
+          <ul class="res-ul">
+            <li>ケア方法・注意事項をご説明</li>
+            <li>施術後の疑問はLINEでいつでもご質問ください</li>
+          </ul>
+        </div>
+      </div>
+      <div class="res-step">
+        <span class="res-num">06</span>
+        <div class="res-step-content">
+          <div class="res-step-head"><h3 class="res-step-title">補色（手直し）</h3><span class="res-time">1〜2ヶ月後</span></div>
+          <ul class="res-ul">
+            <li>色の定着を確認して補色・仕上げを行います</li>
+            <li>補色で完成度が大きく上がります</li>
+            <li>補色は初回パッケージに含まれます</li>
+          </ul>
+        </div>
+      </div>
     </div>
+    <p style="text-align:center;margin-top:16px;font-size:12px;color:var(--text-muted);">※ Instagramのトップページにあるリンクからも、直通LINEへご連絡いただけます。</p>
   </div>
 </section>
 
@@ -516,6 +588,16 @@
     </div>
   </div>
 </footer>
+
+<!-- 固定ソーシャルアイコン -->
+<div class="float-social">
+  <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="float-line-btn" aria-label="LINE公式で相談">
+    <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+  </a>
+  <a href="https://www.instagram.com/artmake_komi/" target="_blank" rel="noopener" class="float-insta-btn" aria-label="Instagramで相談">
+    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+  </a>
+</div>
 
 <!-- モバイル固定CTAバー -->
 <div class="mobile-cta-bar">
