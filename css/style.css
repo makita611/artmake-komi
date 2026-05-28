@@ -321,6 +321,10 @@ ul { list-style: none; }
   background: var(--gold);
   color: var(--white);
 }
+.btn-line { background: #06C755; border-color: #06C755; color: #fff; }
+.btn-line:hover { background: #05a849; border-color: #05a849; color: #fff; }
+.btn-insta { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border-color: transparent; color: #fff; }
+.btn-insta:hover { opacity: 0.85; }
 
 /* ===== Notice Bar ===== */
 .notice-bar {
@@ -890,7 +894,7 @@ ul { list-style: none; }
 .booking-num { font-family: var(--font-serif-en); font-size: 28px; font-weight: 300; color: var(--gold); line-height: 1; flex-shrink: 0; padding-top: 4px; }
 .booking-desc { font-size: 15px; font-weight: 300; color: var(--text); line-height: 1.8; margin-bottom: 16px; }
 .booking-qr { width: 140px; border: 0.5px solid var(--border); display: block; }
-.booking-note { font-size: 12px; font-weight: 300; color: var(--text-muted); line-height: 1.9; margin-bottom: 12px; border-left: 2px solid var(--beige-dark); padding-left: 12px; text-align: center; }
+.booking-note { font-size: 12px; font-weight: 300; color: var(--text-muted); line-height: 1.9; margin-bottom: 12px; text-align: center; }
 .booking-message { font-family: var(--font-serif-ja); font-size: 14px; font-weight: 300; color: var(--brown-light); letter-spacing: 0.06em; margin-top: 20px; text-align: center; }
 .booking-line-link { color: var(--green, #06C755); text-decoration: none; }
 .booking-line-link:hover { text-decoration: underline; }
