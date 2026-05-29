@@ -14,7 +14,7 @@
 <style>
 .artist-profile-grid { display: grid; grid-template-columns: 200px 1fr; gap: 80px; align-items: start; }
 .artist-profile-img { position: relative; }
-.artist-profile-img img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: var(--beige); }
+.artist-profile-img img { width: 100%; aspect-ratio: 3/4; object-fit: contain; background: var(--beige); }
 .artist-deco { position: absolute; bottom: -20px; right: -20px; width: 65%; height: 65%; border: 0.5px solid var(--beige-dark); pointer-events: none; }
 .artist-sns { display: flex; gap: 12px; margin-top: 24px; }
 .artist-sns-btn { display: flex; align-items: center; gap: 8px; padding: 10px 20px; border: 0.5px solid var(--border); font-size: 12px; font-weight: 300; letter-spacing: 0.08em; color: var(--text-light); transition: all 0.2s; }
@@ -126,8 +126,8 @@
         <div class="artist-deco"></div>
         <div class="artist-sns">
           <!-- LINE QRコード・Instagram QRコードは contact.html へ -->
-          <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="artist-sns-btn">LINE 公式</a>
-          <a href="https://www.instagram.com/artmake_komi/" target="_blank" rel="noopener" class="artist-sns-btn">Instagram</a>
+          <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINE 公式</a>
+          <a href="https://www.instagram.com/artmake_komi/" target="_blank" rel="noopener" class="btn btn-insta">Instagram</a>
         </div>
       </div>
 
