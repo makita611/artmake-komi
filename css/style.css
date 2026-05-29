@@ -384,7 +384,7 @@ ul { list-style: none; }
 /* ===== Video section ===== */
 .video-wrap {
   position: relative;
-  max-width: 860px;
+  max-width: 645px;
   margin: 0 auto;
   background: var(--brown);
   overflow: hidden;
