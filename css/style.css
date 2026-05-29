@@ -448,8 +448,9 @@ ul { list-style: none; }
 .service-img {
   width: 100%;
   height: 100%;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
   background-color: var(--beige);
   transition: transform 0.6s ease;
 }

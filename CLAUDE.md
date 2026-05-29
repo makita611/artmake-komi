@@ -5,25 +5,45 @@
 - 本番: https://artmake-komi.com
 - デプロイ: Cloudflare Pages（push → 自動）
 
-## 画像・動画を変更・追加したときの必須確認
+## 【最重要】画像・動画の見切れ防止ルール
 
-**画像や動画を追加・変更するたびに以下を必ず実施すること。**
+**画像や動画を追加・変更するたびに必ず確認すること。指摘なしに自分で守ること。**
 
-### チェックリスト
-- [ ] `object-fit` が `cover` になっていないか → **`contain` を使う**
-- [ ] `aspect-ratio` が固定されている場合、画像の縦横比と一致しているか確認
-- [ ] `<video>` に固定 `aspect-ratio` を設定しない（動画の自然サイズに従わせる）
-- [ ] ギャラリー系画像（amara-gallery等）も `object-fit: contain` + `background: var(--beige)`
+### 画像の種類と設定（必ず守る）
 
-### 基本方針
-| 用途 | aspect-ratio | object-fit | background |
+#### `<img>` タグの場合
+| 用途 | object-fit | aspect-ratio | background |
 |---|---|---|---|
-| コンテンツ画像（content-img） | 4/3（維持） | contain | var(--beige) |
-| メニュー画像（menu-img） | 4/3（維持） | contain | var(--beige) |
-| ギャラリー画像 | 1/1（維持） | contain | var(--beige) |
-| 動画（sejutsu-video） | 固定しない | contain | — |
+| コンテンツ画像（content-img） | **contain** | なし（height:auto） | var(--beige) |
+| メニュー画像（menu-img） | **contain** | 4/3（維持） | var(--beige) |
+| ギャラリー画像 | **contain** | 1/1（維持） | var(--beige) |
+| アーティスト写真 | **contain** | 3/4（維持） | var(--beige) |
+| 動画（video要素） | **contain** | 固定しない | — |
 
-`cover` は「意図的に中央トリミングしたい場合のみ」使用する。
+#### `background-image` CSS の場合（divに背景画像を使うとき）
+| 用途 | background-size | background-repeat | background-color |
+|---|---|---|---|
+| サービスカード（service-img） | **contain** | no-repeat | var(--beige) |
+| その他コンテンツ背景 | **contain** | no-repeat | var(--beige) |
+| ヒーロー背景（hero-slide, page-hero） | cover（意図的） | — | var(--brown) |
+
+### 絶対に使わない設定
+- `object-fit: cover` → コンテンツ画像には**禁止**
+- `background-size: cover` → ヒーロー・装飾背景以外は**禁止**
+
+### `cover` が許可される唯一の例外
+- `.hero-slide`（トップページスライドショー背景）
+- `.page-hero`（各ページのヒーロー背景）
+- これ以外はすべて `contain` を使うこと
+
+### 新しい画像エリアを作るときのテンプレート
+```html
+<!-- img タグの場合 -->
+<img src="images/xxx.png" style="width:100%;height:auto;object-fit:contain;background:var(--beige);display:block;">
+
+<!-- div background-image の場合 -->
+<div style="aspect-ratio:4/3;background-image:url('images/xxx.png');background-size:contain;background-position:center;background-repeat:no-repeat;background-color:var(--beige);"></div>
+```
 
 ---
 
