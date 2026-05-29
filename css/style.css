@@ -191,10 +191,9 @@ ul { list-style: none; }
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to right,
-    rgba(29, 20, 16, 0.55) 0%,
-    rgba(29, 20, 16, 0.2) 60%,
-    rgba(29, 20, 16, 0.1) 100%
+    to bottom,
+    rgba(29, 20, 16, 0.52) 0%,
+    rgba(29, 20, 16, 0.80) 100%
   );
 }
 .hero-content {
@@ -286,10 +285,10 @@ ul { list-style: none; }
   display: inline-block;
   padding: 14px 32px;
   font-family: var(--font-sans);
-  font-size: 13px;
-  font-weight: 300;
+  font-size: 14px;
+  font-weight: 400;
   letter-spacing: 0.1em;
-  border-radius: 0;
+  border-radius: 24px;
   cursor: pointer;
   transition: all 0.25s;
   border: 0.5px solid transparent;
@@ -393,8 +392,8 @@ ul { list-style: none; }
 .sejutsu-video {
   width: 100%;
   display: block;
-  aspect-ratio: 16/9;
-  object-fit: cover;
+  object-fit: contain;
+  cursor: pointer;
 }
 .video-play-overlay {
   position: absolute;

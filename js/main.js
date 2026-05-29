@@ -49,13 +49,22 @@ document.querySelectorAll('.service-card, .review-card, .case-img-wrap, .artist-
 });
 
 
-// 施術動画 再生ボタン
+// 施術動画 再生・一時停止
 const videoOverlay = document.getElementById('videoOverlay');
 const sejutsuVideo = document.getElementById('sejutsuVideo');
 if (videoOverlay && sejutsuVideo) {
   videoOverlay.addEventListener('click', () => {
     sejutsuVideo.play();
     videoOverlay.classList.add('hidden');
+  });
+  sejutsuVideo.addEventListener('click', () => {
+    if (sejutsuVideo.paused) {
+      sejutsuVideo.play();
+      videoOverlay.classList.add('hidden');
+    } else {
+      sejutsuVideo.pause();
+      videoOverlay.classList.remove('hidden');
+    }
   });
   sejutsuVideo.addEventListener('ended', () => {
     videoOverlay.classList.remove('hidden');
