@@ -93,14 +93,14 @@
 
     <!-- タブ -->
     <div class="clinic-tabs" id="clinicTabs">
-      <button class="clinic-tab-btn active" onclick="switchTab('tokyo')">東京</button>
+      <button class="clinic-tab-btn active" onclick="switchTab('tokyo')">東京・千代田区一番町</button>
       <button class="clinic-tab-btn" onclick="switchTab('tsukuba')">茨城・つくば</button>
       <button class="clinic-tab-btn" onclick="switchTab('gunma-ota')">群馬・太田</button>
       <button class="clinic-tab-btn" onclick="switchTab('gunma-takasaki')">群馬・高崎</button>
-      <button class="clinic-tab-btn" onclick="switchTab('kagawa')">香川</button>
-      <button class="clinic-tab-btn" onclick="switchTab('nagano')">長野</button>
-      <button class="clinic-tab-btn" onclick="switchTab('fukuoka')">福岡</button>
-      <button class="clinic-tab-btn" onclick="switchTab('yokohama')">横浜</button>
+      <button class="clinic-tab-btn" onclick="switchTab('kagawa')">香川・高松</button>
+      <button class="clinic-tab-btn" onclick="switchTab('nagano')">長野・佐久</button>
+      <button class="clinic-tab-btn" onclick="switchTab('fukuoka')">福岡・福岡</button>
+      <button class="clinic-tab-btn" onclick="switchTab('yokohama')">神奈川・横浜</button>
     </div>
 
     <!-- 東京 -->
@@ -132,7 +132,72 @@
       </div>
       <div class="price-full-section">
         <h3 class="price-section-title">料金表</h3>
-        <img src="images/price-tokyo.png" alt="東京院料金表" class="price-img-large">
+        <p style="font-size:12px;color:var(--text-muted);margin-bottom:6px;">東京 一番町まつりかクリニック</p>
+        <p style="font-size:12px;color:var(--text-muted);margin-bottom:24px;">※税込価格 / 診察料・麻酔料・薬代込み ※料金は予告なく変更する場合があります</p>
+        <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:13px;font-weight:300;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--gold);">
+              <th style="padding:12px 14px;text-align:left;font-family:var(--font-serif-ja);font-weight:300;color:var(--brown);white-space:nowrap;">メニュー</th>
+              <th style="padding:12px 14px;text-align:right;font-family:var(--font-serif-ja);font-weight:300;color:var(--brown);white-space:nowrap;">初回</th>
+              <th style="padding:12px 14px;text-align:right;font-family:var(--font-serif-ja);font-weight:300;color:var(--brown);white-space:nowrap;">3回目〜<br><span style="font-size:11px;">(3ヶ月以内)</span></th>
+              <th style="padding:12px 14px;text-align:right;font-family:var(--font-serif-ja);font-weight:300;color:var(--brown);white-space:nowrap;">3回目〜<br><span style="font-size:11px;">(以降)</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:var(--beige-light);"><td colspan="4" style="padding:10px 14px;font-size:11px;letter-spacing:0.12em;color:var(--gold);font-family:var(--font-serif-en);">CONSULTATION</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">アレルギー検査 パッチテスト</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥5,500</td><td colspan="2"></td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">カウンセリング 対面 / オンライン</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥5,500 / 無料</td><td colspan="2"></td></tr>
+
+            <tr style="background:var(--beige-light);"><td colspan="4" style="padding:10px 14px;font-size:11px;letter-spacing:0.12em;color:var(--gold);font-family:var(--font-serif-en);">EYEBROW 眉</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">通常</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥55,000</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥44,000</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥49,000</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--gold);">モニター</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥44,000</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥33,000</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥39,000</td></tr>
+
+            <tr style="background:var(--beige-light);"><td colspan="4" style="padding:10px 14px;font-size:11px;letter-spacing:0.12em;color:var(--gold);font-family:var(--font-serif-en);">EYELINER アイライン <span style="font-size:10px;font-weight:300;color:var(--text-muted);">※テールあり +¥11,000</span></td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">上 通常</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥55,000</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥44,000</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥49,000</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--gold);">上 モニター</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥44,000</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥33,000</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥39,000</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">下 通常</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥28,000</td><td colspan="2"></td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--gold);">下 モニター</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥23,000</td><td colspan="2"></td></tr>
+
+            <tr style="background:var(--beige-light);"><td colspan="4" style="padding:10px 14px;font-size:11px;letter-spacing:0.12em;color:var(--gold);font-family:var(--font-serif-en);">LIP リップ</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">通常</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥55,000</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥44,000</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥49,000</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--gold);">モニター</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥44,000</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥33,000</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥39,000</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text-muted);">抗ヘルペス薬（バラシクロビル6日分）</td><td style="padding:11px 14px;text-align:right;color:var(--text-muted);">¥3,300</td><td colspan="2"></td></tr>
+
+            <tr style="background:var(--beige-light);"><td colspan="4" style="padding:10px 14px;font-size:11px;letter-spacing:0.12em;color:var(--gold);font-family:var(--font-serif-en);">HAIRLINE ヘアライン <span style="font-size:10px;font-weight:300;color:var(--text-muted);">※女性のみ</span></td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">通常</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥55,000</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥44,000</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥49,000</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--gold);">モニター</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥44,000</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥33,000</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥39,000</td></tr>
+
+            <tr style="background:var(--beige-light);"><td colspan="4" style="padding:10px 14px;font-size:11px;letter-spacing:0.12em;color:var(--gold);font-family:var(--font-serif-en);">MOLE ほくろ</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">1個</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥22,000</td><td colspan="2" style="padding:11px 14px;text-align:right;color:var(--text-muted);font-size:12px;">同日施術 ¥11,000/個</td></tr>
+
+            <tr style="background:var(--beige-light);"><td colspan="4" style="padding:10px 14px;font-size:11px;letter-spacing:0.12em;color:var(--gold);font-family:var(--font-serif-en);">HAIR SCULP ヘアスカルプ</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">名刺1枚 通常</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥44,000</td><td colspan="2"></td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--gold);">名刺1枚 モニター</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥33,000</td><td colspan="2"></td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">名刺2枚 通常</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥66,000</td><td colspan="2" style="padding:11px 14px;text-align:right;color:var(--text-muted);font-size:12px;">追加1枚 +¥22,000</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--gold);">名刺2枚 モニター</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥55,000</td><td colspan="2"></td></tr>
+
+            <tr style="background:var(--beige-light);"><td colspan="4" style="padding:10px 14px;font-size:11px;letter-spacing:0.12em;color:var(--gold);font-family:var(--font-serif-en);">PARAMEDICAL パラメディカル</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">白斑・傷跡 1箇所 通常</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥33,000</td><td colspan="2" style="padding:11px 14px;text-align:right;color:var(--text-muted);font-size:12px;">目安5cm程度</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--gold);">白斑・傷跡 モニター</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥28,000</td><td colspan="2"></td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">妊娠線・ストレッチマーク 通常</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥38,000</td><td colspan="2" style="padding:11px 14px;text-align:right;color:var(--text-muted);font-size:12px;">はがき大目安</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--gold);">妊娠線・ストレッチマーク モニター</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥33,000</td><td colspan="2"></td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--gold);">期間限定モニター 1回1枚/1箇所</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥22,000</td><td colspan="2"></td></tr>
+
+            <tr style="background:var(--beige-light);"><td colspan="4" style="padding:10px 14px;font-size:11px;letter-spacing:0.12em;color:var(--gold);font-family:var(--font-serif-en);">REMOVAL 薬剤除去</td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">唇シミ除去（色入れ同日）通常 / 除去のみ</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥10,000 / ¥15,000</td><td colspan="2"></td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--gold);">唇シミ除去 モニター（同日 / 除去のみ）</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥5,000 / ¥13,000</td><td colspan="2"></td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">唇くすみ除去（シミ除去含む）通常</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥40,000</td><td colspan="2"></td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--gold);">唇くすみ除去 モニター</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥22,000</td><td colspan="2"></td></tr>
+            <tr style="border-bottom:0.5px solid var(--border);"><td style="padding:11px 14px;color:var(--text);">唇・眉 カラー除去 通常 ※要事前相談</td><td style="padding:11px 14px;text-align:right;color:var(--text-light);">¥40,000</td><td colspan="2"></td></tr>
+            <tr><td style="padding:11px 14px;color:var(--gold);">唇・眉 カラー除去 モニター</td><td style="padding:11px 14px;text-align:right;color:var(--gold);">¥33,000</td><td colspan="2"></td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div style="margin-top:20px;padding:16px 20px;background:var(--beige-light);border:0.5px solid var(--border);font-size:12px;font-weight:300;color:var(--text-muted);line-height:2;">
+          <strong style="color:var(--brown);font-weight:400;">モニター条件：</strong>InstagramなどのSNSに施術前後の写真掲載をご了承いただける方<br>
+          □ 全顔 　□ 部分（施術部位を含む顔の50%程度、またはマスク着用での全顔）
+        </div>
       </div>
     </div>
 
