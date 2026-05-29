@@ -856,7 +856,7 @@ ul { list-style: none; }
 .content-img {
   width: 100%;
   aspect-ratio: 4/3;
-  object-fit: cover;
+  object-fit: contain;
   background: var(--beige);
 }
 .body-text {
@@ -893,8 +893,8 @@ ul { list-style: none; }
   border: 0.5px solid var(--border);
 }
 .menu-item { background: var(--white); }
-.menu-img-wrap { overflow: hidden; aspect-ratio: 4/3; }
-.menu-img { width: 100%; height: 100%; object-fit: cover; background: var(--beige); transition: transform 0.5s; }
+.menu-img-wrap { overflow: hidden; aspect-ratio: 4/3; background: var(--beige); }
+.menu-img { width: 100%; height: 100%; object-fit: contain; background: var(--beige); transition: transform 0.5s; }
 .menu-item:hover .menu-img { transform: scale(1.04); }
 .menu-body { padding: 24px 20px; }
 .menu-name { font-family: var(--font-serif-ja); font-size: 18px; font-weight: 300; color: var(--brown); margin-bottom: 4px; }
