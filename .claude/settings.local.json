@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__obsidian-mcp-tools__get_vault_file",
+      "Bash(git add *)",
+      "Bash(git push *)",
+      "Bash(sed -i 's/銀座の大手/銀座等の大手/g' tokyo.html tsukuba.html ota.html takasaki.html artists.html index.html column/*.html)",
+      "Bash(sed -i 's/銀座大手/銀座等大手/g' tokyo.html tsukuba.html ota.html takasaki.html artists.html index.html column/*.html)",
+      "Bash(sed -i 's/銀座6年/銀座等6年/g' tokyo.html tsukuba.html ota.html takasaki.html artists.html index.html column/*.html)",
+      "Bash(sed -i 's/銀座・大手/銀座等・大手/g' tokyo.html tsukuba.html ota.html takasaki.html artists.html index.html column/*.html)",
+      "Bash(sed -i 's/銀座・東京の大手/銀座等・東京の大手/g' tokyo.html tsukuba.html ota.html takasaki.html artists.html index.html column/*.html)",
+      "Bash(python3 -c ' *)"
+    ]
+  }
+}

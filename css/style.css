@@ -178,6 +178,13 @@ ul { list-style: none; }
   position: absolute;
   inset: 0;
 }
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .hero-slide {
   position: absolute;
   inset: 0;
