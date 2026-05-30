@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://artmake-komi.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://artmake-komi.com/artmake.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://artmake-komi.com/amarapink.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://artmake-komi.com/paramedical.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://artmake-komi.com/clinics.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://artmake-komi.com/cases.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://artmake-komi.com/artists.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://artmake-komi.com/contact.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <!-- エリアLP -->
+  <url><loc>https://artmake-komi.com/tokyo.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://artmake-komi.com/tsukuba.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://artmake-komi.com/ota.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://artmake-komi.com/takasaki.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <!-- コラム -->
+  <url><loc>https://artmake-komi.com/column/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://artmake-komi.com/column/am-itami.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://artmake-komi.com/column/am-clinic-erabi.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://artmake-komi.com/column/am-lip-herpes.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://artmake-komi.com/column/am-supppin.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://artmake-komi.com/column/am-pigment.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://artmake-komi.com/column/am-kinki.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>

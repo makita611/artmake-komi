@@ -18,9 +18,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-.lp-hero{position:relative;height:70vh;min-height:500px;background:var(--brown);overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.lp-hero{position:relative;min-height:600px;background:var(--brown);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:80px 0;}
 .lp-hero-bg{position:absolute;inset:0;background-image:url('images/hero-1.jpg');background-size:cover;background-position:center;opacity:0.4;}
-.lp-hero-content{position:relative;text-align:center;padding:0 24px;}
+.lp-hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 260px;gap:56px;align-items:center;width:100%;max-width:1100px;padding:0 40px;}
+.lp-hero-content{text-align:left;}
+.lp-hero-photo img{width:100%;aspect-ratio:3/4;object-fit:contain;background:rgba(240,232,216,0.1);border:0.5px solid rgba(196,163,110,0.3);}
+.lp-hero-photo-label{font-size:10px;letter-spacing:0.2em;color:rgba(245,240,232,0.45);text-align:center;margin-top:8px;font-family:var(--font-serif-en);}
+@media(max-width:900px){.lp-hero-inner{grid-template-columns:1fr;padding:0 24px;gap:32px;} .lp-hero-content{text-align:center;order:2;} .lp-hero-photo{order:1;max-width:200px;margin:0 auto;}}
 .lp-hero-area{font-family:var(--font-serif-en);font-size:11px;letter-spacing:0.35em;color:var(--gold);margin-bottom:20px;}
 .lp-hero-title{font-family:var(--font-serif-ja);font-size:clamp(28px,5vw,52px);font-weight:300;color:var(--beige-light);line-height:1.6;letter-spacing:0.08em;margin-bottom:20px;}
 .lp-hero-desc{font-size:14px;font-weight:300;color:rgba(245,240,232,0.8);line-height:2;margin-bottom:36px;}
@@ -143,11 +147,17 @@
 <!-- Hero -->
 <div class="lp-hero">
   <div class="lp-hero-bg"></div>
-  <div class="lp-hero-content">
-    <p class="lp-hero-area">Tokyo / Hanzomon</p>
-    <h1 class="lp-hero-title">半蔵門・千代田区の<br>医療アートメイク</h1>
-    <p class="lp-hero-desc">半蔵門駅徒歩3分 ／ 一番町まつりかクリニック内<br>完全予約制・個室・麻酔使用・医師管理</p>
-    <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで無料カウンセリングを予約する</a>
+  <div class="lp-hero-inner">
+    <div class="lp-hero-content">
+      <p class="lp-hero-area">Tokyo / Hanzomon</p>
+      <h1 class="lp-hero-title">半蔵門・千代田区の<br>医療アートメイク</h1>
+      <p class="lp-hero-desc">半蔵門駅徒歩3分 ／ 一番町まつりかクリニック内<br>完全予約制・個室・麻酔使用・医師管理</p>
+      <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで無料カウンセリングを予約する</a>
+    </div>
+    <div class="lp-hero-photo">
+      <img src="images/martmake6.jpg" alt="眉アートメイク施術後" loading="eager">
+      <p class="lp-hero-photo-label">AFTER</p>
+    </div>
   </div>
 </div>
 
@@ -251,6 +261,116 @@
   </div>
 </section>
 
+<!-- 料金 -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-label">Price</span>
+      <h2 class="section-title">東京院の料金</h2>
+      <p class="section-note">一番町まつりかクリニック ／ 税込・診察料・麻酔料・薬代込み</p>
+    </div>
+    <div class="fade-in" style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;font-weight:300;min-width:560px;">
+        <thead>
+          <tr style="background:var(--brown);color:var(--beige-light);">
+            <th style="padding:14px 16px;text-align:left;font-weight:300;letter-spacing:0.05em;">メニュー</th>
+            <th style="padding:14px 10px;text-align:center;font-weight:300;white-space:nowrap;">初回（通常）</th>
+            <th style="padding:14px 10px;text-align:center;font-weight:300;white-space:nowrap;color:var(--gold);">モニター</th>
+            <th style="padding:14px 10px;text-align:center;font-weight:300;white-space:nowrap;">3ヶ月以内</th>
+            <th style="padding:14px 10px;text-align:center;font-weight:300;white-space:nowrap;">3ヶ月以降</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:var(--white);border-bottom:0.5px solid var(--border);">
+            <td style="padding:14px 16px;color:var(--brown);font-family:var(--font-serif-ja);">眉（EYEBROW）</td>
+            <td style="padding:14px 10px;text-align:center;">¥55,000</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--gold);">¥44,000</td>
+            <td style="padding:14px 10px;text-align:center;">¥44,000</td>
+            <td style="padding:14px 10px;text-align:center;">¥49,000</td>
+          </tr>
+          <tr style="border-bottom:0.5px solid var(--border);">
+            <td style="padding:14px 16px;color:var(--brown);font-family:var(--font-serif-ja);">アイライン上</td>
+            <td style="padding:14px 10px;text-align:center;">¥55,000</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--gold);">¥44,000</td>
+            <td style="padding:14px 10px;text-align:center;">¥44,000</td>
+            <td style="padding:14px 10px;text-align:center;">¥49,000</td>
+          </tr>
+          <tr style="background:var(--white);border-bottom:0.5px solid var(--border);">
+            <td style="padding:14px 16px;color:var(--brown);font-family:var(--font-serif-ja);">アイライン下</td>
+            <td style="padding:14px 10px;text-align:center;">¥28,000</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--gold);">¥23,000</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--text-muted);">—</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--text-muted);">—</td>
+          </tr>
+          <tr style="border-bottom:0.5px solid var(--border);">
+            <td style="padding:14px 16px;color:var(--brown);font-family:var(--font-serif-ja);">リップ（LIP）</td>
+            <td style="padding:14px 10px;text-align:center;">¥55,000</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--gold);">¥44,000</td>
+            <td style="padding:14px 10px;text-align:center;">¥44,000</td>
+            <td style="padding:14px 10px;text-align:center;">¥49,000</td>
+          </tr>
+          <tr style="background:var(--white);border-bottom:0.5px solid var(--border);">
+            <td style="padding:14px 16px;color:var(--brown);font-family:var(--font-serif-ja);">ヘアライン（女性のみ）</td>
+            <td style="padding:14px 10px;text-align:center;">¥55,000</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--gold);">¥44,000</td>
+            <td style="padding:14px 10px;text-align:center;">¥44,000</td>
+            <td style="padding:14px 10px;text-align:center;">¥49,000</td>
+          </tr>
+          <tr style="border-bottom:0.5px solid var(--border);">
+            <td style="padding:14px 16px;color:var(--brown);font-family:var(--font-serif-ja);">ほくろ 1個</td>
+            <td style="padding:14px 10px;text-align:center;">¥22,000</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--text-muted);">—</td>
+            <td style="padding:14px 10px;text-align:center;">同日 ¥11,000/個</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--text-muted);">—</td>
+          </tr>
+          <tr style="background:var(--white);border-bottom:0.5px solid var(--border);">
+            <td style="padding:14px 16px;color:var(--brown);font-family:var(--font-serif-ja);">ヘアスカルプ（名刺1枚）</td>
+            <td style="padding:14px 10px;text-align:center;">¥44,000</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--gold);">¥33,000</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--text-muted);">—</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--text-muted);">—</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;color:var(--brown);font-family:var(--font-serif-ja);">パラメディカル 白斑・傷跡</td>
+            <td style="padding:14px 10px;text-align:center;">¥33,000</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--gold);">¥28,000</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--text-muted);">—</td>
+            <td style="padding:14px 10px;text-align:center;color:var(--text-muted);">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="fade-in" style="margin-top:16px;display:flex;flex-direction:column;gap:4px;">
+      <p style="font-size:12px;font-weight:300;color:var(--text-muted);">※ アイラインテールあり +¥11,000</p>
+      <p style="font-size:12px;font-weight:300;color:var(--text-muted);">※ モニター条件：Instagram等に施術前後の写真掲載に同意いただける方（顔出しなし可）</p>
+    </div>
+    <div class="fade-in" style="margin-top:32px;padding:28px 32px;background:var(--beige-light);border:0.5px solid var(--border);">
+      <p style="font-family:var(--font-serif-ja);font-size:16px;font-weight:300;color:var(--brown);margin-bottom:16px;padding-left:14px;border-left:2px solid var(--gold);">2回セット（リタッチ込み）がおすすめ</p>
+      <p style="font-size:13px;font-weight:300;color:var(--text);line-height:2;margin-bottom:20px;">1回目から4〜8週後に補色を行うことで色素が定着し、より自然な仕上がりになります。最初から2回分で計画いただくとお得です。</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center;">
+        <div style="padding:16px 12px;background:var(--white);border:0.5px solid var(--border);">
+          <p style="font-family:var(--font-serif-ja);font-size:13px;color:var(--brown);margin-bottom:8px;">眉・リップ・アイライン上</p>
+          <p style="font-size:20px;color:var(--brown);font-family:var(--font-serif-en);font-weight:300;letter-spacing:0.02em;">¥99,000<small style="font-size:12px;">〜</small></p>
+          <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">通常2回セット</p>
+        </div>
+        <div style="padding:16px 12px;background:var(--white);border:0.5px solid var(--gold);">
+          <p style="font-family:var(--font-serif-ja);font-size:13px;color:var(--brown);margin-bottom:8px;">モニター価格</p>
+          <p style="font-size:20px;color:var(--gold);font-family:var(--font-serif-en);font-weight:300;letter-spacing:0.02em;">¥77,000<small style="font-size:12px;">〜</small></p>
+          <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">SNS掲載同意の方</p>
+        </div>
+        <div style="padding:16px 12px;background:var(--white);border:0.5px solid var(--border);">
+          <p style="font-family:var(--font-serif-ja);font-size:13px;color:var(--brown);margin-bottom:8px;">カウンセリング</p>
+          <p style="font-size:20px;color:var(--brown);font-family:var(--font-serif-en);font-weight:300;letter-spacing:0.02em;">無料</p>
+          <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">LINEで気軽にご相談を</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:20px;text-align:center;">
+      <a href="clinics.html" style="font-size:13px;font-weight:300;color:var(--text-light);text-decoration:underline;text-underline-offset:3px;">他院の料金・詳細は提携院ページへ →</a>
+    </div>
+  </div>
+</section>
+
 <!-- この場所を選ぶ理由 -->
 <section class="section">
   <div class="container">
@@ -274,6 +394,60 @@
         <h4 class="feature-title">銀座大手クリニック経験のあるアーティスト</h4>
         <p class="feature-desc">担当アーティストkomiは、銀座の大手クリニックで6年間・3,000件以上の施術を経験。芸能人・経営者・モデルなど多くの方の信頼を得てきた実績があります。</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- 競合比較 -->
+<section class="section" style="background:var(--beige-light);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-label">Comparison</span>
+      <h2 class="section-title">大手チェーンとkomiの違い</h2>
+      <p class="section-note">「近いから」「安いから」だけで選ぶ前に</p>
+    </div>
+    <div class="fade-in" style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;font-weight:300;min-width:480px;">
+        <thead>
+          <tr>
+            <th style="padding:14px 16px;text-align:left;font-weight:300;color:var(--text-muted);border-bottom:0.5px solid var(--border);">比較項目</th>
+            <th style="padding:14px 16px;text-align:center;font-weight:300;color:var(--text-muted);border-bottom:0.5px solid var(--border);">大手チェーン</th>
+            <th style="padding:14px 16px;text-align:center;font-weight:400;color:var(--brown);border-bottom:2px solid var(--gold);background:rgba(196,163,110,0.06);">komi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:0.5px solid var(--border);background:var(--white);">
+            <td style="padding:14px 16px;color:var(--text);">担当者</td>
+            <td style="padding:14px 16px;text-align:center;color:var(--text-muted);">毎回変わる可能性あり</td>
+            <td style="padding:14px 16px;text-align:center;font-weight:400;color:var(--brown);background:rgba(196,163,110,0.04);">毎回komiが担当</td>
+          </tr>
+          <tr style="border-bottom:0.5px solid var(--border);">
+            <td style="padding:14px 16px;color:var(--text);">対応スタイル</td>
+            <td style="padding:14px 16px;text-align:center;color:var(--text-muted);">マニュアル対応</td>
+            <td style="padding:14px 16px;text-align:center;font-weight:400;color:var(--brown);background:rgba(196,163,110,0.04);">一人ひとりに合わせた提案</td>
+          </tr>
+          <tr style="border-bottom:0.5px solid var(--border);background:var(--white);">
+            <td style="padding:14px 16px;color:var(--text);">施術環境</td>
+            <td style="padding:14px 16px;text-align:center;color:var(--text-muted);">複数ベッド・スタッフ複数</td>
+            <td style="padding:14px 16px;text-align:center;font-weight:400;color:var(--brown);background:rgba(196,163,110,0.04);">完全個室・マンツーマン</td>
+          </tr>
+          <tr style="border-bottom:0.5px solid var(--border);">
+            <td style="padding:14px 16px;color:var(--text);">顧客層</td>
+            <td style="padding:14px 16px;text-align:center;color:var(--text-muted);">一般向け</td>
+            <td style="padding:14px 16px;text-align:center;font-weight:400;color:var(--brown);background:rgba(196,163,110,0.04);">芸能人・経営者・モデル実績あり</td>
+          </tr>
+          <tr style="border-bottom:0.5px solid var(--border);background:var(--white);">
+            <td style="padding:14px 16px;color:var(--text);">アーティスト経験</td>
+            <td style="padding:14px 16px;text-align:center;color:var(--text-muted);">アーティストによる</td>
+            <td style="padding:14px 16px;text-align:center;font-weight:400;color:var(--brown);background:rgba(196,163,110,0.04);">銀座6年・3,000件超</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;color:var(--text);">アフター相談</td>
+            <td style="padding:14px 16px;text-align:center;color:var(--text-muted);">来院 or 電話のみ</td>
+            <td style="padding:14px 16px;text-align:center;font-weight:400;color:var(--brown);background:rgba(196,163,110,0.04);">LINEでいつでも相談可</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -467,6 +641,15 @@
       <div class="res-step"><span class="res-num">04</span><div class="res-step-content"><div class="res-step-head"><h3 class="res-step-title">麻酔・施術</h3><span class="res-time">1〜2時間</span></div><ul class="res-ul"><li>麻酔クリームをしっかり塗布してから開始</li><li>痛みが出た際は追加麻酔で対応</li><li>完全個室でリラックスして受けていただけます</li></ul></div></div>
       <div class="res-step"><span class="res-num">05</span><div class="res-step-content"><div class="res-step-head"><h3 class="res-step-title">アフターケア・医師診察</h3><span class="res-time">約10分</span></div><ul class="res-ul"><li>ケア方法・注意事項をご説明</li><li>医師によるチェック・必要に応じ薬の処方</li><li>施術後の疑問はLINEでいつでもご質問ください</li></ul></div></div>
       <div class="res-step"><span class="res-num">06</span><div class="res-step-content"><div class="res-step-head"><h3 class="res-step-title">補色（2回目施術）</h3><span class="res-time">1〜2ヶ月後</span></div><ul class="res-ul"><li>色の定着を確認して補色・仕上げを行います</li><li>補色で完成度が大きく上がります</li></ul></div></div>
+    </div>
+    <div style="margin-top:40px;padding:28px 32px;background:var(--white);border:0.5px solid var(--border);display:flex;gap:24px;align-items:flex-start;">
+      <div style="flex-shrink:0;width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M20 2H4C2.9 2 2 2.9 2 4v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+      </div>
+      <div>
+        <p style="font-family:var(--font-serif-ja);font-size:15px;font-weight:400;color:var(--brown);margin-bottom:8px;">施術後もLINEでいつでもご相談を</p>
+        <p style="font-size:13px;font-weight:300;color:var(--text);line-height:2;">アフターケアの疑問・色の経過・次回施術のタイミングなど、施術後も公式LINEよりいつでもご連絡ください。医師管理のもと必要に応じて薬の処方・診察も対応しています。</p>
+      </div>
     </div>
     <p style="text-align:center;margin-top:20px;font-size:12px;color:var(--text-muted);">※ Instagramのトップページにあるリンクからも、直通LINEへご連絡いただけます。</p>
   </div>
