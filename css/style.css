@@ -185,7 +185,7 @@ ul { list-style: none; }
   transform: translate(-50%, -50%);
   height: 100%;
   width: auto;
-  opacity: 0.55;
+  opacity: 0.8;
 }
 .hero-slide {
   position: absolute;
