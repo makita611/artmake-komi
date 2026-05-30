@@ -18,9 +18,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-.lp-hero{position:relative;height:70vh;min-height:500px;background:var(--brown);overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.lp-hero{position:relative;min-height:600px;background:var(--brown);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:80px 0;}
 .lp-hero-bg{position:absolute;inset:0;background-image:url('images/hero-1.jpg');background-size:cover;background-position:center;opacity:0.4;}
-.lp-hero-content{position:relative;text-align:center;padding:0 24px;}
+.lp-hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 390px;gap:56px;align-items:center;width:100%;max-width:1200px;padding:0 40px;}
+.lp-hero-content{text-align:left;}
+.lp-hero-photo img{width:100%;aspect-ratio:3/4;object-fit:contain;background:rgba(240,232,216,0.1);border:0.5px solid rgba(196,163,110,0.3);}
+.lp-hero-photo-label{font-size:10px;letter-spacing:0.2em;color:rgba(245,240,232,0.45);text-align:center;margin-top:8px;font-family:var(--font-serif-en);}
+@media(max-width:900px){.lp-hero-inner{grid-template-columns:1fr;padding:0 24px;gap:32px;} .lp-hero-content{text-align:center;order:2;} .lp-hero-photo{order:1;max-width:300px;margin:0 auto;}}
 .lp-hero-area{font-family:var(--font-serif-en);font-size:11px;letter-spacing:0.35em;color:var(--gold);margin-bottom:20px;}
 .lp-hero-title{font-family:var(--font-serif-ja);font-size:clamp(28px,5vw,52px);font-weight:300;color:var(--beige-light);line-height:1.6;letter-spacing:0.08em;margin-bottom:20px;}
 .lp-hero-desc{font-size:14px;font-weight:300;color:rgba(245,240,232,0.8);line-height:2;margin-bottom:36px;}
@@ -94,11 +98,17 @@
 
 <div class="lp-hero">
   <div class="lp-hero-bg"></div>
-  <div class="lp-hero-content">
-    <p class="lp-hero-area">Gunma / Takasaki</p>
-    <h1 class="lp-hero-title">高崎・群馬の<br>医療アートメイク</h1>
-    <p class="lp-hero-desc">群馬県高崎市 シンシアガーデンクリニック高崎院内<br>完全予約制・駐車場16台完備・麻酔使用・医師管理</p>
-    <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで無料カウンセリングを予約する</a>
+  <div class="lp-hero-inner">
+    <div class="lp-hero-content">
+      <p class="lp-hero-area">Gunma / Takasaki</p>
+      <h1 class="lp-hero-title">高崎・群馬の<br>医療アートメイク</h1>
+      <p class="lp-hero-desc">群馬県高崎市 シンシアガーデンクリニック高崎院内<br>完全予約制・駐車場16台完備・麻酔使用・医師管理</p>
+      <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで無料カウンセリングを予約する</a>
+    </div>
+    <div class="lp-hero-photo">
+      <img src="images/top1.jpg" alt="アートメイク施術後" loading="eager">
+      <p class="lp-hero-photo-label">AFTER</p>
+    </div>
   </div>
 </div>
 
