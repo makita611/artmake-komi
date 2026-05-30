@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
 .lp-hero{position:relative;min-height:600px;background:var(--brown);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:80px 0;}
-.lp-hero-bg{position:absolute;inset:0;background-image:url('images/hero-1.jpg');background-size:cover;background-position:center;opacity:0.4;}
+.lp-hero-bg{position:absolute;inset:0;overflow:hidden;}.lp-hero-video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:100%;width:auto;opacity:0.5;}.lp-hero-inner{position:relative;z-index:1;text-align:center;width:100%;max-width:760px;padding:0 40px;}.lp-hero-content{text-align:center;}
 .lp-hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 390px;gap:56px;align-items:center;width:100%;max-width:1200px;padding:0 40px;}
 .lp-hero-content{text-align:left;}
 .lp-hero-photo img{width:100%;aspect-ratio:3/4;object-fit:contain;background:rgba(240,232,216,0.1);border:0.5px solid rgba(196,163,110,0.3);}
@@ -97,20 +97,9 @@
 <div class="mobile-nav"><ul><li><a href="artmake.html">アートメイク</a></li><li><a href="amarapink.html">アマラピンク</a></li><li><a href="paramedical.html">パラメディカル</a></li><li><a href="clinics.html">提携院</a></li><li><a href="cases.html">症例写真</a></li><li><a href="column/">コラム</a></li><li><a href="artists.html">アーティスト</a></li><li><a href="contact.html">お問い合わせ</a></li></ul></div>
 
 <div class="lp-hero">
-  <div class="lp-hero-bg"></div>
-  <div class="lp-hero-inner">
-    <div class="lp-hero-content">
-      <p class="lp-hero-area">Ibaraki / Tsukuba</p>
-      <h1 class="lp-hero-title">つくば・茨城の<br>医療アートメイク</h1>
-      <p class="lp-hero-desc">つくば市 B-leafメディカル内科小児科クリニック内<br>完全予約制・駐車場完備・麻酔使用・医師管理</p>
-      <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで無料カウンセリングを予約する</a>
-    </div>
-    <div class="lp-hero-photo">
-      <video src="images/top1.mp4" autoplay muted loop playsinline style="width:100%;aspect-ratio:3/4;object-fit:contain;background:rgba(240,232,216,0.1);border:0.5px solid rgba(196,163,110,0.3);display:block;"></video>
-      <p class="lp-hero-photo-label">AFTER</p>
-    </div>
+  <div class="lp-hero-bg"><video class="lp-hero-video" src="images/top1.mp4" autoplay muted loop playsinline></video></div>
+  <div class="lp-hero-inner"></div>
   </div>
-</div>
 
 <section style="background:var(--beige-light);padding:40px 0;border-bottom:0.5px solid var(--border);">
   <div class="container">
