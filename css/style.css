@@ -435,7 +435,7 @@ ul { list-style: none; }
 
 /* ===== Segment Cards ===== */
 .segment-section{background:var(--white);padding:40px 0;border-bottom:0.5px solid var(--border);}
-.segment-label{text-align:center;font-family:var(--font-serif-en);font-size:10px;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:20px;}
+.segment-label{text-align:center;font-family:var(--font-serif-ja);font-size:13px;font-weight:300;color:var(--text-light);margin-bottom:20px;letter-spacing:0.06em;}
 .segment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
 .segment-card{display:flex;flex-direction:column;gap:16px;padding:24px 20px;background:var(--beige-light);border:0.5px solid var(--border);text-decoration:none;transition:border-color 0.2s,background 0.2s;}
 .segment-card:hover{border-color:var(--gold);background:var(--white);}
