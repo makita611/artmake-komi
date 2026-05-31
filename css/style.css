@@ -433,6 +433,19 @@ ul { list-style: none; }
 .video-play-btn svg { width: 30px; height: 30px; margin-left: 5px; }
 .video-play-label { font-size: 11px; letter-spacing: 0.18em; color: rgba(255,255,255,0.75); font-family: var(--font-serif-en); }
 
+/* ===== Concern Grid ===== */
+.concern-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.concern-card { background: var(--white); border: 0.5px solid var(--border); padding: 24px 20px; text-align: center; }
+.concern-icon { font-family: var(--font-serif-en); font-size: 22px; color: var(--gold); margin-bottom: 12px; font-weight: 300; }
+.concern-text { font-size: 13px; font-weight: 300; color: var(--text); line-height: 1.9; }
+
+/* ===== Reason Grid ===== */
+.reason-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.reason-card { padding: 28px 24px; border: 0.5px solid var(--border); background: var(--white); }
+.reason-num { font-family: var(--font-serif-en); font-size: 28px; font-weight: 300; color: var(--gold); margin-bottom: 12px; line-height: 1; }
+.reason-title { font-family: var(--font-serif-ja); font-size: 15px; font-weight: 400; color: var(--brown); margin-bottom: 12px; line-height: 1.6; }
+.reason-desc { font-size: 12px; font-weight: 300; color: var(--text-light); line-height: 2; }
+
 /* ===== Services ===== */
 .services-grid {
   display: grid;
@@ -794,6 +807,8 @@ ul { list-style: none; }
   .reviews-grid { grid-template-columns: 1fr; }
   .cases-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { flex-direction: column; gap: 32px; }
+  .concern-grid { grid-template-columns: repeat(2, 1fr); }
+  .reason-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
   .section { padding: 64px 0; }
@@ -801,6 +816,8 @@ ul { list-style: none; }
   .header-inner { padding: 0 20px; }
   .hero-content { padding: 0 20px; }
   .cases-grid { grid-template-columns: repeat(2, 1fr); }
+  .concern-grid { grid-template-columns: 1fr; }
+  .reason-grid { grid-template-columns: 1fr; }
   .hero-scroll { display: none; }
 }
 
