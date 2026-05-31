@@ -433,6 +433,19 @@ ul { list-style: none; }
 .video-play-btn svg { width: 30px; height: 30px; margin-left: 5px; }
 .video-play-label { font-size: 11px; letter-spacing: 0.18em; color: rgba(255,255,255,0.75); font-family: var(--font-serif-en); }
 
+/* ===== Pain Badge (第1層) ===== */
+.pain-badge{background:#f5f1ea;border-bottom:0.5px solid var(--border);padding:10px 24px;text-align:center;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+.pain-badge p{font-size:11px;font-weight:300;color:var(--text-muted);letter-spacing:0.04em;line-height:1.7;margin:0;}
+.pain-badge p::before{content:'✓ ';color:var(--gold);}
+@media(max-width:600px){.pain-badge{flex-direction:column;gap:4px;padding:10px 20px;}}
+
+/* ===== Reassurance Bar (第3層) ===== */
+.reassurance-bar{background:var(--beige-light);border:0.5px solid var(--border);padding:32px;margin-bottom:0;text-align:center;}
+.reassurance-bar-title{font-family:var(--font-serif-ja);font-size:14px;font-weight:300;color:var(--brown);margin-bottom:20px;letter-spacing:0.06em;}
+.reassurance-items{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+.reassurance-item{font-size:13px;font-weight:300;color:var(--text);letter-spacing:0.04em;padding:8px 20px;border:0.5px solid var(--border);background:var(--white);}
+@media(max-width:600px){.reassurance-items{flex-direction:column;align-items:center;gap:10px;} .reassurance-item{width:100%;max-width:320px;}}
+
 /* ===== Schedule Bar ===== */
 .schedule-bar{background:#2a2118;border-bottom:1px solid rgba(196,163,110,0.25);}
 .schedule-bar-inner{padding:0 32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;min-height:56px;}
