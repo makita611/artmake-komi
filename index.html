@@ -135,9 +135,65 @@
   <div class="container">
     <p class="schedule-label">NEXT TOKYO SESSION</p>
     <h3 class="schedule-title">次回の東京施術日</h3>
+
+    <!-- 直近の空き枠チップ -->
+    <div style="display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0 24px;">
+      <span style="font-family:var(--font-serif-en);font-size:11px;letter-spacing:0.2em;color:var(--text-light);">Tokyo / Hanzomon &nbsp;|&nbsp; 直近の空き</span>
+      <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">6/9 火</span>
+      <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">6/30 火</span>
+      <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">7/6 月</span>
+      <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">7/7 火</span>
+      <span style="padding:4px 13px;border:0.5px solid rgba(61,48,40,0.18);font-size:12px;color:var(--text-muted);">+4</span>
+    </div>
+
     <p class="schedule-date">日程はLINEよりお問い合わせください</p>
     <p class="schedule-note">残り枠わずか — お早めにご予約ください</p>
-    <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">空き状況を確認する</a>
+
+    <!-- 全日程アコーディオン -->
+    <button onclick="toggleScheduleIdx()" id="scheduleToggleIdx" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:300;color:var(--text-muted);letter-spacing:0.1em;margin:12px 0 0;font-family:var(--font-sans);">6・7月の全日程を見る ↓</button>
+    <div id="scheduleFullIdx" style="display:none;margin:16px auto 0;max-width:640px;text-align:left;background:#2a2118;padding:24px 28px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 40px;">
+        <div>
+          <span style="font-family:var(--font-serif-en);font-size:10px;letter-spacing:0.25em;color:var(--gold);display:block;margin-bottom:12px;">June 2026</span>
+          <div class="schedule-row"><span class="schedule-row-date is-other">6/1〜6/7</span><span class="schedule-row-status is-other">他院施術・休日</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-other">6/8 月</span><span class="schedule-row-status is-other">他院施術のため</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">6/9 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-other">6/10〜6/21</span><span class="schedule-row-status is-other">他院施術・他エリアのため</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-other">6/22〜6/23</span><span class="schedule-row-status is-other">高松出張のため</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-other">6/24〜6/29</span><span class="schedule-row-status is-other">他院施術のため</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">6/30 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+        </div>
+        <div>
+          <span style="font-family:var(--font-serif-en);font-size:10px;letter-spacing:0.25em;color:var(--gold);display:block;margin-bottom:12px;">July 2026</span>
+          <div class="schedule-row"><span class="schedule-row-date is-other">7/1〜7/5</span><span class="schedule-row-status is-other">他院施術・休日</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">7/6 月</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">7/7 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-other">7/8〜7/13</span><span class="schedule-row-status is-other">他院施術のため</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">7/14 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-other">7/15</span><span class="schedule-row-status is-other">他院施術のため</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">7/16 木</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-other">7/17〜7/18</span><span class="schedule-row-status is-other">高松出張のため</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-other">7/19〜7/20</span><span class="schedule-row-status is-other">他院施術のため</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">7/21 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-other">7/22〜7/27</span><span class="schedule-row-status is-other">他院施術のため</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">7/28 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-other">7/29〜7/31</span><span class="schedule-row-status is-other">他院施術・出張のため</span></div>
+        </div>
+      </div>
+      <p style="margin-top:16px;font-size:11px;font-weight:300;color:rgba(200,190,180,0.45);line-height:1.9;border-top:0.5px solid rgba(196,163,110,0.15);padding-top:12px;">※ 他院・地方出張との兼ね合いにより、東京（一番町）の施術枠は毎月限定です。</p>
+    </div>
+    <script>
+    function toggleScheduleIdx(){
+      var el=document.getElementById('scheduleFullIdx');
+      var btn=document.getElementById('scheduleToggleIdx');
+      if(el.style.display==='block'){el.style.display='none';btn.textContent='6・7月の全日程を見る ↓';}
+      else{el.style.display='block';btn.textContent='閉じる ↑';}
+    }
+    </script>
+
+    <div style="margin-top:28px;">
+      <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">詳しい空き状況を確認する</a>
+    </div>
   </div>
 </section>
 
@@ -148,64 +204,6 @@
       <p class="section-label">CONCEPT</p>
       <h2 class="section-title">一人ひとりに向き合う、<br>オーダーメイドのアートメイク</h2>
     </div>
-
-    <!-- 施術日程バー -->
-    <div class="schedule-bar" style="margin:40px -32px 0;" id="scheduleBar">
-      <div class="schedule-bar-inner">
-        <span class="schedule-bar-clinic">Tokyo / Hanzomon</span>
-        <div class="schedule-bar-divider"></div>
-        <span class="schedule-bar-label">直近の空き</span>
-        <div class="schedule-bar-dates">
-          <span class="schedule-date-chip">6/9 火</span>
-          <span class="schedule-date-chip">6/30 火</span>
-          <span class="schedule-date-chip">7/6 月</span>
-          <span class="schedule-date-chip">7/7 火</span>
-          <span class="schedule-date-chip">+4</span>
-        </div>
-        <div class="schedule-bar-toggle">
-          <button class="schedule-toggle-btn" onclick="toggleScheduleIdx()">6・7月の全日程を見る ↓</button>
-        </div>
-      </div>
-      <div class="schedule-full" id="scheduleFullIdx">
-        <div class="schedule-full-inner">
-          <div class="schedule-month">
-            <span class="schedule-month-title">June 2026</span>
-            <div class="schedule-row"><span class="schedule-row-date is-other">6/1〜6/7</span><span class="schedule-row-status is-other">他院施術・休日</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-other">6/8 月</span><span class="schedule-row-status is-other">他院施術のため</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-tokyo">6/9 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-other">6/10〜6/21</span><span class="schedule-row-status is-other">他院施術・他エリアのため</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-other">6/22〜6/23</span><span class="schedule-row-status is-other">高松出張のため</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-other">6/24〜6/29</span><span class="schedule-row-status is-other">他院施術のため</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-tokyo">6/30 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-          </div>
-          <div class="schedule-month">
-            <span class="schedule-month-title">July 2026</span>
-            <div class="schedule-row"><span class="schedule-row-date is-other">7/1〜7/5</span><span class="schedule-row-status is-other">他院施術・休日</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-tokyo">7/6 月</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-tokyo">7/7 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-other">7/8〜7/13</span><span class="schedule-row-status is-other">他院施術のため</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-tokyo">7/14 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-other">7/15</span><span class="schedule-row-status is-other">他院施術のため</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-tokyo">7/16 木</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-other">7/17〜7/18</span><span class="schedule-row-status is-other">高松出張のため</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-other">7/19〜7/20</span><span class="schedule-row-status is-other">他院施術のため</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-tokyo">7/21 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-other">7/22〜7/27</span><span class="schedule-row-status is-other">他院施術のため</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-tokyo">7/28 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-            <div class="schedule-row"><span class="schedule-row-date is-other">7/29〜7/31</span><span class="schedule-row-status is-other">他院施術・出張のため</span></div>
-          </div>
-        </div>
-        <p class="schedule-note">※ 他院・地方出張との兼ね合いにより、東京（一番町）の施術枠は毎月限定です。最新の空き状況・ご予約はLINEよりお問い合わせください。日程調整が可能な場合もございます。</p>
-      </div>
-    </div>
-    <script>
-    function toggleScheduleIdx(){
-      var el=document.getElementById('scheduleFullIdx');
-      var btn=document.querySelector('#scheduleBar .schedule-toggle-btn');
-      if(el.classList.contains('is-open')){el.classList.remove('is-open');btn.textContent='6・7月の全日程を見る ↓';}
-      else{el.classList.add('is-open');btn.textContent='閉じる ↑';}
-    }
-    </script>
 
     <!-- 実績バー -->
     <div class="top-stats fade-in">
