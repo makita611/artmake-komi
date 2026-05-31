@@ -49,25 +49,44 @@ document.querySelectorAll('.service-card, .review-card, .case-img-wrap, .artist-
 });
 
 
-// 施術動画 再生・一時停止
+// 施術動画 再生・一時停止（モバイル対応版）
 const videoOverlay = document.getElementById('videoOverlay');
 const sejutsuVideo = document.getElementById('sejutsuVideo');
+// iOSは同時に1本しか再生できないためhero動画を取得
+const bgVideo = document.querySelector('.lp-hero-video') || document.querySelector('.hero-video');
+
 if (videoOverlay && sejutsuVideo) {
-  videoOverlay.addEventListener('click', () => {
-    sejutsuVideo.play();
-    videoOverlay.classList.add('hidden');
-  });
-  sejutsuVideo.addEventListener('click', () => {
-    if (sejutsuVideo.paused) {
-      sejutsuVideo.play();
-      videoOverlay.classList.add('hidden');
+  function tryPlay() {
+    // hero動画を先に停止（iOS制限対応）
+    if (bgVideo && !bgVideo.paused) { bgVideo.pause(); }
+    const p = sejutsuVideo.play();
+    if (p !== undefined) {
+      p.then(function() {
+        videoOverlay.classList.add('hidden');
+      }).catch(function(err) {
+        // autoplay制限の場合、mutedで再試行
+        sejutsuVideo.muted = true;
+        sejutsuVideo.play().then(function() {
+          videoOverlay.classList.add('hidden');
+        }).catch(function() {});
+      });
     } else {
-      sejutsuVideo.pause();
-      videoOverlay.classList.remove('hidden');
+      videoOverlay.classList.add('hidden');
     }
-  });
-  sejutsuVideo.addEventListener('ended', () => {
+  }
+  function doPause() {
+    sejutsuVideo.pause();
     videoOverlay.classList.remove('hidden');
+    // hero動画を再開
+    if (bgVideo) { bgVideo.play().catch(function(){}); }
+  }
+  videoOverlay.addEventListener('click', tryPlay);
+  sejutsuVideo.addEventListener('click', function() {
+    if (sejutsuVideo.paused) { tryPlay(); } else { doPause(); }
+  });
+  sejutsuVideo.addEventListener('ended', function() {
+    videoOverlay.classList.remove('hidden');
+    if (bgVideo) { bgVideo.play().catch(function(){}); }
   });
 }
 
