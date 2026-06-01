@@ -9,7 +9,11 @@
       "Bash(sed -i 's/銀座6年/銀座等6年/g' tokyo.html tsukuba.html ota.html takasaki.html artists.html index.html column/*.html)",
       "Bash(sed -i 's/銀座・大手/銀座等・大手/g' tokyo.html tsukuba.html ota.html takasaki.html artists.html index.html column/*.html)",
       "Bash(sed -i 's/銀座・東京の大手/銀座等・東京の大手/g' tokyo.html tsukuba.html ota.html takasaki.html artists.html index.html column/*.html)",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -)",
+      "Bash(mkdir -p \"C:\\\\Users\\\\hm60m\\\\Documents\\\\code\\\\sites\\\\artmake\\\\.claude\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(ssh -i \"C:\\\\Users\\\\hm60m\\\\Documents\\\\code\\\\SSHkey\\\\AIdealizevps-ssh.pem\" -o StrictHostKeyChecking=no root@162.43.77.115 \"php -v 2>/dev/null || echo 'PHPなし'; echo '---'; nginx -v 2>&1 || echo 'nginxなし'; echo '---'; docker ps --format 'table {{.Names}}\\\\t{{.Status}}' 2>/dev/null\")"
     ]
   }
 }
