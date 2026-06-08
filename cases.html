@@ -30,7 +30,12 @@
 .lightbox-img { max-width: 90vw; max-height: 85vh; object-fit: contain; }
 .lightbox-close { position: absolute; top: 24px; right: 32px; font-size: 28px; color: rgba(255,255,255,0.6); cursor: pointer; background: none; border: none; font-weight: 300; transition: color 0.2s; }
 .lightbox-close:hover { color: var(--beige-dark); }
-.lightbox-caption { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); font-size: 12px; font-weight: 300; letter-spacing: 0.15em; color: rgba(255,255,255,0.5); font-family: var(--font-serif-en); white-space: nowrap; }
+.lightbox-caption { position: absolute; bottom: 88px; left: 50%; transform: translateX(-50%); font-size: 12px; font-weight: 300; letter-spacing: 0.15em; color: rgba(255,255,255,0.5); font-family: var(--font-serif-en); white-space: nowrap; }
+.lightbox-info { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); width: min(92vw, 640px); background: rgba(61,48,40,0.78); border: 0.5px solid rgba(255,255,255,0.15); padding: 14px 20px; font-size: 11px; font-weight: 300; line-height: 1.9; color: rgba(255,255,255,0.85); letter-spacing: 0.03em; }
+.lightbox-info dt { display: inline; color: var(--gold); }
+.lightbox-info dd { display: inline; margin: 0; }
+.lightbox-info dd::after { content: ""; display: block; }
+@media(max-width:600px){ .lightbox-caption{ bottom: 116px; white-space: normal; width: 92vw; text-align:center; } .lightbox-info{ font-size: 10px; padding: 10px 14px; } }
 @media(max-width:600px){ .gallery-grid{grid-template-columns:repeat(2,1fr);} }
 </style>
 </head>
@@ -82,7 +87,7 @@
 <section class="section">
   <div class="container">
     <div class="notice-box" style="background:var(--beige-light);border:0.5px solid var(--border);padding:16px 24px;margin-bottom:48px;font-size:12px;color:var(--text-muted);font-weight:300;line-height:1.9">
-      ※掲載写真はご本人の同意をいただいた施術実例です。個人が特定されないよう配慮しています。施術結果は個人差があります。
+      ※掲載写真はご本人の同意をいただいた施術実例です。個人が特定されないよう配慮しています。施術結果には個人差があります。各写真クリックで、施術内容・費用目安・主なリスク・副作用をご確認いただけます。
     </div>
 
     <!-- フィルター -->
@@ -258,6 +263,7 @@
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
   <img loading="lazy" class="lightbox-img" id="lightboxImg" src="" alt="">
   <p class="lightbox-caption" id="lightboxCaption"></p>
+  <dl class="lightbox-info" id="lightboxInfo"></dl>
 </div>
 
 <section class="section" style="background:var(--beige-light)">
@@ -331,11 +337,31 @@ function filterGallery(cat, btn) {
     }
   });
 }
+const categoryInfo = {
+  eyebrow:    { content: '医療アートメイクによる眉の描出（パウダー・毛並み等）', cost: '¥44,000〜¥88,000程度（クリニック・デザインにより異なる）', risk: '腫れ・赤み・内出血、色の定着差・経年での退色、まれに感染やアレルギー反応' },
+  eyeliner:   { content: '上下まぶたのキワへの色素定着', cost: '¥23,000〜¥55,000程度', risk: '腫れ・むくみ・内出血、色のにじみ、まれに感染やアレルギー反応' },
+  lip:        { content: '唇への色素注入による発色・輪郭の補整', cost: '¥55,000〜¥88,000程度', risk: '腫れ・乾燥、単純ヘルペスの再発（既往歴のある方は事前申告・抗ヘルペス薬の服用が必要）、色ムラ・経年での退色' },
+  hairline:   { content: '生え際への点状の色素定着による輪郭の補整', cost: '¥66,000〜¥82,500程度', risk: '腫れ・赤み、色の定着差、まれに感染やアレルギー反応' },
+  scalp:      { content: 'ヘアスカルプメディカルアートメイク（頭皮への微細な点描による地肌の補整）', cost: '¥44,000〜¥176,000程度（範囲・回数により大きく変動）', risk: '腫れ・赤み・かゆみ、色素の定着差・経年での退色、まれに感染やアレルギー反応' },
+  amarapink:  { content: 'アマラピンク（色素沈着・黒ずみ部位への医療アートメイク技術によるトーン補整）', cost: '¥65,000〜¥185,000程度（部位により異なる）', risk: '腫れ・赤み・色ムラ、色の定着差・経年での退色、まれに感染やアレルギー反応' },
+  paramedical:{ content: 'パラメディカルアートメイク（白斑・傷跡・妊娠線等のカモフラージュ）', cost: '¥28,000〜¥44,000程度', risk: '腫れ・赤み、周囲の肌色との色調差・経年での退色、まれに感染やアレルギー反応' }
+};
 function openLightbox(el) {
   const img = el.querySelector('img');
+  const cat = el.dataset.category;
+  const info = categoryInfo[cat];
   document.getElementById('lightboxImg').src = img.src;
   document.getElementById('lightboxImg').alt = img.alt;
   document.getElementById('lightboxCaption').textContent = img.dataset.caption || '';
+  const infoEl = document.getElementById('lightboxInfo');
+  if (info) {
+    infoEl.innerHTML =
+      '<dt>施術内容：</dt><dd>' + info.content + '</dd>' +
+      '<dt>費用目安：</dt><dd>' + info.cost + '（税込・詳細は<a href="clinics.html" style="color:var(--gold)">提携院ページ</a>へ）</dd>' +
+      '<dt>主なリスク・副作用：</dt><dd>' + info.risk + '</dd>';
+  } else {
+    infoEl.innerHTML = '';
+  }
   document.getElementById('lightbox').classList.add('open');
 }
 function closeLightbox() {
@@ -354,3 +380,4 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox
 </div>
 </body>
 </html>
+
