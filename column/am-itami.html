@@ -52,6 +52,11 @@
 .article-faq-q::before { content: 'Q. '; color: var(--gold); }
 .article-faq-a { font-size: 13px; font-weight: 300; color: var(--text-light); line-height: 2; }
 .article-faq-a::before { content: 'A. '; color: var(--text-muted); font-weight: 400; }
+.compare-table{width:100%;border-collapse:collapse;font-size:13px;font-weight:300;margin:24px 0 40px;}
+.compare-table th{background:var(--brown);color:var(--beige-light);padding:12px 14px;text-align:left;font-weight:300;}
+.compare-table td{padding:12px 14px;border-bottom:0.5px solid var(--border);vertical-align:top;line-height:1.9;color:var(--text);}
+.compare-table tr:nth-child(even) td{background:var(--beige-light);}
+.compare-table .col-label{font-weight:400;color:var(--brown);white-space:nowrap;}
 .article-related { margin-top: 64px; padding-top: 40px; border-top: 0.5px solid var(--border); }
 .article-related-title { font-family: var(--font-serif-en); font-size: 11px; letter-spacing: 0.25em; color: var(--gold); margin-bottom: 20px; }
 @media(max-width:600px){ .article-pain-grid{grid-template-columns:1fr;} .article-lead{padding:20px;} }
@@ -87,6 +92,17 @@
       "name": "麻酔クリームはどのくらい効きますか？",
       "acceptedAnswer": { "@type": "Answer", "text": "施術前20分ほどかけて塗布し、ほとんどの方が「思ったより全然大丈夫だった」とおっしゃいます。施術中も追加で使用できます。" }
     }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "TOP", "item": "https://artmake-komi.com/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://artmake-komi.com/column/" },
+    { "@type": "ListItem", "position": 3, "name": "アートメイクの痛み" }
   ]
 }
 </script>
@@ -174,9 +190,22 @@
       <h3 class="article-h3">リップアートメイクの痛みについて</h3>
       <p class="article-p">唇は血管が多く、神経も密集しているため、3つの部位の中で個人差が最も大きい部位です。「ヒリヒリ」「熱い」という感覚を訴える方もいますが、麻酔クリームまたは麻酔薬で施術前・施術中にしっかりとケアします。乾燥しがちな唇は特に感覚が強く出やすいため、施術前日までリップクリームで保湿しておくと楽になります。</p>
 
-      <h2 class="article-h2">麻酔クリームについて</h2>
-      <p class="article-p">施術にはリドカイン配合の表面麻酔クリームを使用します。施術開始の20分ほど前から塗布し、しっかりと麻酔を効かせてから施術を始めます。また、施術中に痛みが出てきた場合は追加で塗布しながら進めますので、遠慮なくお伝えください。</p>
-      <p class="article-note">※ 当院では提携医療クリニック内での施術のため、麻酔クリームを安全に使用できる環境が整っています。</p>
+      <h2 class="article-h2">麻酔の種類と効き方</h2>
+      <p class="article-p">「痛みが不安」という方にとって、いちばん気になるのが麻酔だと思います。アートメイクで使う麻酔は主に表面麻酔で、部位や痛みの出方に合わせて使い分けます。</p>
+      <div style="overflow-x:auto;">
+        <table class="compare-table">
+          <thead>
+            <tr><th>麻酔の種類</th><th>タイミング</th><th>効き方</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="col-label">表面麻酔クリーム<br>（リドカイン配合）</td><td>施術の約20分前から塗布／施術中も追加</td><td>塗布して20分ほどで効き始め、針のチクチク感を大きく軽減します。眉はこれだけで「ほぼ気にならなかった」という方が大多数です。</td></tr>
+            <tr><td class="col-label">追加の表面麻酔</td><td>施術中、痛みが出てきたとき</td><td>痛みを感じやすいリップやアイラインでは、施術を止めて追加で麻酔をのせながら進めます。「痛い」と伝えればその都度対応します。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="article-h3">麻酔が効くまでの時間・効き具合</h3>
+      <p class="article-p">表面麻酔クリームは塗ってすぐではなく、20分前後かけてじっくり浸透させることでしっかり効きます。そのため、来院後すぐに施術ではなく、麻酔を効かせる時間をきちんと確保してから始めます。効き方には個人差がありますが、痛みが強く出やすいリップなどは、麻酔の追加で調整しながら無理なく進めます。</p>
+      <p class="article-note">※ 当院は提携医療クリニック内での施術のため、医師の管理のもとで麻酔を安全に使用できる環境が整っています。麻酔アレルギーがある方や、追加麻酔・麻酔の対応については、カウンセリング時にご確認・ご相談いただけます。</p>
 
       <h2 class="article-h2">痛みを和らげる5つのコツ</h2>
       <ul class="article-tips">
@@ -214,6 +243,9 @@
       <div class="article-related">
         <p class="article-related-title">Related Articles</p>
         <ul style="list-style:none;padding:0;margin:0;">
+          <li style="font-size:13px;font-weight:300;padding:12px 0;border-bottom:0.5px solid var(--border);"><a href="am-downtime.html" style="color:var(--brown);text-decoration:none;">アートメイクのダウンタイム徹底ガイド！いつから出社できる？</a></li>
+          <li style="font-size:13px;font-weight:300;padding:12px 0;border-bottom:0.5px solid var(--border);"><a href="am-eyebrow-type.html" style="color:var(--brown);text-decoration:none;">眉アートメイクの「ワーキング（毛並み）」と「パウダー」どっちがいい？</a></li>
+          <li style="font-size:13px;font-weight:300;padding:12px 0;border-bottom:0.5px solid var(--border);"><a href="am-tekisei.html" style="color:var(--brown);text-decoration:none;">アートメイクに向いてない人・向いている人の特徴</a></li>
           <li style="font-size:13px;font-weight:300;padding:12px 0;border-bottom:0.5px solid var(--border);"><a href="am-lip-downtime.html" style="color:var(--brown);text-decoration:none;">リップアートメイクの腫れはいつまで？ダウンタイムの経過と過ごし方を詳しく解説</a></li>
         </ul>
       </div>
