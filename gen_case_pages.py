@@ -74,6 +74,18 @@ CFG = {
 # テンプレートは cases-eyebrow.html を読み、眉固有部分をプレースホルダに置換して再利用する
 tpl = open("cases-eyebrow.html", encoding="utf-8").read()
 
+PARTS = [("cases.html","すべて","all"),("cases-eyebrow.html","眉","eyebrow"),("cases-lip.html","リップ","lip"),
+         ("cases-eyeliner.html","アイライン","eyeliner"),("cases-hairline.html","ヘアライン","hairline"),
+         ("cases-scalp.html","ヘアスカルプ","scalp"),("cases-amarapink.html","アマラピンク","amarapink"),
+         ("cases-paramedical.html","パラメディカル","paramedical")]
+
+def part_nav(active):
+    rows = ['      <span class="part-nav-label">部位で見る：</span>']
+    for href, label, slug in PARTS:
+        cls = ' class="active"' if slug == active else ''
+        rows.append('      <a href="%s"%s>%s</a>' % (href, cls, label))
+    return '    <nav class="part-nav">\n' + "\n".join(rows) + '\n    </nav>'
+
 def build(cat, c):
     items = []
     for src in c["imgs"]:
@@ -139,6 +151,8 @@ def build(cat, c):
 <section class="section">
   <div class="container">
     <nav class="breadcrumb"><a href="/">ホーム</a> ＞ <a href="cases.html">症例写真</a> ＞ %(ja)s</nav>
+
+%(partnav)s
 
     <p class="case-lead">%(lead)s</p>
 
@@ -248,7 +262,7 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox
     return out % dict(
         cat=cat, term=c["term"], en=c["en"], ja=c["ja"], hero=c["hero"], lead=c["lead"],
         content=c["content"], kaisu=c["kaisu"], cost=c["cost"], risk=c["risk"],
-        MARK=cat.upper(), gallery=gallery, related=related,
+        MARK=cat.upper(), gallery=gallery, related=related, partnav=part_nav(cat),
         style=style, header=header_block, reservation=reservation, footer=footer,
     )
 

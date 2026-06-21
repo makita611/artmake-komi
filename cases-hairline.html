@@ -50,6 +50,11 @@
 .related-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
 .related-links a { font-size: 12px; font-weight: 300; letter-spacing: 0.04em; color: var(--text); border: 0.5px solid var(--border); padding: 8px 16px; text-decoration: none; transition: all 0.2s; }
 .related-links a:hover { color: var(--gold); border-color: var(--gold); }
+.part-nav { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:0 0 36px; padding:16px 18px; background:var(--beige-light); border:0.5px solid var(--border); }
+.part-nav-label { font-size:12px; color:var(--text-muted); font-weight:300; margin-right:4px; }
+.part-nav a { font-size:12px; font-weight:300; letter-spacing:0.04em; color:var(--text); border:0.5px solid var(--border); padding:6px 14px; text-decoration:none; transition:all .2s; background:var(--white); }
+.part-nav a:hover { color:var(--gold); border-color:var(--gold); }
+.part-nav a.active { color:#fff; background:var(--gold); border-color:var(--gold); }
 @media(max-width:600px){ .lightbox-caption{ bottom: 116px; white-space: normal; width: 92vw; text-align:center; } .lightbox-info{ font-size: 10px; padding: 10px 14px; } .gallery-grid{grid-template-columns:repeat(2,1fr);} }
 </style>
 <script type="application/ld+json">
@@ -112,6 +117,18 @@
 <section class="section">
   <div class="container">
     <nav class="breadcrumb"><a href="/">ホーム</a> ＞ <a href="cases.html">症例写真</a> ＞ ヘアライン</nav>
+
+    <nav class="part-nav">
+      <span class="part-nav-label">部位で見る：</span>
+      <a href="cases.html">すべて</a>
+      <a href="cases-eyebrow.html">眉</a>
+      <a href="cases-lip.html">リップ</a>
+      <a href="cases-eyeliner.html">アイライン</a>
+      <a href="cases-hairline.html" class="active">ヘアライン</a>
+      <a href="cases-scalp.html">ヘアスカルプ</a>
+      <a href="cases-amarapink.html">アマラピンク</a>
+      <a href="cases-paramedical.html">パラメディカル</a>
+    </nav>
 
     <p class="case-lead">ヘアライン（生え際）アートメイクは、額の生え際に点状に色素を入れて輪郭を補整し、顔まわりの印象を整える医療アートメイクです。生え際の薄さ・後退・面長のお悩みに用いられます。その仕上がり実例を掲載しています。</p>
 

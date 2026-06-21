@@ -37,6 +37,11 @@
 .lightbox-info dd { display: inline; margin: 0; }
 .lightbox-info dd::after { content: ""; display: block; }
 @media(max-width:600px){ .lightbox-caption{ bottom: 116px; white-space: normal; width: 92vw; text-align:center; } .lightbox-info{ font-size: 10px; padding: 10px 14px; } }
+.part-nav { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:0 0 40px; padding:16px 18px; background:var(--beige-light); border:0.5px solid var(--border); }
+.part-nav-label { font-size:12px; color:var(--text-muted); font-weight:300; margin-right:4px; }
+.part-nav a { font-size:12px; font-weight:300; letter-spacing:0.04em; color:var(--text); border:0.5px solid var(--border); padding:6px 14px; text-decoration:none; transition:all .2s; background:var(--white); }
+.part-nav a:hover { color:var(--gold); border-color:var(--gold); }
+.part-nav a.active { color:#fff; background:var(--gold); border-color:var(--gold); }
 @media(max-width:600px){ .gallery-grid{grid-template-columns:repeat(2,1fr);} }
 </style>
 </head>
@@ -103,16 +108,18 @@
       <button class="filter-btn" onclick="filterGallery('paramedical', this)">パラメディカル</button>
     </div>
 
-    <div style="text-align:center;margin:-32px auto 40px;font-size:12px;font-weight:300;color:var(--text-light)">
-      部位別の詳しい症例ページ：<br>
-      <a href="cases-eyebrow.html" style="color:var(--gold)">眉</a> ・
-      <a href="cases-lip.html" style="color:var(--gold)">リップ</a> ・
-      <a href="cases-eyeliner.html" style="color:var(--gold)">アイライン</a> ・
-      <a href="cases-hairline.html" style="color:var(--gold)">ヘアライン</a> ・
-      <a href="cases-scalp.html" style="color:var(--gold)">ヘアスカルプ</a> ・
-      <a href="cases-amarapink.html" style="color:var(--gold)">アマラピンク</a> ・
-      <a href="cases-paramedical.html" style="color:var(--gold)">パラメディカル</a>
-    </div>
+    <p style="font-size:12px;color:var(--text-light);font-weight:300;margin:0 0 10px">▼ 部位ごとの詳しい症例ページ（料金・主なリスク併記）。下のフィルターは、このページ内で写真を絞り込みます。</p>
+    <nav class="part-nav">
+      <span class="part-nav-label">部位で見る：</span>
+      <a href="cases.html" class="active">すべて</a>
+      <a href="cases-eyebrow.html">眉</a>
+      <a href="cases-lip.html">リップ</a>
+      <a href="cases-eyeliner.html">アイライン</a>
+      <a href="cases-hairline.html">ヘアライン</a>
+      <a href="cases-scalp.html">ヘアスカルプ</a>
+      <a href="cases-amarapink.html">アマラピンク</a>
+      <a href="cases-paramedical.html">パラメディカル</a>
+    </nav>
 
     <!-- ギャラリー -->
     <!--
