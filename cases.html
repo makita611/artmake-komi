@@ -13,9 +13,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-.filter-bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 48px; }
-.filter-btn { padding: 8px 20px; font-size: 12px; font-weight: 300; letter-spacing: 0.1em; color: var(--text-muted); background: none; border: 0.5px solid var(--border); cursor: pointer; font-family: var(--font-sans); transition: all 0.2s; }
-.filter-btn:hover, .filter-btn.active { color: var(--gold); border-color: var(--gold); background: transparent; }
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
 .gallery-item { position: relative; aspect-ratio: 1; overflow: hidden; cursor: pointer; background: var(--beige); }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
@@ -24,7 +21,6 @@
 .gallery-item:hover .gallery-item-overlay { background: rgba(61,48,40,0.45); }
 .gallery-item-tag { font-size: 11px; font-weight: 300; letter-spacing: 0.1em; color: rgba(255,255,255,0); transition: color 0.3s; font-family: var(--font-serif-en); }
 .gallery-item:hover .gallery-item-tag { color: rgba(255,255,255,0.9); }
-.gallery-item[style*="display: none"] { display: none !important; }
 /* Lightbox */
 .lightbox { display: none; position: fixed; inset: 0; background: rgba(26,20,16,0.92); z-index: 200; align-items: center; justify-content: center; }
 .lightbox.open { display: flex; }
@@ -96,19 +92,7 @@
       ※掲載写真はご本人の同意をいただいた施術実例です。個人が特定されないよう配慮しています。施術結果には個人差があります。各写真クリックで、施術内容・費用目安・主なリスク・副作用をご確認いただけます。
     </div>
 
-    <!-- フィルター -->
-    <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterGallery('all', this)">すべて</button>
-      <button class="filter-btn" onclick="filterGallery('eyebrow', this)">眉</button>
-      <button class="filter-btn" onclick="filterGallery('eyeliner', this)">アイライン</button>
-      <button class="filter-btn" onclick="filterGallery('lip', this)">リップ</button>
-      <button class="filter-btn" onclick="filterGallery('hairline', this)">ヘアライン</button>
-      <button class="filter-btn" onclick="filterGallery('scalp', this)">ヘアスカルプ</button>
-      <button class="filter-btn" onclick="filterGallery('amarapink', this)">アマラピンク</button>
-      <button class="filter-btn" onclick="filterGallery('paramedical', this)">パラメディカル</button>
-    </div>
-
-    <p style="font-size:12px;color:var(--text-light);font-weight:300;margin:0 0 10px">▼ 部位ごとの詳しい症例ページ（料金・主なリスク併記）。下のフィルターは、このページ内で写真を絞り込みます。</p>
+    <p style="font-size:12px;color:var(--text-light);font-weight:300;margin:0 0 10px">気になる部位を選ぶと、その部位の症例・料金目安・主なリスク併記ページへ移動します。</p>
     <nav class="part-nav">
       <span class="part-nav-label">部位で見る：</span>
       <a href="cases.html" class="active">すべて</a>
@@ -345,17 +329,6 @@
 
 <script src="js/main.js"></script>
 <script>
-function filterGallery(cat, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.gallery-item').forEach(item => {
-    if (cat === 'all' || item.dataset.category === cat) {
-      item.style.display = '';
-    } else {
-      item.style.display = 'none';
-    }
-  });
-}
 const categoryInfo = {
   eyebrow:    { content: '医療アートメイクによる眉の描出（パウダー・毛並み等）', cost: '¥44,000〜¥88,000程度（クリニック・デザインにより異なる）', risk: '腫れ・赤み・内出血、色の定着差・経年での退色、まれに感染やアレルギー反応' },
   eyeliner:   { content: '上下まぶたのキワへの色素定着', cost: '¥23,000〜¥55,000程度', risk: '腫れ・むくみ・内出血、色のにじみ、まれに感染やアレルギー反応' },
