@@ -134,3 +134,12 @@ column/
 - `ota.html`      群馬・太田（シンシアガーデンクリニック太田院）
 - `takasaki.html` 群馬・高崎（シンシアガーデンクリニック高崎院）
 LP構成: Hero→実績バー→こんな方へ→アクセス→メニュー→Why Here→komi写真+プロフィール→選ばれる理由→MY STORY→OUR CONCEPT→動画→症例写真→SNSモニター→口コミ→ご予約の流れ→FAQ→CTA
+
+---
+
+## Claude作業スタイル（トークン節約）
+- 大きいHTMLは全文ではなく必要箇所だけ読む（offset/limit、Grep優先）
+- 同じファイルを編集した後、確認のために読み直さない（Edit/Writeが失敗すればエラーになる）
+- 冗長な前置き・選択肢の羅列をしない。結論と根拠だけ述べる
+- 自明な低リスク操作は確認を求めず実行する（.claude/settings.local.json の許可設定に従う）
+- 危険操作（rm -rf / git push --force / reset --hard / .env・鍵の読取）は設定でdeny済み＝絶対にしない

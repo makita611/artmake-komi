@@ -1,1 +1,5 @@
 .claude/worktrees/
+
+# Google Ads 自動化スクリプト（別管理・公開デプロイ禁止）
+check_*.py
+raise_*.py
