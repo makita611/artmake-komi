@@ -40,4 +40,7 @@
   <url><loc>https://artmake-komi.com/cases-scalp</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://artmake-komi.com/cases-amarapink</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://artmake-komi.com/cases-paramedical</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <!-- 信頼性ページ -->
+  <url><loc>https://artmake-komi.com/operator</loc><lastmod>2026-06-28</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://artmake-komi.com/privacy</loc><lastmod>2026-06-28</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
