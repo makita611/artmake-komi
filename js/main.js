@@ -1,3 +1,26 @@
+// Nav 現在地ハイライト（絶対パス統一に伴い、activeはJSで自動付与）
+(function () {
+  function norm(p) {
+    p = (p || '').split('#')[0].split('?')[0];
+    p = p.replace(/index\.html$/, '').replace(/\.html$/, '');
+    if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+    return p === '' ? '/' : p;
+  }
+  var here = norm(location.pathname);
+  document.querySelectorAll('.global-nav a, .mobile-nav a').forEach(function (a) {
+    var href = norm(a.getAttribute('href'));
+    if (href === '/') return;
+    if (here === href || (href === '/column' && here.indexOf('/column') === 0)) {
+      a.classList.add('active');
+    }
+  });
+  var dd = document.querySelector('.global-nav .has-dropdown');
+  if (dd && dd.querySelector('.dropdown-menu a.active')) {
+    var parent = dd.querySelector('.nav-parent');
+    if (parent) parent.classList.add('active');
+  }
+})();
+
 // Hamburger menu
 const hamburger = document.querySelector('.hamburger');
 const mobileNav = document.querySelector('.mobile-nav');

@@ -113,6 +113,38 @@ ul { list-style: none; }
   border-bottom-color: var(--gold) !important;
 }
 
+/* ===== 施術 ドロップダウン（PCヘッダー） ===== */
+.global-nav .has-dropdown { position: relative; }
+.global-nav .nav-parent {
+  font-size: 13px; font-weight: 300; letter-spacing: 0.08em;
+  color: var(--text-light); cursor: pointer; transition: color 0.2s;
+  padding-bottom: 2px; border-bottom: 0.5px solid transparent;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.global-nav .has-dropdown:hover .nav-parent { color: var(--gold); border-bottom-color: var(--gold); }
+.global-nav .nav-parent .caret { font-size: 9px; transition: transform 0.2s; }
+.global-nav .has-dropdown:hover .nav-parent .caret { transform: rotate(180deg); }
+.global-nav .dropdown-menu {
+  position: absolute; top: 100%; left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--white); border: 0.5px solid var(--border);
+  padding: 10px 0; min-width: 172px;
+  display: flex; flex-direction: column;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.2s, transform 0.2s; z-index: 120;
+  box-shadow: 0 12px 32px rgba(61,48,40,0.10);
+}
+.global-nav .dropdown-menu::before { content: ""; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+.global-nav .has-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.global-nav .dropdown-menu li { display: block; }
+.global-nav .dropdown-menu a {
+  display: block; padding: 9px 24px; border-bottom: none !important;
+  white-space: nowrap; font-size: 13px; color: var(--text-light);
+}
+.global-nav .dropdown-menu a:hover { color: var(--gold); background: var(--beige-light); }
+.global-nav .nav-parent.active { color: var(--gold); border-bottom-color: var(--gold); }
+.global-nav .dropdown-menu a.active { color: var(--gold); }
+
 /* ===== Hamburger ===== */
 .hamburger {
   display: none;
