@@ -36,7 +36,16 @@
       "mcp__Claude_in_Chrome__get_page_text",
       "Bash(PYTHONIOENCODING=utf-8 python -c ' *)",
       "Bash(cat > *)",
-      "Bash(git -c core.pager=cat diff --cached -- column/am-tsukuba.html)"
+      "Bash(git -c core.pager=cat diff --cached -- column/am-tsukuba.html)",
+      "Bash(python -c ' *)",
+      "Bash(ls /c/Users/hm60m/Documents/code/tools/bpr-site/src/data/)",
+      "Bash(iconv -f utf-8 -t utf-8)",
+      "PowerShell($p = \"C:\\\\Users\\\\hm60m\\\\Downloads\\\\Keyword Stats 2026-06-22 at 13_36_06.csv\"; $lines = Get-Content $p -Encoding Unicode; \"TOTAL LINES: $\\($lines.Count\\)\"; \"--- HEADER ---\"; $lines[2]; \"--- FIRST 5 DATA ---\"; $lines[3..7])",
+      "PowerShell($p = \"C:\\\\Users\\\\hm60m\\\\Downloads\\\\Keyword Stats 2026-06-22 at 13_36_06.csv\"; $rows = Import-Csv $p -Encoding Unicode -Delimiter \"`t\"; \"Total rows: $\\($rows.Count\\)\"; \"`n=== TOP BY AVG MONTHLY SEARCHES ===\"; $rows | Sort-Object {[int]$_.\"Avg. monthly searches\"} -Descending | Select-Object -First 40 | ForEach-Object { \"{0,6}  {1,-4} {2}\" -f $_.\"Avg. monthly searches\", $_.Competition, $_.Keyword })",
+      "PowerShell(python -c \"from google.ads.googleads.client import GoogleAdsClient; import google_auth_oauthlib, yaml; from importlib.metadata import version; print\\('google-ads', version\\('google-ads'\\)\\); print\\('import OK'\\)\")",
+      "Bash(xargs echo \"キーワード数:\")",
+      "Bash(cd /c/Users/hm60m/Documents/code/sites/hanamaru 2>/dev/null && ls *.py google-ads.yaml 2>/dev/null | head; echo \"--- try status check ---\"; python check_artmake_status.py 2>&1 | head -40 || echo \"FAILED_TO_RUN\")",
+      "WebFetch(domain:orbody-gym.com)"
     ],
     "deny": [
       "Bash(rm -rf:*)",
