@@ -87,6 +87,26 @@ jobs:
           with open("column/index.html", "w", encoding="utf-8") as f:
               f.write(html)
 
+          # Add entry to sitemap.xml (before </urlset>) so published articles get indexed
+          sitemap_path = "sitemap.xml"
+          url = f"https://artmake-komi.com/column/{slug}"
+          if os.path.exists(sitemap_path):
+              with open(sitemap_path, encoding="utf-8") as f:
+                  sitemap = f.read()
+              if url not in sitemap:
+                  entry = f'  <url><loc>{url}</loc><lastmod>{date.today().isoformat()}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>\n'
+                  close_tag = "</urlset>"
+                  if close_tag in sitemap:
+                      sitemap = sitemap.replace(close_tag, entry + close_tag)
+                      with open(sitemap_path, "w", encoding="utf-8") as f:
+                          f.write(sitemap)
+                  else:
+                      print("WARNING: </urlset> not found in sitemap.xml, skipped sitemap update", file=sys.stderr)
+              else:
+                  print(f"Sitemap already contains {url}, skipping")
+          else:
+              print("WARNING: sitemap.xml not found, skipped sitemap update", file=sys.stderr)
+
           # Write step output
           github_output = os.environ.get("GITHUB_OUTPUT", "")
           if github_output:
