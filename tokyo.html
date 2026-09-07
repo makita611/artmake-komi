@@ -164,8 +164,8 @@
     <div class="lp-hero-content">
       <p class="lp-hero-area">Tokyo / Hanzomon</p>
       <h1 class="lp-hero-title"><span style="display:block;font-family:var(--font-serif-ja);font-size:clamp(14px,2vw,18px);font-weight:400;color:var(--gold);letter-spacing:0.1em;margin-bottom:14px;">千代田区・半蔵門の医療アートメイク</span>派手さではなく、<br>似合うを。</h1>
-      <p class="lp-hero-desc">半蔵門で出会う、あなただけに馴染む医療アートメイク。<br>元看護師のアーティストが、医師管理の個室で丁寧に。</p>
-      <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで無料カウンセリングを予約する</a>
+      <p class="lp-hero-desc">半蔵門で出会う、あなただけに馴染む医療アートメイク。<br>看護師のアーティストが、医師管理の個室で丁寧に。</p>
+      <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで相談・予約する</a>
     </div>
   </div>
 </div>
@@ -183,31 +183,25 @@
       <div class="schedule-bar-divider"></div>
       <span class="schedule-bar-label">直近の空き</span>
       <div class="schedule-bar-dates">
-        <span class="schedule-date-chip">7/29 水</span>
-        <span class="schedule-date-chip">8/4 火</span>
-        <span class="schedule-date-chip">8/18 火</span>
-        <span class="schedule-date-chip">8/31 月</span>
+        <span class="schedule-date-chip">9/21 月</span>
+        <span class="schedule-date-chip">10/1 木</span>
       </div>
       <div class="schedule-bar-toggle">
-        <button class="schedule-toggle-btn" onclick="toggleSchedule()">7・8月の全日程を見る ↓</button>
+        <button class="schedule-toggle-btn" onclick="toggleSchedule()">9・10月の全日程を見る ↓</button>
       </div>
     </div>
     <div class="schedule-full" id="scheduleFull">
       <div class="schedule-full-inner">
         <div class="schedule-month">
-          <span class="schedule-month-title">July 2026</span>
-          <div class="schedule-row"><span class="schedule-row-date is-other">7/1〜7/28</span><span class="schedule-row-status is-other">他院施術・出張のため</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">7/29 水</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-other">7/30〜7/31</span><span class="schedule-row-status is-other">他院施術のため</span></div>
+          <span class="schedule-month-title">September 2026</span>
+          <div class="schedule-row"><span class="schedule-row-date is-other">9/1〜9/20</span><span class="schedule-row-status is-other">他院施術・出張のため</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">9/21 月</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-other">9/22〜9/30</span><span class="schedule-row-status is-other">他院施術のため</span></div>
         </div>
         <div class="schedule-month">
-          <span class="schedule-month-title">August 2026</span>
-          <div class="schedule-row"><span class="schedule-row-date is-other">8/1〜8/3</span><span class="schedule-row-status is-other">他院施術・休日</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">8/4 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-other">8/5〜8/17</span><span class="schedule-row-status is-other">他院施術・他エリアのため</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">8/18 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-other">8/19〜8/30</span><span class="schedule-row-status is-other">他院施術のため</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">8/31 月</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <span class="schedule-month-title">October 2026</span>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/1 木</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-other">10/2〜</span><span class="schedule-row-status is-other">日程調整中・LINEにてご確認ください</span></div>
         </div>
       </div>
       <p class="schedule-note">※ 他院・地方出張との兼ね合いにより、東京（一番町）の施術枠は毎月限定です。最新の空き状況・ご予約はLINEよりお問い合わせください。日程調整が可能な場合もございます。</p>
@@ -220,7 +214,7 @@ function toggleSchedule(){
   var btn=document.querySelector('.schedule-toggle-btn');
   if(el.classList.contains('is-open')){
     el.classList.remove('is-open');
-    btn.textContent='7・8月の全日程を見る ↓';
+    btn.textContent='9・10月の全日程を見る ↓';
   } else {
     el.classList.add('is-open');
     btn.textContent='閉じる ↑';
@@ -399,31 +393,14 @@ function toggleSchedule(){
 </section>
 
 
-<!-- 選ばれる理由 -->
-<section class="section">
-  <div class="container">
-    <div class="section-header fade-in">
-      <span class="section-label">Why Choose</span>
-      <h2 class="section-title">komiが選ばれる5つの理由</h2>
-    </div>
-    <div class="reason-grid fade-in">
-      <div class="reason-card"><div class="reason-num">01</div><h3 class="reason-title">無理に濃くしない、段階的な施術</h3><p class="reason-desc">初回で完成させず、肌の反応や定着を見ながら少しずつ進めます。やりすぎず、失敗しにくい設計を大切にしています。</p></div>
-      <div class="reason-card"><div class="reason-num">02</div><h3 class="reason-title">ナチュラルで上品な仕上がりが得意</h3><p class="reason-desc">骨格・表情・肌質に合わせて調整し、濃すぎない自然で上品な仕上がりを目指します。年齢を問わず日常に馴染むデザインが得意です。</p></div>
-      <div class="reason-card"><div class="reason-num">03</div><h3 class="reason-title">定着や左右差まで考えた施術</h3><p class="reason-desc">仕上がりのきれいさだけでなく、「どう残るか」「どう馴染むか」まで想定し、事前に確認しながら進めます。</p></div>
-      <div class="reason-card"><div class="reason-num">04</div><h3 class="reason-title">失敗したくない方にも安心の施術</h3><p class="reason-desc">派手すぎる仕上がりが不安な方や、慎重に考えたい方にも多く選ばれています。無理のないご提案を心がけています。</p></div>
-      <div class="reason-card"><div class="reason-num">05</div><h3 class="reason-title">不安なことを一つずつ確認しながら</h3><p class="reason-desc">疑問や不安はその場で確認し、初めての方にも分かりやすくご説明しながら施術を行います。</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- この場所を選ぶ理由 -->
 <section class="section">
   <div class="container">
     <div class="section-header fade-in">
       <span class="section-label">Why Here</span>
-      <h2 class="section-title">半蔵門でアートメイクを<br>受ける3つの理由</h2>
+      <h2 class="section-title">半蔵門でアートメイクを<br>受ける理由</h2>
     </div>
-    <div class="concept-features fade-in">
+    <div class="concept-features fade-in" style="grid-template-columns:repeat(2,1fr);">
       <div class="feature-card">
         <span class="feature-number">01</span>
         <h4 class="feature-title">皇居のほとりの静かな環境</h4>
@@ -431,13 +408,8 @@ function toggleSchedule(){
       </div>
       <div class="feature-card">
         <span class="feature-number">02</span>
-        <h4 class="feature-title">医師管理・医療クリニック内施術</h4>
-        <p class="feature-desc">一番町まつりかクリニックは医療機関です。アートメイクは本来医療行為であり、医師の管理下で行われることが法律で定められています。安全・安心な環境で受けていただけます。</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-number">03</span>
         <h4 class="feature-title">銀座等大手クリニック経験のあるアーティスト</h4>
-        <p class="feature-desc">担当アーティストkomiは、銀座等の大手クリニックで6年間・3,000件以上の施術を経験。3,000件を超える施術実績とともに、確かな技術をご提供します。</p>
+        <p class="feature-desc">担当アーティストkomiは、銀座等の大手クリニックで6年間・3,000件以上の施術を経験してきました。</p>
       </div>
     </div>
   </div>
@@ -510,10 +482,10 @@ function toggleSchedule(){
     </div>
     <div class="fade-in" style="margin-top:24px;padding:18px 22px;background:var(--beige-light);border:0.5px solid var(--border);font-size:11px;line-height:2.1;color:var(--text-light)">
       <p style="margin-bottom:8px;color:var(--text-muted);letter-spacing:0.05em">施術内容・費用目安・主なリスク/副作用（税込・詳細は<a href="clinics" style="color:var(--gold)">提携院ページ</a>、その他症例は<a href="cases" style="color:var(--gold)">症例写真ページ</a>へ）</p>
-      <p><strong style="color:var(--brown);font-weight:400">眉</strong>：医療アートメイクによる眉の描出（パウダー・毛並み等）／ ¥44,000〜¥88,000程度 ／ 腫れ・赤み・内出血、色の定着差・経年での退色、まれに感染やアレルギー反応</p>
+      <p><strong style="color:var(--brown);font-weight:400">眉</strong>：医療アートメイクによる眉の描出（パウダー・毛並み等）／ 初回¥55,000・2回セット¥99,000〜（モニター¥77,000〜） ／ 腫れ・赤み・内出血、色の定着差・経年での退色、まれに感染やアレルギー反応</p>
       <p><strong style="color:var(--brown);font-weight:400">アイライン</strong>：上下まぶたのキワへの色素定着 ／ ¥23,000〜¥55,000程度 ／ 腫れ・むくみ・内出血、色のにじみ、まれに感染やアレルギー反応</p>
-      <p><strong style="color:var(--brown);font-weight:400">リップ</strong>：唇への色素注入による発色・輪郭の補整 ／ ¥55,000〜¥88,000程度 ／ 腫れ・乾燥、単純ヘルペスの再発（既往歴のある方は事前申告・抗ヘルペス薬の服用が必要）、色ムラ・経年での退色</p>
-      <p><strong style="color:var(--brown);font-weight:400">ヘアライン</strong>：生え際への点状の色素定着による輪郭の補整 ／ ¥66,000〜¥82,500程度 ／ 腫れ・赤み、色の定着差、まれに感染やアレルギー反応</p>
+      <p><strong style="color:var(--brown);font-weight:400">リップ</strong>：唇への色素注入による発色・輪郭の補整 ／ 初回¥55,000・2回セット¥99,000〜（モニター¥77,000〜） ／ 腫れ・乾燥、単純ヘルペスの再発（既往歴のある方は事前申告・抗ヘルペス薬の服用が必要）、色ムラ・経年での退色</p>
+      <p><strong style="color:var(--brown);font-weight:400">ヘアライン</strong>：生え際への点状の色素定着による輪郭の補整 ／ 初回¥55,000・2回セット¥99,000〜（モニター¥77,000〜） ／ 腫れ・赤み、色の定着差、まれに感染やアレルギー反応</p>
       <p><strong style="color:var(--brown);font-weight:400">ヘアスカルプ</strong>：頭皮への微細な点描による地肌の補整 ／ ¥44,000〜¥176,000程度（範囲・回数により大きく変動）／ 腫れ・赤み・かゆみ、色素の定着差・経年での退色、まれに感染やアレルギー反応</p>
     </div>
     <div class="section-cta">
@@ -603,7 +575,7 @@ function toggleSchedule(){
     </div>
     <div class="fade-in" style="margin-top:16px;display:flex;flex-direction:column;gap:4px;">
       <p style="font-size:12px;font-weight:300;color:var(--text-muted);">※ アイラインテールあり +¥11,000</p>
-      <p style="font-size:12px;font-weight:300;color:var(--text-muted);">※ モニター条件：Instagram等に施術前後の写真掲載に同意いただける方（顔出しなし可）</p>
+      <p style="font-size:12px;font-weight:300;color:var(--text-muted);">※ モニター条件：komi公式Instagram等への施術前後の写真掲載に同意いただける方（顔出しなし可）</p>
     </div>
     <div class="fade-in" style="margin-top:32px;padding:28px 32px;background:var(--beige-light);border:0.5px solid var(--border);">
       <p style="font-family:var(--font-serif-ja);font-size:16px;font-weight:300;color:var(--brown);margin-bottom:16px;padding-left:14px;border-left:2px solid var(--gold);">2回セット（リタッチ込み）がおすすめ</p>
@@ -677,7 +649,7 @@ function toggleSchedule(){
   <div class="container">
     <p class="mid-cta-title">まずは無料カウンセリングからどうぞ</p>
     <p class="mid-cta-sub">施術日程・料金・デザイン相談など、お気軽にLINEよりお問い合わせください。<br>写真をお送りいただくとよりスムーズにご提案できます。</p>
-    <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで無料カウンセリングを予約する</a>
+    <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで相談・予約する</a>
   </div>
 </div>
 
@@ -687,7 +659,7 @@ function toggleSchedule(){
     <div style="text-align:center;max-width:720px;margin:0 auto;">
       <p style="font-family:var(--font-serif-en);font-size:11px;letter-spacing:0.3em;color:var(--gold);margin-bottom:20px;">Monitor</p>
       <h2 style="font-family:var(--font-serif-ja);font-size:clamp(24px,4vw,38px);font-weight:300;color:var(--beige-light);line-height:1.6;margin-bottom:16px;">SNSモニター募集中</h2>
-      <p style="font-size:14px;font-weight:300;color:rgba(245,240,232,0.75);line-height:2;margin-bottom:40px;">施術前後の写真をInstagramに掲載いただける方を対象に、<br>モニター割引でご提供しています。</p>
+      <p style="font-size:14px;font-weight:300;color:rgba(245,240,232,0.75);line-height:2;margin-bottom:40px;">施術前後の写真をkomi公式Instagramに掲載いただける方を対象に、<br>モニター割引でご提供しています。</p>
       <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" style="display:inline-block;background:var(--gold);color:#fff;font-size:14px;font-weight:300;letter-spacing:0.12em;padding:16px 44px;text-decoration:none;">LINEでモニター詳細を確認する</a>
     </div>
   </div>
@@ -758,7 +730,7 @@ function toggleSchedule(){
       <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">他院で入れたアートメイクの修正・カバーはできますか？<span class="faq-icon">＋</span></button><div class="faq-answer"><p>可能なケースが多いです。残っている色素の濃さ・色味・形によって対応が異なります。まずは現在の状態をLINEの写真でお送りください。拝見した上でご案内します。</p></div></div>
       <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">男性でも自然な仕上がりにできますか？<span class="faq-icon">＋</span></button><div class="faq-answer"><p>はい。男性の施術経験も豊富です。骨格・毛流れ・職業・普段の雰囲気を確認した上で、「メイクしているとわからない」自然な仕上がりを大切にしています。濃くしすぎず、作り込みすぎないデザインが得意です。</p></div></div>
       <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">ヘアラインアートメイクの濃さはどのくらいですか？<span class="faq-icon">＋</span></button><div class="faq-answer"><p>「やりすぎ」にならないよう、髪の毛の色・毛量・お顔のバランスに合わせて段階的に調整します。初回から一気に濃くするのではなく、定着を見ながら2回セットで仕上げるため、自然な印象のまま密度感を補うことができます。</p></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">アートメイクはどのくらいで薄くなりますか？再施術の目安は？<span class="faq-icon">＋</span></button><div class="faq-answer"><p>個人差はありますが、1〜3年程度で徐々に薄くなってきます。薄くなってきたと感じたタイミングで補色（リタッチ）をすることで、きれいな状態を長く保てます。施術後も気になることはLINEでいつでもご相談いただけます。</p></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">アートメイクはどのくらいで薄くなりますか？再施術の目安は？<span class="faq-icon">＋</span></button><div class="faq-answer"><p>個人差はありますが、1〜2年程度で徐々に薄くなってきます。薄くなってきたと感じたタイミングで補色（リタッチ）をすることで、きれいな状態を長く保てます。施術後も気になることはLINEでいつでもご相談いただけます。</p></div></div>
     </div>
   </div>
 </section>
@@ -800,7 +772,7 @@ function toggleSchedule(){
       <h2 class="cta-title">半蔵門での施術予約・お問い合わせ</h2>
       <p class="cta-desc">カウンセリングは無料です。施術日程・料金など、まずはお気軽にご連絡ください。<br>写真をお送りいただくとよりスムーズにご提案できます。</p>
       <div class="cta-btns">
-        <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで無料カウンセリングを予約する</a>
+        <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで相談・予約する</a>
         <a href="https://www.instagram.com/artmake_komi/" target="_blank" rel="noopener" class="btn btn-insta">Instagramで相談する</a>
       </div>
     </div>
