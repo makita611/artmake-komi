@@ -47,6 +47,9 @@
 .lightbox-info dt { display: inline; color: var(--gold); }
 .lightbox-info dd { display: inline; margin: 0; }
 .lightbox-info dd::after { content: ""; display: block; }
+.lightbox-consult-btn { position: absolute; top: 24px; left: 32px; background: var(--gold); color: #fff; font-size: 12px; font-weight: 300; letter-spacing: 0.06em; padding: 10px 20px; text-decoration: none; }
+.lightbox-consult-btn:hover { opacity: 0.9; }
+@media(max-width:600px){ .lightbox-consult-btn{ top: auto; left: 50%; bottom: 176px; transform: translateX(-50%); white-space: nowrap; } }
 .related-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
 .related-links a { font-size: 12px; font-weight: 300; letter-spacing: 0.04em; color: var(--text); border: 0.5px solid var(--border); padding: 8px 16px; text-decoration: none; transition: all 0.2s; }
 .related-links a:hover { color: var(--gold); border-color: var(--gold); }
@@ -208,6 +211,7 @@
   <img loading="lazy" class="lightbox-img" id="lightboxImg" src="" alt="">
   <p class="lightbox-caption" id="lightboxCaption"></p>
   <dl class="lightbox-info" id="lightboxInfo"></dl>
+  <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="lightbox-consult-btn" id="lightboxConsultBtn" onclick="event.stopPropagation()">この症例について相談する →</a>
 </div>
 
 <section class="section" style="background:var(--beige-light)">

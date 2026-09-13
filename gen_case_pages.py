@@ -74,10 +74,10 @@ CFG = {
 # テンプレートは cases-eyebrow.html を読み、眉固有部分をプレースホルダに置換して再利用する
 tpl = open("cases-eyebrow.html", encoding="utf-8").read()
 
-PARTS = [("cases.html","すべて","all"),("cases-eyebrow.html","眉","eyebrow"),("cases-lip.html","リップ","lip"),
-         ("cases-eyeliner.html","アイライン","eyeliner"),("cases-hairline.html","ヘアライン","hairline"),
-         ("cases-scalp.html","ヘアスカルプ","scalp"),("cases-amarapink.html","アマラピンク","amarapink"),
-         ("cases-paramedical.html","パラメディカル","paramedical")]
+PARTS = [("cases","すべて","all"),("cases-eyebrow","眉","eyebrow"),("cases-lip","リップ","lip"),
+         ("cases-eyeliner","アイライン","eyeliner"),("cases-hairline","ヘアライン","hairline"),
+         ("cases-scalp","ヘアスカルプ","scalp"),("cases-amarapink","アマラピンク","amarapink"),
+         ("cases-paramedical","パラメディカル","paramedical")]
 
 def part_nav(active):
     rows = ['      <span class="part-nav-label">部位で見る：</span>']
@@ -96,10 +96,12 @@ def build(cat, c):
             '      </div>' % (cat, src, c["term"], c["caption"], c["tag"])
         )
     gallery = "\n".join(items)
+    def clean(href):
+        return href[:-5] if href.endswith(".html") else href
     related = "\n".join(
-        ['        <a href="%s">%s</a>' % (c["menu"][0], c["menu"][1]),
-         '        <a href="cases.html">症例写真トップ（全部位）</a>'] +
-        ['        <a href="%s">%s</a>' % (h, l) for h, l in c["cols"]]
+        ['        <a href="%s">%s</a>' % (clean(c["menu"][0]), c["menu"][1]),
+         '        <a href="cases">症例写真トップ（全部位）</a>'] +
+        ['        <a href="%s">%s</a>' % (clean(h), l) for h, l in c["cols"]]
     )
     out = """<!DOCTYPE html>
 <html lang="ja">
@@ -118,7 +120,7 @@ def build(cat, c):
 <meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=20260727b">
 %(style)s
 <script type="application/ld+json">
 {
@@ -150,7 +152,7 @@ def build(cat, c):
 
 <section class="section">
   <div class="container">
-    <nav class="breadcrumb"><a href="/">ホーム</a> ＞ <a href="cases.html">症例写真</a> ＞ %(ja)s</nav>
+    <nav class="breadcrumb"><a href="/">ホーム</a> ＞ <a href="cases">症例写真</a> ＞ %(ja)s</nav>
 
 %(partnav)s
 
@@ -165,7 +167,7 @@ def build(cat, c):
         <dt>施術回数</dt>
         <dd>%(kaisu)s</dd>
         <dt>費用目安</dt>
-        <dd>%(cost)s（税込・クリニックにより異なります。詳細は<a href="clinics.html" style="color:var(--gold)">提携院ページ</a>）</dd>
+        <dd>%(cost)s（税込・クリニックにより異なります。詳細は<a href="clinics" style="color:var(--gold)">提携院ページ</a>）</dd>
         <dt>主なリスク・副作用</dt>
         <dd>%(risk)s。施術を受けられない方（禁忌）もあります。</dd>
       </dl>
@@ -204,6 +206,7 @@ def build(cat, c):
   <img loading="lazy" class="lightbox-img" id="lightboxImg" src="" alt="">
   <p class="lightbox-caption" id="lightboxCaption"></p>
   <dl class="lightbox-info" id="lightboxInfo"></dl>
+  <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="lightbox-consult-btn" id="lightboxConsultBtn" onclick="event.stopPropagation()">この症例について相談する →</a>
 </div>
 
 %(reservation)s
@@ -223,7 +226,7 @@ def build(cat, c):
 
 %(footer)s
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v=20260727b"></script>
 <script>
 const categoryInfo = {
   %(cat)s: { content: '%(content)s', cost: '%(cost)s', risk: '%(risk)s' }
@@ -239,7 +242,7 @@ function openLightbox(el) {
   if (info) {
     infoEl.innerHTML =
       '<dt>施術内容：</dt><dd>' + info.content + '</dd>' +
-      '<dt>費用目安：</dt><dd>' + info.cost + '（税込・詳細は<a href="clinics.html" style="color:var(--gold)">提携院ページ</a>へ）</dd>' +
+      '<dt>費用目安：</dt><dd>' + info.cost + '（税込・詳細は<a href="clinics" style="color:var(--gold)">提携院ページ</a>へ）</dd>' +
       '<dt>主なリスク・副作用：</dt><dd>' + info.risk + '</dd>';
   } else {
     infoEl.innerHTML = '';
