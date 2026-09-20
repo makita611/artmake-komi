@@ -1,0 +1,45 @@
+/* Shared visual and interaction refinements, September 2026. */
+:focus-visible { outline: 3px solid #816237; outline-offset: 5px; }
+html { scroll-padding-top: 88px; }
+.visit-shortcuts { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; padding:24px; background:var(--beige-light); border-bottom:1px solid var(--border); }
+.visit-shortcuts a { padding:12px 22px; border:1px solid #b5a28a; color:var(--brown); text-decoration:none; font-size:14px; background:#fff; border-radius:3px; }
+.visit-shortcuts a:hover { background:var(--beige); }
+.tokyo-page .lp-hero { height:auto; min-height:620px; padding:120px 0 72px; }
+.tokyo-page .lp-hero-bg::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(25,19,15,.5),rgba(25,19,15,.72)); }
+.tokyo-page .lp-hero-desc { color:#fff; font-weight:400; line-height:1.9; }
+.tokyo-page .lp-hero-area { color:#e4ceab; }
+.tokyo-page .lp-hero-title>span { color:#e4ceab!important; }
+.tokyo-page .lp-hero-content>p:last-child a { color:#fff!important; line-height:1.8; display:inline-block; }
+.price-summary-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; text-align:center; }
+.table-scroll-hint { font-size:12px; color:var(--text-light); margin:0 0 10px; display:none; }
+.price-table-scroll th:first-child,.price-table-scroll td:first-child { position:sticky; left:0; background:var(--beige-light); z-index:1; }
+.price-table-scroll th:first-child { background:var(--brown); }
+body .lightbox { z-index:2000; padding:64px 20px 32px; overflow-y:auto; overscroll-behavior:contain; }
+body .lightbox.open { display:flex; flex-direction:column; justify-content:flex-start; gap:16px; }
+body .lightbox-img { width:auto; height:auto; max-width:min(100%,800px); max-height:65vh; flex:none; object-fit:contain; }
+body .lightbox-caption,body .lightbox-info,body .lightbox-consult-btn { position:static; inset:auto; transform:none; width:min(100%,720px); white-space:normal; flex:none; margin:0; }
+body .lightbox-caption { color:#fff; font-size:15px; text-align:center; }
+body .lightbox-info { font-size:13px; line-height:1.9; padding:18px; }
+body .lightbox-consult-btn { text-align:center; padding:16px; color:#fff; background:#70532f; font-size:14px; font-weight:400; }
+body .lightbox-close { position:fixed; top:10px; right:14px; width:44px; height:44px; color:#fff; background:#302720; border-radius:50%; z-index:1; }
+body:has(.lightbox.open) { overflow:hidden; }
+body:has(.lightbox.open) .float-social,body:has(.mobile-nav.open) .float-social { visibility:hidden; }
+.case-consult-note { width:min(100%,720px); margin:0; padding:16px; color:#fff; background:#3d3028; font-size:13px; line-height:1.8; }
+.case-consult-note button { border:1px solid #d5bd98; color:#fff; background:transparent; padding:12px 16px; font:inherit; cursor:pointer; margin-top:10px; }
+.case-consult-status { display:block; margin-top:8px; }
+@media(max-width:600px){
+ .tokyo-page .lp-hero { min-height:560px; padding:104px 0 48px; }
+ .tokyo-page .lp-hero-inner { padding:0 24px; }
+ .tokyo-page .lp-hero-desc { font-size:14px; margin-bottom:24px; }
+ .tokyo-page .lp-hero-title { font-size:32px; }
+ .price-summary-grid { grid-template-columns:1fr; }
+ .table-scroll-hint { display:block; }
+ .visit-shortcuts { gap:8px; padding:18px 12px; }
+ .visit-shortcuts a { padding:12px 10px; font-size:13px; }
+ .float-social { bottom:12px; right:12px; flex-direction:row; gap:8px; }
+ body .lightbox { padding:64px 14px 24px; gap:14px; }
+ body .lightbox-img { max-height:55vh; }
+ body .lightbox-info { padding:14px; }
+ .hero-desc { color:rgba(255,255,255,.92); }
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fade-in{opacity:1;transform:none;transition:none}}
