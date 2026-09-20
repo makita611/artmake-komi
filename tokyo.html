@@ -180,25 +180,23 @@
       <div class="schedule-bar-divider"></div>
       <span class="schedule-bar-label">直近の空き</span>
       <div class="schedule-bar-dates">
-        <span class="schedule-date-chip">9/21 月</span>
-        <span class="schedule-date-chip">10/1 木</span>
+        <span class="schedule-date-chip">10/6 火 午前</span>
+        <span class="schedule-date-chip">10/8 木 午前</span>
+        <span class="schedule-date-chip">10/20 火 午前</span>
+        <span class="schedule-date-chip">10/27 火</span>
       </div>
       <div class="schedule-bar-toggle">
-        <button class="schedule-toggle-btn" onclick="toggleSchedule()">9・10月の全日程を見る ↓</button>
+        <button class="schedule-toggle-btn" onclick="toggleSchedule()">10月の全日程を見る ↓</button>
       </div>
     </div>
     <div class="schedule-full" id="scheduleFull">
       <div class="schedule-full-inner">
         <div class="schedule-month">
-          <span class="schedule-month-title">September 2026</span>
-          <div class="schedule-row"><span class="schedule-row-date is-other">9/1〜9/20</span><span class="schedule-row-status is-other">他院施術・出張のため</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">9/21 月</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-other">9/22〜9/30</span><span class="schedule-row-status is-other">他院施術のため</span></div>
-        </div>
-        <div class="schedule-month">
           <span class="schedule-month-title">October 2026</span>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/1 木</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-other">10/2〜</span><span class="schedule-row-status is-other">日程調整中・LINEにてご確認ください</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/6 火 午前</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/8 木 午前</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/20 火 午前</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/27 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
         </div>
       </div>
       <p class="schedule-note">※ 他院・地方出張との兼ね合いにより、東京（一番町）の施術枠は毎月限定です。最新の空き状況・ご予約はLINEよりお問い合わせください。日程調整が可能な場合もございます。</p>
@@ -211,7 +209,7 @@ function toggleSchedule(){
   var btn=document.querySelector('.schedule-toggle-btn');
   if(el.classList.contains('is-open')){
     el.classList.remove('is-open');
-    btn.textContent='9・10月の全日程を見る ↓';
+    btn.textContent='10月の全日程を見る ↓';
   } else {
     el.classList.add('is-open');
     btn.textContent='閉じる ↑';
