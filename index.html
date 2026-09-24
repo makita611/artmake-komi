@@ -202,6 +202,12 @@
 </div>
 
 <!-- 次回東京施術日 -->
+<!-- 定義（AI・検索向けの直答） -->
+<section style="background:var(--white);padding:36px 0;border-bottom:0.5px solid var(--border);">
+  <div class="container">
+    <p style="max-width:640px;margin:0 auto;font-size:13px;font-weight:300;color:var(--text);line-height:2;">KOMI ARTMAKE（コミ アートメイク）は、看護師国家資格を持つ専任アーティストkomiが、提携医療クリニック内で医師管理のもと行う医療アートメイクです。眉・アイライン・リップ・ヘアライン・ヘアスカルプ・パラメディカルに対応し、東京・半蔵門（一番町まつりかクリニック）のほか、茨城・つくば、群馬・太田・高崎で施術しています。施術実績は3,000件以上です。</p>
+  </div>
+</section>
 <section class="tokyo-schedule">
   <div class="container">
     <p class="schedule-label">NEXT TOKYO SESSION</p>
@@ -210,28 +216,24 @@
     <!-- 直近の空き枠チップ -->
     <div style="display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0 24px;">
       <span style="font-family:var(--font-serif-en);font-size:11px;letter-spacing:0.2em;color:var(--text-light);">Tokyo / Hanzomon &nbsp;|&nbsp; 直近の空き</span>
-      <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">9/21 月</span>
-      <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">10/1 木</span>
+      <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">10/6 火 午前</span>
+      <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">10/8 木 午前</span>
+      <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">10/20 火 午前</span>
+      <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">10/27 火</span>
     </div>
 
     <p class="schedule-date">日程はLINEよりお問い合わせください</p>
 
     <!-- 全日程アコーディオン -->
-    <button onclick="toggleScheduleIdx()" id="scheduleToggleIdx" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:300;color:var(--text-muted);letter-spacing:0.1em;margin:12px 0 0;font-family:var(--font-sans);">9・10月の全日程を見る ↓</button>
+    <button onclick="toggleScheduleIdx()" id="scheduleToggleIdx" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:300;color:var(--text-muted);letter-spacing:0.1em;margin:12px 0 0;font-family:var(--font-sans);">10月の全日程を見る ↓</button>
     <div id="scheduleFullIdx" style="display:none;margin:16px auto 0;max-width:640px;text-align:left;background:#2a2118;padding:24px 28px;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 40px;">
-        <div>
-          <span style="font-family:var(--font-serif-en);font-size:10px;letter-spacing:0.25em;color:var(--gold);display:block;margin-bottom:12px;">September 2026</span>
-          <div class="schedule-row"><span class="schedule-row-date is-other">9/1〜9/20</span><span class="schedule-row-status is-other">他院施術・出張のため</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">9/21 月</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-other">9/22〜9/30</span><span class="schedule-row-status is-other">他院施術のため</span></div>
-        </div>
-        <div>
+      <div>
           <span style="font-family:var(--font-serif-en);font-size:10px;letter-spacing:0.25em;color:var(--gold);display:block;margin-bottom:12px;">October 2026</span>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/1 木</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-other">10/2〜</span><span class="schedule-row-status is-other">日程調整中・LINEにてご確認ください</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/6 火 午前</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/8 木 午前</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/20 火 午前</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
+          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/27 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
         </div>
-      </div>
       <p style="margin-top:16px;font-size:11px;font-weight:300;color:rgba(200,190,180,0.45);line-height:1.9;border-top:0.5px solid rgba(196,163,110,0.15);padding-top:12px;">※ 他院・地方出張との兼ね合いにより、東京（一番町）の施術枠は毎月限定です。</p>
     </div>
     <script>
@@ -637,8 +639,21 @@
   </div>
 </section>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"アートメイクは痛いですか？","acceptedAnswer":{"@type":"Answer","text":"施術前に専用の表面麻酔を使用します。個人差はありますが、ほとんどの方が「思ったより痛くなかった」とおっしゃいます。"}},{"@type":"Question","name":"どのくらい持続しますか？","acceptedAnswer":{"@type":"Answer","text":"個人差はありますが、1〜2年程度です。定期的なリタッチで美しい状態を保てます。"}},{"@type":"Question","name":"東京での施術日はいつですか？","acceptedAnswer":{"@type":"Answer","text":"東京（一番町まつりかクリニック）での施術は月に数日の完全予約制です。最新のスケジュールはLINE公式よりお問い合わせください。"}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"KOMI ARTMAKE（komiのアートメイク）とはどんなサービスですか？","acceptedAnswer":{"@type":"Answer","text":"KOMI ARTMAKE（コミ アートメイク）は、看護師国家資格を持つ専任アーティストkomiが、提携医療クリニック内で医師管理のもと行う医療アートメイクです。眉・アイライン・リップ・ヘアライン・ヘアスカルプ・パラメディカルに対応し、東京・半蔵門（一番町まつりかクリニック）のほか、茨城・つくば、群馬・太田・高崎で施術しています。施術実績は3,000件以上です。"}},{"@type":"Question","name":"アートメイクは痛いですか？","acceptedAnswer":{"@type":"Answer","text":"施術前に専用の表面麻酔を使用します。個人差はありますが、ほとんどの方が「思ったより痛くなかった」とおっしゃいます。"}},{"@type":"Question","name":"どのくらい持続しますか？","acceptedAnswer":{"@type":"Answer","text":"個人差はありますが、1〜2年程度です。定期的なリタッチで美しい状態を保てます。"}},{"@type":"Question","name":"東京での施術日はいつですか？","acceptedAnswer":{"@type":"Answer","text":"東京（一番町まつりかクリニック）での施術は月に数日の完全予約制です。最新のスケジュールはLINE公式よりお問い合わせください。"}}]}
 </script>
+
+<!-- 詳しく読む（人気コラム） -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Read More</span>
+      <h2 class="section-title">よく読まれているコラム</h2>
+      <p class="section-note">料金・痛み・ダウンタイム・持続期間まで、komiが正直に解説しています。</p>
+    </div>
+    <ul style="list-style:none;padding:0;margin:0 auto;max-width:680px;border-top:0.5px solid var(--border);"><li style="border-bottom:0.5px solid var(--border);"><a href="column/am-mayuge-toha" style="display:block;padding:14px 4px;font-size:13px;font-weight:300;color:var(--brown);text-decoration:none;line-height:1.8;">眉毛アートメイクとは？仕組み・技法・料金・持続期間</a></li><li style="border-bottom:0.5px solid var(--border);"><a href="column/am-mens" style="display:block;padding:14px 4px;font-size:13px;font-weight:300;color:var(--brown);text-decoration:none;line-height:1.8;">メンズ眉アートメイク｜男性の自然でバレない眉の作り方</a></li><li style="border-bottom:0.5px solid var(--border);"><a href="column/am-hairscalp-toha" style="display:block;padding:14px 4px;font-size:13px;font-weight:300;color:var(--brown);text-decoration:none;line-height:1.8;">ヘアスカルプ（頭皮アートメイク／SMP）とは？</a></li><li style="border-bottom:0.5px solid var(--border);"><a href="column/am-tokyo-hanzomon" style="display:block;padding:14px 4px;font-size:13px;font-weight:300;color:var(--brown);text-decoration:none;line-height:1.8;">千代田区で医療アートメイクを受けるなら｜半蔵門のアクセス・料金</a></li><li style="border-bottom:0.5px solid var(--border);"><a href="column/am-price" style="display:block;padding:14px 4px;font-size:13px;font-weight:300;color:var(--brown);text-decoration:none;line-height:1.8;">アートメイクの料金・相場｜部位別の費用と2回セット</a></li><li style="border-bottom:0.5px solid var(--border);"><a href="column/am-itami" style="display:block;padding:14px 4px;font-size:13px;font-weight:300;color:var(--brown);text-decoration:none;line-height:1.8;">アートメイクは痛い？麻酔あり・施術別の痛み</a></li><li style="border-bottom:0.5px solid var(--border);"><a href="column/am-downtime" style="display:block;padding:14px 4px;font-size:13px;font-weight:300;color:var(--brown);text-decoration:none;line-height:1.8;">ダウンタイム徹底ガイド｜いつから出社できる？</a></li><li style="border-bottom:0.5px solid var(--border);"><a href="column/am-jizoku" style="display:block;padding:14px 4px;font-size:13px;font-weight:300;color:var(--brown);text-decoration:none;line-height:1.8;">アートメイクは何年持つ？色落ちと長持ちのコツ</a></li><li style="border-bottom:0.5px solid var(--border);"><a href="column/am-eyebrow-type" style="display:block;padding:14px 4px;font-size:13px;font-weight:300;color:var(--brown);text-decoration:none;line-height:1.8;">眉の毛並みとパウダーどっちがいい？</a></li><li style="border-bottom:0.5px solid var(--border);"><a href="column/am-eyeliner" style="display:block;padding:14px 4px;font-size:13px;font-weight:300;color:var(--brown);text-decoration:none;line-height:1.8;">アイラインアートメイクの料金・痛み・ダウンタイム</a></li><li style="border-bottom:0.5px solid var(--border);"><a href="column/am-hairline" style="display:block;padding:14px 4px;font-size:13px;font-weight:300;color:var(--brown);text-decoration:none;line-height:1.8;">ヘアラインアートメイクとは？生え際・M字をカバー</a></li><li style="border-bottom:0.5px solid var(--border);"><a href="column/am-clinic-erabi" style="display:block;padding:14px 4px;font-size:13px;font-weight:300;color:var(--brown);text-decoration:none;line-height:1.8;">クリニックの選び方｜安さで後悔しないために</a></li></ul>
+    <div class="section-cta"><a href="column/" class="btn btn-secondary">コラム一覧を見る</a></div>
+  </div>
+</section>
 
 <!-- ご予約の流れ -->
 <section class="section" style="background:var(--beige-light)">
