@@ -67,6 +67,11 @@
 .article-related{margin-top:64px;padding-top:40px;border-top:0.5px solid var(--border);}
 .article-related-title{font-family:var(--font-serif-en);font-size:11px;letter-spacing:0.25em;color:var(--gold);margin-bottom:20px;}
 @media(max-width:600px){.article-lead{padding:20px;} .kinki-grid{grid-template-columns:1fr;} .checklist{padding:20px;}}
+.article-faq-item{border-bottom:0.5px solid var(--border);padding:20px 0;}
+.article-faq-q{font-family:var(--font-serif-ja);font-size:14px;font-weight:400;color:var(--brown);margin-bottom:10px;}
+.article-faq-q::before{content:'Q. ';color:var(--gold);}
+.article-faq-a{font-size:13px;font-weight:300;color:var(--text-light);line-height:2;}
+.article-faq-a::before{content:'A. ';color:var(--text-muted);font-weight:400;}
 </style>
 <script type="application/ld+json">
 {
@@ -76,6 +81,7 @@
   "author": {"@type": "Person", "name": "komi"},
   "publisher": {"@type": "Organization", "name": "KOMI ARTMAKE", "url": "https://artmake-komi.com"},
   "datePublished": "2026-05-30",
+  "dateModified": "2026-09-25",
   "description": "妊娠中・ケロイド体質・金属アレルギーなどアートメイクの禁忌条件と注意事項を解説"
 }
 </script>
@@ -84,6 +90,10 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {"@type": "Question", "name": "妊娠中にアートメイクは受けられますか？", "acceptedAnswer": {"@type": "Answer", "text": "妊娠中は初期・安定期・後期の全時期において施術をお断りしています。ホルモンバランスの変化や胎児への影響、処方できる薬が限られることを考慮した対応です。"}},
+    {"@type": "Question", "name": "授乳中は施術を受けられますか？", "acceptedAnswer": {"@type": "Answer", "text": "授乳中は要事前確認の対象で、授乳停止の期間調整が必要になる場合があります。施術可否は医師の判断によるため、授乳中であることを必ず事前にお伝えください。"}},
+    {"@type": "Question", "name": "敏感肌・アレルギー体質でもアートメイクは受けられますか？", "acceptedAnswer": {"@type": "Answer", "text": "体質だけを理由に一律でお断りすることはありません。事前のパッチテスト（¥11,000・数日間の反応を確認）で色素への反応を確認し、医師と相談のうえで判断します。"}},
+    {"@type": "Question", "name": "パッチテストで陽性が出た場合はどうなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "陽性反応が出た場合、その色素での施術は見送りとなります。色素の種類を変えて再度検討できる場合もあります。"}},
     {"@type":"Question","name":"妊娠中にアートメイクは受けられますか？","acceptedAnswer":{"@type":"Answer","text":"妊娠中は全時期（初期・安定期・後期）において施術をお断りしています。ホルモンバランスの変化による肌トラブルのリスク、痛み・緊張による胎児への影響、万一のトラブル時に処方できる薬が限られるためです。"}},
     {"@type":"Question","name":"ケロイド体質でもアートメイクは受けられますか？","acceptedAnswer":{"@type":"Answer","text":"ケロイド体質の方は施術をお受けできません。アートメイクは皮膚に微細な傷をつける施術のため、ケロイド体質の方では傷口が異常に増殖し、消えないケロイドが残るリスクがあります。"}},
     {"@type":"Question","name":"レチノール系スキンケアを使っていますが施術は受けられますか？","acceptedAnswer":{"@type":"Answer","text":"施術の3週間前からレチノール系（ゼオスキン・エンビロン等）の使用を中止してください。使用中に施術すると激しい痛みや色素が定着しない原因になります。施術後も1ヶ月は再開を控えてください。"}}
@@ -166,7 +176,7 @@
       <p class="article-p">以下の項目に該当する方は、健康上の重大なリスクや症状悪化の恐れがあるため、原則として施術をお受けできません。</p>
 
       <h3 class="article-h3">① 金属アレルギーをお持ちの方</h3>
-      <p class="article-p">染料には微量の金属成分（酸化鉄など）が、施術針には医療用ステンレスが使われます。<strong>18金やプラチナといった純度の高い金属でアレルギー症状が出たことがある方</strong>は、基本的に施術をお受けいただけません。施術後に皮膚が激しく腫れたり、長期間アレルギー反応が続くリスクがあるためです。軽度の反応でも必ずカウンセリング時にお申し出ください。敏感肌・アレルギー体質の方向けのパッチテストについては<a href="am-allergy-patch" style="color:var(--gold);">こちらの記事</a>で解説しています。</p>
+      <p class="article-p">染料には微量の金属成分（酸化鉄など）が、施術針には医療用ステンレスが使われます。<strong>18金やプラチナといった純度の高い金属でアレルギー症状が出たことがある方</strong>は、基本的に施術をお受けいただけません。施術後に皮膚が激しく腫れたり、長期間アレルギー反応が続くリスクがあるためです。軽度の反応でも必ずカウンセリング時にお申し出ください。敏感肌・アレルギー体質の方向けのパッチテストについては<a href="#allergy" style="color:var(--gold);">こちらの記事</a>で解説しています。</p>
 
       <h3 class="article-h3">② ケロイド体質の方</h3>
       <p class="article-p">怪我や手術の跡が赤く大きく盛り上がって治る「ケロイド体質」の方は施術できません。アートメイクは皮膚に微細な傷をつける施術のため、傷口が異常に増殖し、お顔に消えないケロイドが残るリスクがあります。</p>
@@ -181,7 +191,7 @@
         <li>痛み・緊張によるストレスが子宮収縮を引き起こすリスクがある</li>
         <li>万一の肌トラブル時に妊婦が服用できる抗生剤・痛み止めが極めて限られる</li>
       </ul>
-      <p class="article-note">授乳中の方は要事前確認の対象です（授乳停止の期間調整が必要な場合あり）。妊娠中・授乳中の施術タイミングについては<a href="am-ninshin" style="color:var(--gold);">こちらの記事</a>でも詳しく解説しています。</p>
+      <p class="article-note">授乳中の方は要事前確認の対象です（授乳停止の期間調整が必要な場合あり）。妊娠中・授乳中の施術タイミングについては<a href="#pregnancy" style="color:var(--gold);">こちらの記事</a>でも詳しく解説しています。</p>
 
       <h3 class="article-h3">⑤ 重度の感染症・内臓疾患をお持ちの方</h3>
       <ul class="article-ul">
@@ -256,6 +266,15 @@
 
       <p class="article-note">※上記以外の美容施術につきましては、詳細や施術メニューによって受けていただけるタイミングが個々に異なります。安心・安全に施術をお受けいただくためにも、事前に当院までお気軽にお問い合わせください。</p>
 
+      <h2 class="article-h2" id="pregnancy">4. 妊娠中・授乳中・産後の考え方</h2>
+      <p class="article-p">妊娠中は初期・安定期・後期の全時期で施術をお断りしています。ホルモンバランスの変化による肌トラブルのリスク、麻酔使用時の痛み・緊張による胎児への影響、万一のトラブル時に処方できる薬が限られることが理由です。「安定期だから大丈夫」ということはありません。</p>
+      <p class="article-p">授乳中は「要事前確認」の対象で、授乳停止の期間調整が必要になる場合があります。「絶対に不可」と一律に決まっているわけではなく、麻酔薬の成分が母乳に与える影響を考慮して医師が個別に判断します。授乳中であることはカウンセリング時に必ずお伝えください。</p>
+      <p class="article-p">産後は体調やホルモンバランスの回復に個人差があります。授乳が終わったタイミングや体調が落ち着いたタイミングで検討される方が多い傾向で、焦って進める必要はありません。</p>
+      <h2 class="article-h2" id="allergy">5. 敏感肌・アレルギー体質・アトピーとパッチテスト</h2>
+      <p class="article-p">敏感肌・アレルギー体質・アトピー体質であることが、即座に施術不可を意味するわけではありません。事前のパッチテストで色素への反応を確認し、医師と相談のうえで施術可否を判断します。肌の状態や体調によっては、施術を見送る、あるいは別の色素での施術を検討する場合もあります。</p>
+      <div style="overflow-x:auto;"><table class="compare-table" style="width:100%;border-collapse:collapse;font-size:13px;margin:24px 0 32px;"><thead><tr><th style="text-align:left;padding:12px 14px;">項目</th><th style="text-align:left;padding:12px 14px;">内容</th></tr></thead><tbody><tr><td style="padding:12px 14px;">パッチテストの費用</td><td style="padding:12px 14px;">¥11,000（別途）</td></tr><tr><td style="padding:12px 14px;">実施方法</td><td style="padding:12px 14px;">施術で使う色素を少量、腕の内側など目立たない部分に塗布</td></tr><tr><td style="padding:12px 14px;">確認期間</td><td style="padding:12px 14px;">数日間、赤み・かゆみ・腫れなどの反応を観察</td></tr><tr><td style="padding:12px 14px;">陽性反応が出た場合</td><td style="padding:12px 14px;">その色素での施術は見送り。色素の種類を変えて再検討できる場合もあります</td></tr></tbody></table></div>
+      <p class="article-p">パッチテストは「絶対安全」を保証するものではなく、色素そのものへのアレルギー反応を事前に確認するための検査です。金属アレルギー・かぶれの経験がある方、敏感肌・アトピー体質の方、初めて施術を受ける方には特におすすめしています。</p>
+      <p class="article-p">アトピー体質の方は、パッチテストに加えて、施術部位の皮膚コンディションも確認します。当日に湿疹・かぶれ・強い乾燥がある場合は、状態が落ち着くまで施術を見合わせることがあります。現在治療中の方は、皮膚科の主治医に施術の可否を確認してからご検討ください。アートメイクは皮膚疾患の治療を行うものではありません。</p>
       <h2 class="article-h2">まとめ：禁忌をしっかり提示するクリニックが信頼できる</h2>
       <p class="article-p">「誰でも、いつでも、安く簡単にできます！」と謳うサロンは、医療としての安全意識が欠如している可能性が高く危険です。アートメイクは医療行為だからこそ、<strong>「できない人の条件」や「施術前後の注意事項」を明確に提示しているクリニックが本当に信頼できる</strong>クリニックです。</p>
       <p class="article-p">ご自身の体調・服薬状況・スキンケア内容を事前に整理し、少しでも不安な点があればカウンセリング時に医師やアーティストに相談してください。正直にお伝えいただくことが、安全で美しい仕上がりへの最短ルートです。</p>
@@ -264,6 +283,26 @@
       <div style="margin-top:32px;padding:24px 28px;background:#fdf7f2;border:0.5px solid #e8c49a;border-left:3px solid #b07040;">
         <p style="font-family:var(--font-serif-ja);font-size:14px;font-weight:400;color:#7a4a20;margin-bottom:12px;">※ クリニック選びの重要性</p>
         <p style="font-size:13px;font-weight:300;color:var(--text);line-height:2.2;">禁忌事項の確認やアレルギーへの配慮を怠って施術を行うクリニックでは、ごく稀に激しい湿疹や皮膚疾患、腫れ、赤み、強いかゆみなどのトラブルを引き起こすケースがあります。安全に美しく仕上げるためには、事前のカウンセリングを丁寧に行い、リスクを適切に管理している信頼できるクリニックを選ぶことが大切です。</p>
+      </div>
+
+      <h2 class="article-h2">よくある質問（妊娠・授乳・アレルギー）</h2>
+      <div class="article-faq">
+        <div class="article-faq-item">
+          <p class="article-faq-q">妊娠中にアートメイクは受けられますか？</p>
+          <p class="article-faq-a">妊娠中は初期・安定期・後期の全時期において施術をお断りしています。ホルモンバランスの変化や胎児への影響、処方できる薬が限られることを考慮した対応です。</p>
+        </div>
+        <div class="article-faq-item">
+          <p class="article-faq-q">授乳中は施術を受けられますか？</p>
+          <p class="article-faq-a">授乳中は要事前確認の対象で、授乳停止の期間調整が必要になる場合があります。施術可否は医師の判断によるため、授乳中であることを必ず事前にお伝えください。</p>
+        </div>
+        <div class="article-faq-item">
+          <p class="article-faq-q">敏感肌・アレルギー体質でもアートメイクは受けられますか？</p>
+          <p class="article-faq-a">体質だけを理由に一律でお断りすることはありません。事前のパッチテスト（¥11,000・数日間の反応を確認）で色素への反応を確認し、医師と相談のうえで判断します。</p>
+        </div>
+        <div class="article-faq-item">
+          <p class="article-faq-q">パッチテストで陽性が出た場合はどうなりますか？</p>
+          <p class="article-faq-a">陽性反応が出た場合、その色素での施術は見送りとなります。色素の種類を変えて再度検討できる場合もあります。</p>
+        </div>
       </div>
 
       <div class="article-related">
