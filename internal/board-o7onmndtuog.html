@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<style>body{margin:0}</style>
+<title>komi 集客ボード</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@600&display=swap">
+<style>
+:root{
+  --bg:#f8f5f2; --card:#fffdfb; --ink:#2b2523; --muted:#7b6f6a; --line:#ebe3dd; --soft:#f1ebe6;
+  --accent:#a8604f; --accent-soft:#f3e3dd; --teal:#2f6468;
+  --good:#2e7d4f; --good-bg:#e3f1e8; --warn:#a86a12; --warn-bg:#f8ecd6; --bad:#b3413b; --bad-bg:#f7e1df;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#4a3aa7; --grey:#b8b0aa;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#1b1716; --card:#241f1d; --ink:#f3ede9; --muted:#b3a7a1; --line:#3a322f; --soft:#2d2725;
+    --accent:#e0907e; --accent-soft:#3a2a26; --teal:#7bb7b9;
+    --good:#6cc28f; --good-bg:#1f3327; --warn:#e2ad5a; --warn-bg:#3a2e1a; --bad:#ec8a84; --bad-bg:#3d2322;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#9085e9; --grey:#6f6662;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#1b1716; --card:#241f1d; --ink:#f3ede9; --muted:#b3a7a1; --line:#3a322f; --soft:#2d2725;
+  --accent:#e0907e; --accent-soft:#3a2a26; --teal:#7bb7b9;
+  --good:#6cc28f; --good-bg:#1f3327; --warn:#e2ad5a; --warn-bg:#3a2e1a; --bad:#ec8a84; --bad-bg:#3d2322;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#9085e9; --grey:#6f6662;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;font-size:15px;line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:16px;padding-block:8px 48px}
+header.top{padding-block:18px 10px}
+.brand{font-family:"Zen Old Mincho","Hiragino Mincho ProN",serif;font-size:26px;letter-spacing:.04em;margin:0}
+.meta{color:var(--muted);font-size:12.5px;margin-top:2px}
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;overflow-x:auto;padding-block:8px;margin-inline:-16px;padding-inline:16px;scrollbar-width:none;border-bottom:1px solid var(--line)}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs a{flex:0 0 auto;text-decoration:none;color:var(--ink);font-size:13.5px;padding:6px 12px;border-radius:999px;background:var(--soft)}
+nav.tabs a:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+section{padding-top:22px;scroll-margin-top:56px}
+h2{font-family:"Zen Old Mincho","Hiragino Mincho ProN",serif;font-size:19px;letter-spacing:.03em;margin:0 0 10px;text-wrap:balance}
+h3{font-size:14.5px;margin:0 0 8px;font-weight:700}
+.lead{color:var(--muted);font-size:13.5px;margin:-4px 0 12px}
+.note{background:var(--accent-soft);border-radius:14px;padding:14px 16px;font-size:14.5px}
+.note small{display:block;color:var(--muted);font-size:12px;margin-top:6px}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media(min-width:720px){.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 12px 10px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.tile .k{font-size:12px;color:var(--muted);line-height:1.4}
+.tile .v{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.15}
+.tile .v small{font-size:13px;font-weight:500;color:var(--muted);margin-left:2px}
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;padding:2px 8px;border-radius:999px;width:fit-content;font-weight:500}
+.pill.good{background:var(--good-bg);color:var(--good)} .pill.warn{background:var(--warn-bg);color:var(--warn)} .pill.bad{background:var(--bad-bg);color:var(--bad)} .pill.info{background:var(--soft);color:var(--muted)}
+.grid2{display:grid;gap:12px}
+@media(min-width:760px){.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;min-width:0}
+.chart{width:100%;height:auto;display:block;overflow:visible}
+.chart text{font-family:inherit;fill:var(--muted);font-size:10.5px}
+.chart .val{fill:var(--ink);font-size:11px;font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--muted);margin-bottom:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.cap{font-size:12.5px;color:var(--muted);margin:8px 0 0}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500}
+td.n,th.n{text-align:right;white-space:nowrap}
+.bar-in{display:block;height:6px;border-radius:3px;background:var(--line);margin-top:4px;overflow:hidden}
+.bar-in b{display:block;height:100%;background:var(--teal)}
+.acts{display:grid;gap:10px}
+.act{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:auto 1fr;gap:4px 10px}
+.act .who{grid-row:span 3;font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:8px;height:fit-content;white-space:nowrap}
+.who.komi{background:var(--accent-soft);color:var(--accent)} .who.masa{background:var(--soft);color:var(--teal)}
+.act .t{font-weight:700;font-size:14.5px}
+.act .d{font-size:13.5px}
+.act .y{font-size:12px;color:var(--muted)}
+.act.done{opacity:.55} .act.done .t{text-decoration:line-through}
+details{margin-top:10px}
+summary{cursor:pointer;color:var(--muted);font-size:13px}
+ul.log{margin:6px 0 0;padding-left:18px;font-size:13px}
+a.post{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.links a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--accent);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13.5px;font-weight:500}
+.links a::after{content:"↗";font-size:12px;color:var(--muted)}
+.goal{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;margin-bottom:8px}
+.goal b{font-size:17px}
+.cmp{display:grid;gap:10px}
+.cmp .row{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.cmp .part{font-weight:700;font-size:14px;margin-bottom:6px}
+.cmp .now,.cmp .next{font-size:13.5px;border-radius:10px;padding:8px 10px;white-space:pre-line}
+.cmp .now{background:var(--soft);color:var(--muted)}
+.cmp .next{background:var(--accent-soft);margin-top:6px}
+.cmp .lbl{display:block;font-size:11px;font-weight:700;letter-spacing:.06em;margin-bottom:2px}
+.rules{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+@media(min-width:760px){.rules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.rules li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13.5px}
+.rules li b{display:block;font-size:14px;margin-bottom:2px}
+.owner{font-size:11.5px;font-weight:500;color:var(--teal);background:var(--soft);border-radius:8px;padding:2px 8px;margin-left:6px;vertical-align:2px}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:4px 8px;border-radius:6px;transform:translate(-50%,-120%);white-space:nowrap;z-index:9}
+.warnbox{border-left:3px solid var(--warn);background:var(--warn-bg);padding:8px 12px;border-radius:0 10px 10px 0;font-size:13px;margin-top:10px}
+footer{color:var(--muted);font-size:12px;margin-top:28px;line-height:1.8}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="top">
+    <p class="brand">komi 集客ボード</p>
+    <div class="meta" id="meta"></div>
+    <div class="links" id="links"></div>
+  </header>
+  <nav class="tabs" aria-label="セクション">
+    <a href="#summary">まとめ</a><a href="#todo">やること</a><a href="#insta">インスタ</a><a href="#plan">インスタ改善</a><a href="#ads">広告</a><a href="#site">サイト</a><a href="#search">検索・AI</a><a href="#sales">予約・売上</a>
+  </nav>
+
+  <section id="summary">
+    <h2>今週のまとめ</h2>
+    <div class="note" id="comment"></div>
+    <div class="tiles" id="tiles" style="margin-top:12px"></div>
+  </section>
+
+  <section id="todo">
+    <h2>いまやること</h2>
+    <p class="lead">上から順に効果が大きいもの。komi＝インスタ・お店側、masa＝広告・設定側</p>
+    <div class="acts" id="acts"></div>
+    <details><summary>済んだこと</summary><ul class="log" id="log"></ul></details>
+  </section>
+
+  <section id="insta">
+    <h2>インスタ</h2>
+    <p class="lead">プロフまで来た人が、LINEに進んでいるか</p>
+    <div class="grid2">
+      <div class="card"><h3>プロフを見た人（週）</h3><div id="c_prof"></div></div>
+      <div class="card"><h3>LINEリンクを押した人（週）</h3><div id="c_line"></div><p class="cap" id="cap_rate"></p></div>
+    </div>
+    <div class="card" style="margin-top:12px"><h3>最近の投稿（60日）</h3><p class="lead" style="margin:0 0 6px">プロフ訪問が多い投稿＝「この人に頼みたい」が生まれた投稿</p><div class="tbl" id="t_posts"></div></div>
+  </section>
+
+  <section id="plan">
+    <h2>インスタの改善プラン</h2>
+    <div class="goal"><span class="pill info">目標</span><b id="plan_goal"></b></div>
+    <p class="lead" id="plan_why" style="margin:0 0 12px"></p>
+    <h3>プロフ：いま → こうする</h3>
+    <div class="cmp" id="plan_prof"></div>
+    <h3 style="margin-top:16px">投稿のルール</h3>
+    <ul class="rules" id="plan_posts"></ul>
+  </section>
+
+  <section id="ads">
+    <h2>広告（インスタ・Facebook）</h2>
+    <p class="lead">眉・リップを見た女性が、プロフに来てくれたか</p>
+    <div class="grid2">
+      <div class="card"><h3>広告費（週）</h3><div class="legend"><span><i style="background:var(--s5)"></i>女性に届いた分</span><span><i style="background:var(--grey)"></i>男性など</span></div><div id="c_spend"></div></div>
+      <div class="card"><h3>女性1人をプロフに呼ぶのにかかったお金（週）</h3><div id="c_cpv"></div><p class="cap">目標は¥20以下。9/25に「女性だけ・地域だけ」に直したので、下がっていくはず</p></div>
+    </div>
+    <div class="card" style="margin-top:12px"><h3>地域ごと（直近7日）</h3><div class="tbl" id="t_region"></div></div>
+  </section>
+
+  <section id="site">
+    <h2>サイト（artmake-komi.com）<span class="owner">masaが作成・運用</span></h2>
+    <p class="lead">どこから来て、LINEを押したか｜<a href="https://artmake-komi.com" target="_blank" rel="noopener" style="color:var(--accent)">artmake-komi.com を開く</a></p>
+    <div class="grid2">
+      <div class="card"><h3>訪問（週・来た経路別）</h3><div class="legend" id="lg_ch"></div><div id="c_ch"></div></div>
+      <div class="card"><h3>サイトでLINEを押した回数（週）</h3><div id="c_sline"></div></div>
+    </div>
+    <div class="card" style="margin-top:12px"><h3>よく見られたページ（28日）</h3><div class="tbl" id="t_pages"></div></div>
+  </section>
+
+  <section id="search">
+    <h2>検索・AI</h2>
+    <div class="grid2">
+      <div class="card"><h3>Google検索からのクリック（週）</h3><div id="c_gsc"></div></div>
+      <div class="card"><h3>ChatGPTなどAIからの訪問（28日）</h3><div class="tbl" id="t_ai"></div></div>
+    </div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="card"><h3>来てくれた検索ワード（28日）</h3><div class="tbl" id="t_q"></div></div>
+      <div class="card"><h3>あと少しで1ページ目のワード</h3><p class="lead" style="margin:0 0 6px">11〜20位あたり。記事やページを少し足すと上がりやすい</p><div class="tbl" id="t_near"></div></div>
+    </div>
+  </section>
+
+  <section id="sales">
+    <h2>予約・売上</h2>
+    <p class="lead" id="sales_lead"></p>
+    <div class="grid2">
+      <div class="card"><h3>新規のお客さま（月・クリニック別）</h3><div class="legend" id="lg_new"></div><div id="c_new"></div></div>
+      <div class="card"><h3>新規が最初に選んだメニュー（半年）</h3><div class="tbl" id="t_menu"></div></div>
+    </div>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+const D={"generated": "2026-09-26 12:54", "weeks": ["7/4", "7/11", "7/18", "7/25", "8/1", "8/8", "8/15", "8/22", "8/29", "9/5", "9/12", "9/19"], "range": ["2026-07-04", "2026-09-25"], "ga4": {"channels": {"検索": [11, 11, 8, 22, 26, 20, 29, 33, 64, 60, 62, 52], "直接": [9, 6, 8, 12, 9, 5, 12, 4, 20, 9, 9, 12], "その他": [0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 12], "AI": [0, 0, 0, 0, 0, 0, 0, 6, 6, 20, 11, 15], "SNS": [3, 0, 3, 5, 2, 1, 2, 2, 3, 9, 7, 7]}, "events": {"line_click": [1, 0, 2, 5, 3, 3, 5, 9, 11, 14, 5, 13], "instagram_click": [4, 2, 0, 5, 3, 2, 3, 6, 10, 15, 12, 9]}, "pages": [{"page": "/tsukuba", "sessions": 166, "key": 34}, {"page": "/", "sessions": 48, "key": 10}, {"page": "/tokyo", "sessions": 41, "key": 12}, {"page": "/amarapink", "sessions": 27, "key": 4}, {"page": "/men-artmake", "sessions": 19, "key": 12}, {"page": "/takasaki", "sessions": 11, "key": 5}, {"page": "(not set)", "sessions": 9, "key": 0}, {"page": "/cases-eyebrow", "sessions": 7, "key": 0}, {"page": "/column/am-lip-herpes", "sessions": 6, "key": 0}, {"page": "/ota", "sessions": 6, "key": 4}, {"page": "", "sessions": 5, "key": 1}, {"page": "/cases", "sessions": 5, "key": 1}], "ai": {"sources": [["chatgpt.com", 52], ["openai", 1]], "pages": [["/men-artmake", 15], ["/", 13], ["/tsukuba", 8], ["/cases-eyebrow", 5], ["/takasaki", 3], ["/ota", 2]]}}, "gsc": {"clicks": [7, 9, 5, 16, 14, 12, 18, 29, 40, 46, 42, 30], "imp": [168, 164, 150, 259, 240, 293, 393, 582, 599, 602, 479, 351], "top": [{"q": "眉毛アートメイクつくば", "clicks": 14, "imp": 128, "pos": 4.3}, {"q": "アートメイク つくば", "clicks": 10, "imp": 87, "pos": 4.7}, {"q": "眉毛アート", "clicks": 6, "imp": 91, "pos": 4.0}, {"q": "つくば アートメイク", "clicks": 5, "imp": 36, "pos": 4.5}, {"q": "アートメイク 眉", "clicks": 3, "imp": 48, "pos": 3.5}, {"q": "眉毛アート つくば", "clicks": 2, "imp": 42, "pos": 5.1}, {"q": "アートメイク", "clicks": 2, "imp": 40, "pos": 3.6}, {"q": "眉アート", "clicks": 2, "imp": 40, "pos": 5}], "near": [{"q": "千代田区 アートメイク おすすめ", "clicks": 0, "imp": 40, "pos": 15.7}, {"q": "千代田区 医療アートメイク", "clicks": 0, "imp": 37, "pos": 12.0}], "through": "2026-09-23"}, "ads": {"spend": [8972, 6729, 7417, 5682, 5224, 6885, 4603, 6534, 6436, 6241, 6098, 11958], "f_spend": [2948, 3109, 4190, 3167, 2817, 3649, 1787, 3213, 3030, 2400, 3059, 5893], "f_pv": [188, 140, 263, 222, 137, 242, 109, 145, 160, 167, 168, 354], "region": [{"area": "東京", "spend": 2010, "inside": 60, "pv": 188, "budget": 300}, {"area": "つくば", "spend": 2264, "inside": 26, "pv": 78, "budget": 400}, {"area": "群馬", "spend": 2387, "inside": 35, "pv": 168, "budget": 400}, {"area": "長野", "spend": 2268, "inside": 1, "pv": 164, "budget": 400}, {"area": "栃木", "spend": 555, "inside": 84, "pv": 25, "budget": 300}, {"area": "香川", "spend": 2297, "inside": 63, "pv": 117, "budget": 400}]}, "ig": {"reach": [11848, 8899, 9779, 7039, 7794, 11336, 7963, 11764, 8938, 9552, 8833, 13627], "prof": [727, 459, 588, 464, 406, 623, 450, 482, 477, 558, 479, 870], "line": [4, 0, 7, 11, 1, 2, 4, 2, 6, 13, 7, 12], "followers": 695, "follows": 3109, "posts": [{"date": "2026-09-18", "type": "投稿", "caption": "「似合うデザイン」は、 形だけで決まるものではありません。  骨格や", "url": "https://www.instagram.com/p/DdbEbdKEoLg/", "reach": 127, "saved": 1, "prof": 4}, {"date": "2026-09-17", "type": "リール", "caption": "「描いた感」より、 なんとなく目元が整って見える☺️  まつ毛の生え", "url": "https://www.instagram.com/reel/DdZITxUS1tN/", "reach": 174, "saved": 0, "prof": null}, {"date": "2026-09-16", "type": "投稿", "caption": "【必要としている方へ、届きますように】  アートメイクという選択肢を", "url": "https://www.instagram.com/p/DdWIzzGElje/", "reach": 84, "saved": 0, "prof": 2}, {"date": "2026-09-16", "type": "投稿", "caption": "【初めてでも迷わない｜施術当日の流れ】  アートメイクに興味はあるけ", "url": "https://www.instagram.com/p/DdWBiudEhb0/", "reach": 95, "saved": 0, "prof": 3}, {"date": "2026-09-13", "type": "投稿", "caption": "料金・施術場所・ご予約についてのご案内です🕊️  私は現在、複数地域", "url": "https://www.instagram.com/p/DdOypHqEqic/", "reach": 186, "saved": 1, "prof": 2}, {"date": "2026-09-13", "type": "投稿", "caption": "はじめてアートメイクを検討されている方へ🌿  「自分に似合うデザイン", "url": "https://www.instagram.com/p/DdOyRjiEss2/", "reach": 170, "saved": 0, "prof": 4}, {"date": "2026-09-13", "type": "投稿", "caption": "品のある、長く愛せるアートメイクを。  はじめまして。 医療アートメ", "url": "https://www.instagram.com/p/DdOxzG5kqTl/", "reach": 227, "saved": 0, "prof": 15}, {"date": "2026-09-08", "type": "投稿", "caption": "「アートメイクは気になるけれど、 すぐに予約するのは少し不安…」  ", "url": "https://www.instagram.com/p/DdB0aBDkgQo/", "reach": 128, "saved": 0, "prof": 1}, {"date": "2026-08-28", "type": "投稿", "caption": "「描いた感」より、 なんとなく目元が整って見える ┈┈┈┈┈┈┈┈┈", "url": "https://www.instagram.com/p/DclJrpvEqRE/", "reach": 502, "saved": 11, "prof": 11}, {"date": "2026-08-26", "type": "投稿", "caption": "ふんわり、と。 もともとの眉を活かしたパウダー眉🌿 他の症例はこちら", "url": "https://www.instagram.com/p/Dcf5N_YkkaV/", "reach": 737, "saved": 12, "prof": 10}, {"date": "2026-08-18", "type": "投稿", "caption": "他の症例はこちら @artmake_komi   “10年前のアート", "url": "https://www.instagram.com/p/DcLZuKIkl2n/", "reach": 360, "saved": 8, "prof": 12}, {"date": "2026-08-07", "type": "投稿", "caption": "「分け目が気になる...」そんなお悩みに。 今回は分け目へのヘアスカ", "url": "https://www.instagram.com/p/Dbu6rKXEmQO/", "reach": 374, "saved": 15, "prof": 10}, {"date": "2026-08-05", "type": "投稿", "caption": "知らずにやってしまっている方、意外と多いんです💭 実は、施術前の過ご", "url": "https://www.instagram.com/p/DbpuVSCEuwY/", "reach": 396, "saved": 15, "prof": 7}, {"date": "2026-07-29", "type": "投稿", "caption": "「分け目が以前より目立つ気がする…」 「髪を結ぶと地肌が気になる…」", "url": "https://www.instagram.com/p/Da7eQ6ykvNU/", "reach": 334, "saved": 0, "prof": 4}], "token_days": 58}, "sales": {"updated": "2026-08-31", "months": [{"ym": "2026-01", "new": {"太田": 1}}, {"ym": "2026-02", "new": {}}, {"ym": "2026-03", "new": {"太田": 1, "香川": 2}}, {"ym": "2026-04", "new": {"高崎": 1, "香川": 2, "太田": 1}}, {"ym": "2026-05", "new": {"高崎": 2, "つくば": 2, "香川": 1}}, {"ym": "2026-06", "new": {"太田": 4, "高崎": 1, "つくば": 2, "長野": 1}}, {"ym": "2026-07", "new": {"高崎": 2, "つくば": 5, "太田": 3, "東京": 1}}, {"ym": "2026-08", "new": {"長野": 1, "高崎": 1, "つくば": 1, "太田": 1}}], "menus": [["パウダー眉", 13], ["毛並み眉", 9], ["アイライン（上）", 4], ["ミックス眉", 4], ["リップ", 2], ["スカルプ", 2]]}, "notes": {"comment": "サイトは検索もChatGPTも伸びていて、サイトからのLINEクリックは12週前の10倍以上になりました。一方でインスタは、プロフまで来た人のうちLINEに進むのが1.4%だけ。広告は9/25に「女性だけ・狙った地域だけ」に直したので、効果が出るのは今週から。いま一番効くのは、プロフの最初の画面に眉の症例を出すことです。", "comment_date": "2026-09-26", "actions": [{"who": "komi", "title": "自己紹介文の順番を入れ替える", "detail": "最初の4行を「医療アートメイク看護師｜眉・アイライン・リップ／📍東京 半蔵門・つくば・高崎・太田・佐久平・壬生／症例はハイライト「眉」へ／▼空き枠・ご相談はLINE（相談だけでもOK）」に。今の「品のある…」の文はその下へ", "why": "今は地域とLINEの案内が「続きを読む」に隠れている", "done": false}, {"who": "komi", "title": "固定表示の1枠を眉のビフォーアフターに", "detail": "今は3枚とも文字の画像。広告で症例を見て来た人が、すぐ同じものを見られるように", "why": "文字タイル中心の9月の投稿はリーチが約3分の1に落ちた", "done": false}, {"who": "komi", "title": "名前の欄に「眉」と「長野」を入れる", "detail": "例: こみ｜眉・アイライン｜東京・つくば・群馬・長野", "why": "名前の欄はインスタ内の検索にも効く", "done": false}, {"who": "komi", "title": "毎月「東京・つくばの施術日」投稿を出す", "detail": "5/28の「つくばでも施術できるようになりました」は半年でプロフ訪問1位（82件）", "why": "地域の告知が一番プロフに人を呼んでいる", "done": false}, {"who": "komi", "title": "フォロー中を少しずつ整理する", "detail": "フォロー中3,109＞フォロワー695。業界アカウントなどを数日に分けて外す", "why": "医療系として信頼を下げやすい", "done": false}, {"who": "komi", "title": "売上表に「きっかけ」の列を足す", "detail": "初回のお客さまだけ: インスタ広告／インスタ投稿／サイト検索／ChatGPT／クリニック紹介／友人紹介", "why": "どの集客が予約につながったかが分かる", "done": false}, {"who": "masa", "title": "9/30夜に10月の広告に切り替える", "detail": "py apply_komi_october.py --apply（東京600／つくば500／群馬350／長野300／栃木300／香川150）", "why": "今の広告は9/30で全部止まる", "done": false}, {"who": "masa", "title": "LINE公式の流入経路URLを地域別に作る", "detail": "インスタ・東京／インスタ・つくば／インスタ・その他／サイト", "why": "地域ごとのLINE数が分かる", "done": false}], "done_log": [{"date": "2026-09-25", "text": "広告の地域ずれを修正（長野の広告が東京に出ていた）"}, {"date": "2026-09-25", "text": "広告を女性だけに（半年で広告費の56%が男性に出ていた）"}, {"date": "2026-09-25", "text": "広告を眉・リップ・アイライン中心に絞り込み"}], "links": [{"label": "サイト artmake-komi.com", "url": "https://artmake-komi.com"}, {"label": "インスタ @artmake_komi", "url": "https://www.instagram.com/artmake_komi/"}], "insta_plan": {"goal": "プロフまで来た人の3%がLINEへ（今は1.4%）", "why": "広告で眉・リップの症例を見て来た人が、プロフの最初の画面で「文字の画像」と「雰囲気の自己紹介」に出会って帰っている。ハイライト（お客様の声・料金・場所・眉・リップ…）はよく整っているので、直すのはその手前だけ。", "profile": [{"part": "自己紹介文", "now": "品のある、長く愛せるアートメイクを／骨格×肌質×あなたらしさ…／上品ナチュラルな仕上がりに定評あり／定着まで考えた施術…（地域とLINEの案内は「続きを読む」の中）", "next": "医療アートメイク看護師｜眉・アイライン・リップ\n📍東京 半蔵門／つくば／高崎・太田／佐久平／壬生\n症例はハイライト「眉」へ\n▼空き枠・ご相談はLINE（相談だけでもOK）\n（その下に今の「品のある…」の文）"}, {"part": "名前の欄", "now": "こみ｜医療アートメイク看護師｜東京・群馬・茨城 他", "next": "こみ｜眉・アイライン｜東京・つくば・群馬・長野"}, {"part": "固定表示（3枠）", "now": "ご案内／はじめての方へ／わたしについて（3枚とも文字の画像）", "next": "①眉のビフォーアフター ②ご案内（料金・場所・予約） ③リップかアイラインの症例。「わたしについて」はハイライトへ"}, {"part": "リンク", "now": "LINE 1本（どの地域の人か分からない）", "next": "「東京・半蔵門のご予約」「つくばのご予約」「その他の地域」をそれぞれ別のLINE URLに（masaが作成）"}, {"part": "フォロー中", "now": "3,109（フォロワー695）", "next": "業界アカウントなどを数日に分けて外し、フォロワーより少なく"}], "posts": [{"t": "症例2：案内1", "d": "9月は文字の案内画像が続いて、1投稿あたりの見た人が約3分の1（7〜8月は約500人→9月は約150人）に。症例は保存も多い（平均14回）。案内画像にも顔や眉の写真を入れる"}, {"t": "毎月「地域の施術日」投稿", "d": "「つくばでも施術できるようになりました」（5/28）は半年でプロフ訪問が断トツ1位（82件）。毎月はじめに「東京・半蔵門 ○月の施術日」「つくば ○月の空き枠」を出す"}, {"t": "症例の投稿に必ず書くこと", "d": "施術内容・料金（自由診療）・主なリスク（赤み・腫れ・かさぶた、定着に個人差）。医療広告のルールで、ビフォーアフターには必須"}, {"t": "眉を主役に", "d": "新規のお客さまの74%が眉（リップは半年で2人）。投稿も広告も、眉＞アイライン＞リップの順で"}, {"t": "縦型（リール・ストーリーズ）", "d": "広告の9割はリールとストーリーズに出ている。眉の症例を縦型でも作っておくと、広告にそのまま使える"}]}}};
+(function(){
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const yen=n=>"¥"+Math.round(n).toLocaleString("ja-JP");
+const num=n=>Math.round(n).toLocaleString("ja-JP");
+const last=a=>a[a.length-1];
+const sum=a=>a.reduce((x,y)=>x+y,0);
+const W=D.weeks;
+const cssVar=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+$("meta").textContent=`更新 ${D.generated}｜グラフは ${D.range[0].slice(5).replace("-","/")}〜${D.range[1].slice(5).replace("-","/")} の12週間（1本＝1週間）`;
+
+/* ── tooltip ── */
+const tip=$("tip");
+function bindTip(svg){
+  svg.querySelectorAll("[data-tip]").forEach(el=>{
+    const show=e=>{const p=e.touches?e.touches[0]:e;tip.textContent=el.dataset.tip;tip.hidden=false;tip.style.left=p.clientX+"px";tip.style.top=p.clientY+"px"};
+    el.addEventListener("pointerenter",show);el.addEventListener("pointermove",show);
+    el.addEventListener("pointerleave",()=>tip.hidden=true);
+    el.addEventListener("click",e=>{show(e);clearTimeout(el._t);el._t=setTimeout(()=>tip.hidden=true,1600)});
+  });
+}
+
+/* ── bar chart (single or stacked). series: [{name,color,values}] ── */
+function bars(target,series,{fmt=num,height=150,goal=null,goalLabel=""}={}){
+  const w=340,h=height,pl=4,pr=4,pt=16,pb=20,n=W.length;
+  const totals=W.map((_,i)=>sum(series.map(s=>s.values[i]||0)));
+  let max=Math.max(...totals,goal||0,1);max=max*1.12;
+  const bw=(w-pl-pr)/n,gap=Math.max(2,bw*0.28),y=v=>pt+(h-pt-pb)*(1-v/max);
+  let g="";
+  [0.5,1].forEach(f=>{const yy=y(max/1.12*f);g+=`<line x1="${pl}" x2="${w-pr}" y1="${yy}" y2="${yy}" stroke="var(--line)" stroke-width="1"/>`});
+  if(goal!=null){const yy=y(goal);g+=`<line x1="${pl}" x2="${w-pr}" y1="${yy}" y2="${yy}" stroke="var(--good)" stroke-dasharray="4 3" stroke-width="1.2"/><text x="${w-pr}" y="${yy-4}" text-anchor="end" style="fill:var(--good)">${esc(goalLabel)}</text>`}
+  W.forEach((lab,i)=>{
+    let acc=0;const x=pl+i*bw+gap/2,bwid=bw-gap;
+    series.forEach((s,si)=>{
+      const v=s.values[i]||0;if(v<=0)return;
+      const y1=y(acc+v),y0=y(acc);acc+=v;
+      const top=si===series.length-1||series.slice(si+1).every(t=>!(t.values[i]>0));
+      const r=top?Math.min(4,bwid/2):0;
+      const hh=Math.max(0,y0-y1-(acc>v?1:0));
+      g+=`<path d="M${x},${y0} V${y1+r} q0,-${r} ${r},-${r} H${x+bwid-r} q${r},0 ${r},${r} V${y0} Z" fill="${s.color}" opacity="${i===n-1?1:.82}" data-tip="${esc(lab)}週 ${esc(s.name)}: ${esc(fmt(v))}" style="cursor:pointer"/>`;
+      if(acc>v) g+=`<line x1="${x}" x2="${x+bwid}" y1="${y0}" y2="${y0}" stroke="var(--card)" stroke-width="2"/>`;
+    });
+    if(i%2===(n-1)%2) g+=`<text x="${x+bwid/2}" y="${h-5}" text-anchor="middle">${esc(lab)}</text>`;
+  });
+  const lx=pl+(n-1)*bw+bw/2;
+  g+=`<text class="val" x="${lx}" y="${y(last(totals))-5}" text-anchor="middle">${esc(fmt(last(totals)))}</text>`;
+  target.innerHTML=`<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="週ごとの棒グラフ">${g}</svg>`;
+  bindTip(target.querySelector("svg"));
+}
+
+/* ── line chart (single series) ── */
+function line(target,values,{fmt=num,color="var(--accent)",goal=null,goalLabel="",height=150}={}){
+  const w=340,h=height,pl=4,pr=14,pt=18,pb=20,n=values.length;
+  const vals=values.map(v=>v==null?null:v);
+  let max=Math.max(...vals.filter(v=>v!=null),goal||0,1)*1.15;
+  const x=i=>pl+(w-pl-pr)*i/(n-1),y=v=>pt+(h-pt-pb)*(1-v/max);
+  let g="";
+  [0.5,1].forEach(f=>{const yy=y(max/1.15*f);g+=`<line x1="${pl}" x2="${w-pr}" y1="${yy}" y2="${yy}" stroke="var(--line)"/>`});
+  if(goal!=null){const yy=y(goal);g+=`<line x1="${pl}" x2="${w-pr}" y1="${yy}" y2="${yy}" stroke="var(--good)" stroke-dasharray="4 3" stroke-width="1.2"/><text x="${pl}" y="${yy-4}" style="fill:var(--good)">${esc(goalLabel)}</text>`}
+  const pts=vals.map((v,i)=>v==null?null:[x(i),y(v)]);
+  const d=pts.filter(Boolean).map((p,i)=>(i?"L":"M")+p[0]+","+p[1]).join(" ");
+  const f=pts.filter(Boolean);
+  g+=`<path d="${d} L${last(f)[0]},${h-pb} L${f[0][0]},${h-pb} Z" fill="${color}" opacity=".10"/>`;
+  g+=`<path d="${d}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+  pts.forEach((p,i)=>{if(!p)return;
+    g+=`<circle cx="${p[0]}" cy="${p[1]}" r="${i===n-1?4.5:2.5}" fill="${i===n-1?color:"var(--card)"}" stroke="${color}" stroke-width="1.5"/>`;
+    g+=`<rect x="${p[0]-12}" y="${pt}" width="24" height="${h-pt-pb}" fill="transparent" data-tip="${esc(W[i])}週: ${esc(fmt(vals[i]))}" style="cursor:pointer"/>`;
+    if(i%2===(n-1)%2) g+=`<text x="${p[0]}" y="${h-5}" text-anchor="middle">${esc(W[i])}</text>`;
+  });
+  const lp=last(f);g+=`<text class="val" x="${lp[0]}" y="${lp[1]-9}" text-anchor="end">${esc(fmt(last(vals)))}</text>`;
+  target.innerHTML=`<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="週ごとの折れ線グラフ">${g}</svg>`;
+  bindTip(target.querySelector("svg"));
+}
+
+function table(target,head,rows){
+  if(!rows.length){target.innerHTML=`<p class="cap">データがまだありません</p>`;return}
+  target.innerHTML=`<table><thead><tr>${head.map(h=>`<th class="${h.n?"n":""}">${esc(h.t)}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((c,i)=>`<td class="${head[i].n?"n":""}">${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+}
+const status=(ok,warn)=>ok?"good":warn?"warn":"bad";
+const pillTxt={good:"目標クリア",warn:"もう少し",bad:"要改善",info:"参考"};
+
+/* ── まとめ ── */
+const N=D.notes||{};
+$("comment").innerHTML=esc(N.comment||"")+(N.comment_date?`<small>${esc(N.comment_date)} のコメント</small>`:"");
+const tiles=[];
+if(D.ig){const p=last(D.ig.prof),l=last(D.ig.line),r=p?l/p*100:0;tiles.push({k:"インスタ：プロフ→LINEに進んだ割合",v:r.toFixed(1)+"<small>%</small>",s:status(r>=3,r>=2),sub:`目標3%｜今週 ${num(l)}人 / ${num(p)}人`})}
+if(D.ads){const sp=last(D.ads.spend),fp=last(D.ads.f_pv),fs=last(D.ads.f_spend);const c=fp?sp/fp:0;tiles.push({k:"広告：女性1人をプロフに呼ぶお金",v:yen(c),s:status(c<=20,c<=28),sub:"目標¥20以下"});const fr=sp?fs/sp*100:0;tiles.push({k:"広告：女性に届いた割合",v:Math.round(fr)+"<small>%</small>",s:status(fr>=95,fr>=80),sub:"目標95%以上"})}
+if(D.ga4){const lc=D.ga4.events.line_click,a=sum(lc.slice(0,4))/4;tiles.push({k:"サイト：LINEを押した回数（週）",v:num(last(lc)),s:"info",sub:`12週前の4週平均 ${a.toFixed(1)}回`});const se=D.ga4.channels["検索"]||[];tiles.push({k:"サイト：検索からの訪問（週）",v:num(last(se)),s:"info",sub:`12週前 ${num(se[0]||0)}`});const ai=D.ga4.channels["AI"]||[];tiles.push({k:"サイト：ChatGPTなどAIからの訪問（週）",v:num(last(ai)),s:"info",sub:"AIに紹介されている"})}
+if(D.ig) tiles.push({k:"インスタ：フォロワー / フォロー中",v:`${num(D.ig.followers)}<small>/ ${num(D.ig.follows)}</small>`,s:D.ig.follows>D.ig.followers*1.5?"warn":"good",sub:"フォロー中が多すぎると信頼が下がりやすい"});
+if(D.sales&&D.sales.months.length){const m=last(D.sales.months);tiles.push({k:`新規のお客さま（${+m.ym.slice(5)}月）`,v:num(sum(Object.values(m.new)))+"<small>人</small>",s:"info",sub:`売上表 ${D.sales.updated} 時点`})}
+$("tiles").innerHTML=tiles.map(t=>`<div class="tile"><span class="k">${esc(t.k)}</span><span class="v">${t.v}</span><span class="pill ${t.s}">${pillTxt[t.s]}</span><span class="k">${esc(t.sub)}</span></div>`).join("");
+
+/* ── リンク・改善プラン ── */
+$("links").innerHTML=(N.links||[]).map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("");
+const P=N.insta_plan;
+if(P){
+  $("plan_goal").textContent=P.goal;$("plan_why").textContent=P.why;
+  $("plan_prof").innerHTML=P.profile.map(r=>`<div class="row"><div class="part">${esc(r.part)}</div><div class="now"><span class="lbl">いま</span>${esc(r.now)}</div><div class="next"><span class="lbl">こうする</span>${esc(r.next)}</div></div>`).join("");
+  $("plan_posts").innerHTML=P.posts.map(r=>`<li><b>${esc(r.t)}</b>${esc(r.d)}</li>`).join("");
+}else{document.getElementById("plan").hidden=true}
+
+/* ── やること ── */
+$("acts").innerHTML=(N.actions||[]).map(a=>`<div class="act${a.done?" done":""}"><span class="who ${esc(a.who)}">${esc(a.who)}</span><span class="t">${esc(a.title)}</span><span class="d">${esc(a.detail)}</span><span class="y">理由：${esc(a.why)}</span></div>`).join("");
+$("log").innerHTML=(N.done_log||[]).map(x=>`<li>${esc(x.date.slice(5).replace("-","/"))} ${esc(x.text)}</li>`).join("");
+
+/* ── インスタ ── */
+if(D.ig){
+  bars($("c_prof"),[{name:"プロフを見た人",color:"var(--s6)",values:D.ig.prof}]);
+  bars($("c_line"),[{name:"LINEを押した人",color:"var(--s3)",values:D.ig.line}]);
+  const rates=D.ig.prof.map((p,i)=>p?(D.ig.line[i]/p*100):0);
+  $("cap_rate").textContent=`プロフ→LINEの割合：今週 ${last(rates).toFixed(1)}%（12週の平均 ${(sum(D.ig.line)/sum(D.ig.prof)*100).toFixed(1)}%）。目標は3%`;
+  const posts=[...D.ig.posts].sort((a,b)=>(b.prof??-1)-(a.prof??-1));
+  table($("t_posts"),[{t:"投稿"},{t:"見た人",n:1},{t:"保存",n:1},{t:"プロフへ",n:1}],
+    posts.map(p=>[`<a class="post" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.date.slice(5).replace("-","/"))} ${esc(p.caption||"(文なし)")}</a> <span class="pill info">${esc(p.type)}</span>`,num(p.reach),num(p.saved),p.prof==null?"-":num(p.prof)]));
+}
+
+/* ── 広告 ── */
+if(D.ads){
+  const other=D.ads.spend.map((s,i)=>Math.max(0,s-D.ads.f_spend[i]));
+  bars($("c_spend"),[{name:"女性に届いた分",color:"var(--s5)",values:D.ads.f_spend},{name:"男性など",color:"var(--grey)",values:other}],{fmt:yen});
+  line($("c_cpv"),D.ads.spend.map((s,i)=>D.ads.f_pv[i]?s/D.ads.f_pv[i]:null),{fmt:yen,goal:20,goalLabel:"目標 ¥20"});
+  table($("t_region"),[{t:"地域"},{t:"狙った地域に届いた割合"},{t:"広告費",n:1},{t:"プロフへ",n:1},{t:"1日の予算",n:1}],
+    D.ads.region.map(r=>[esc(r.area),r.inside==null?"-":`${r.inside}%<span class="bar-in"><b style="width:${r.inside}%"></b></span>`,yen(r.spend),num(r.pv),r.budget?yen(r.budget):"-"]));
+}
+
+/* ── サイト ── */
+if(D.ga4){
+  const order=[["検索","var(--s1)"],["AI","var(--s3)"],["SNS","var(--s5)"],["直接","var(--s4)"],["その他","var(--grey)"]];
+  const ser=order.filter(([k])=>D.ga4.channels[k]).map(([k,c])=>({name:k,color:c,values:D.ga4.channels[k]}));
+  $("lg_ch").innerHTML=ser.map(s=>`<span><i style="background:${s.color}"></i>${esc(s.name==="AI"?"AI（ChatGPTなど）":s.name)}</span>`).join("");
+  bars($("c_ch"),ser);
+  bars($("c_sline"),[{name:"LINEクリック",color:"var(--s3)",values:D.ga4.events.line_click}]);
+  const pname=p=>({"/":"トップ","/tsukuba":"つくば","/takasaki":"高崎","/ota":"太田","/tokyo":"東京（半蔵門）","/men-artmake":"メンズ","/cases-eyebrow":"眉の症例","/cases":"症例","/clinics":"提携院・料金","/hajimete":"はじめての方へ","/contact":"お問い合わせ"}[p]||p);
+  table($("t_pages"),[{t:"ページ"},{t:"訪問",n:1},{t:"LINE等",n:1}],D.ga4.pages.slice(0,8).map(p=>[esc(pname(p.page)),num(p.sessions),num(p.key)]));
+  table($("t_ai"),[{t:"AI経由で最初に見たページ"},{t:"訪問",n:1}],D.ga4.ai.pages.map(([p,n])=>[esc(pname(p)),num(n)]));
+}
+
+/* ── 検索 ── */
+if(D.gsc){
+  bars($("c_gsc"),[{name:"クリック",color:"var(--s1)",values:D.gsc.clicks}]);
+  table($("t_q"),[{t:"ワード"},{t:"クリック",n:1},{t:"順位",n:1}],D.gsc.top.map(q=>[esc(q.q),num(q.clicks),q.pos.toFixed(1)]));
+  table($("t_near"),[{t:"ワード"},{t:"表示",n:1},{t:"順位",n:1}],D.gsc.near.map(q=>[esc(q.q),num(q.imp),q.pos.toFixed(1)]));
+}
+
+/* ── 売上 ── */
+if(D.sales){
+  $("sales_lead").textContent=`売上表（${D.sales.updated} 更新）から。毎月末に表を更新すると、ここも更新されます`;
+  const cls=[["つくば","var(--s3)"],["東京","var(--s6)"],["太田","var(--s1)"],["高崎","var(--s2)"],["長野","var(--s5)"],["香川","var(--s4)"]];
+  const labels=D.sales.months.map(m=>`${+m.ym.slice(5)}月`);
+  const ser=cls.map(([k,c])=>({name:k,color:c,values:D.sales.months.map(m=>m.new[k]||0)})).filter(s=>sum(s.values)>0);
+  $("lg_new").innerHTML=ser.map(s=>`<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join("");
+  const saveW=W.slice();W.length=0;labels.forEach(l=>W.push(l));
+  bars($("c_new"),ser,{fmt:v=>v+"人"});
+  W.length=0;saveW.forEach(l=>W.push(l));
+  table($("t_menu"),[{t:"メニュー"},{t:"人数",n:1}],D.sales.menus.map(([m,n])=>[esc(m),num(n)+"人"]));
+}else{$("sales_lead").textContent="売上表が見つかりませんでした"}
+
+const td=D.ig&&D.ig.token_days;
+$("foot").innerHTML=`データ：Googleアナリティクス / Search Console / Instagram / Meta広告 / 売上表。毎週土曜に自動更新。<br>広告の数字は「プロフィールへのアクセス」を目的にした広告の結果です。${td!=null&&td<14?`<div class="warnbox">広告データの接続期限まで残り${td}日です（masaが更新）</div>`:""}`;
+})();
+</script>
+
+</body>
+</html>
