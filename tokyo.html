@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://artmake-komi.com/ogp.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260727b">
+<link rel="stylesheet" href="css/style.css?v=20261003a">
 <style>
 .lp-hero{position:relative;height:100vh;min-height:600px;background:var(--brown);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:80px 0;}
 .lp-hero-bg{position:absolute;inset:0;overflow:hidden;}
@@ -157,20 +157,32 @@
 </div>
 
 <!-- Hero -->
-<div class="lp-hero">
-  <div class="lp-hero-bg">
-    <video class="lp-hero-video" src="images/top1.mp4" autoplay muted loop playsinline></video>
-  </div>
-  <div class="lp-hero-inner">
-    <div class="lp-hero-content">
-      <p class="lp-hero-area">Tokyo / Hanzomon</p>
-      <h1 class="lp-hero-title"><span style="display:block;font-family:var(--font-serif-ja);font-size:clamp(14px,2vw,18px);font-weight:400;color:var(--gold);letter-spacing:0.1em;margin-bottom:14px;">千代田区・半蔵門の医療アートメイク</span>派手さではなく、<br>似合うを。</h1>
-      <p class="lp-hero-desc">半蔵門で出会う、あなただけに馴染む医療アートメイク。<br>看護師のアーティストが、医師管理の個室で丁寧に。</p>
-      <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで相談・予約する</a>
-      <p style="margin-top:16px;"><a href="clinics" style="font-size:12px;font-weight:300;color:rgba(245,240,232,0.7);text-decoration:underline;text-underline-offset:3px;">つくば・群馬・香川など東京以外の地域をお探しの方はこちら →</a></p>
+<section class="kv" data-kv>
+  <div class="kv-inner">
+    <div class="kv-copy">
+      <p class="kv-area">Tokyo / Hanzomon</p>
+      <h1 class="kv-title"><span class="kv-lead">千代田区・半蔵門の医療アートメイク</span>派手さではなく、<br><em>似合うを。</em></h1>
+      <p class="kv-desc">半蔵門で出会う、あなただけに馴染む医療アートメイク。<br>看護師のアーティストが、医師管理の個室で丁寧に。</p>
+      <div class="kv-btns">
+        <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで相談・予約する</a>
+        <a href="#cases" class="btn btn-outline">症例を見る</a>
+      </div>
+      <ul class="kv-meta">
+        <li>半蔵門駅 徒歩3分</li>
+        <li><a href="#scheduleBar" data-kv-next>次回施術日を見る</a></li>
+        <li>完全予約制</li>
+      </ul>
+      <p class="kv-sub-link"><a href="clinics">つくば・群馬など東京以外の地域はこちら →</a></p>
     </div>
+    <figure class="kv-media">
+      <picture class="kv-poster">
+        <source srcset="images/hero/hands-poster.webp" type="image/webp">
+        <img src="images/hero/hands-poster.jpg" width="480" height="600" alt="眉アートメイクの施術中の手元（東京・半蔵門 komi）" fetchpriority="high" decoding="async">
+      </picture>
+      <video class="kv-video" muted loop playsinline preload="none" poster="images/hero/hands-poster.jpg" data-src-pc="images/hero/hands.mp4" data-src-sp="images/hero/hands.mp4" aria-hidden="true"></video>
+    </figure>
   </div>
-</div>
+</section>
 
 <!-- 施術日程バー -->
 <div class="schedule-bar" id="scheduleBar">
@@ -180,7 +192,7 @@
       <div class="schedule-bar-divider"></div>
       <span class="schedule-bar-label">直近の空き</span>
       <div class="schedule-bar-dates">
-        <span class="schedule-date-chip">10/6 火 午前</span>
+        <span class="schedule-date-chip" data-next-session>10/6 火 午前</span>
         <span class="schedule-date-chip">10/8 木 午前</span>
         <span class="schedule-date-chip">10/20 火 午前</span>
         <span class="schedule-date-chip">10/27 火</span>
@@ -750,6 +762,7 @@ function toggleSchedule(){
   <a href="https://www.instagram.com/artmake_komi/" target="_blank" rel="noopener" class="float-insta-btn" aria-label="Instagramで相談"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="#fff"/></svg></a>
 </div>
 <script src="js/main.js?v=20260727b"></script>
+<script src="js/hero-media.js?v=20261003a"></script>
 <script src="js/ux-refinement.js?v=20260920"></script>
 </body>
 </html>

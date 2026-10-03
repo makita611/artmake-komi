@@ -101,7 +101,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260727b">
+<link rel="stylesheet" href="css/style.css?v=20261003a">
 <style>
 /* 予約の流れ */
 .res-flow{max-width:640px;margin:0 auto;}
@@ -173,26 +173,29 @@
 </div>
 
 <!-- Hero -->
-<section class="hero">
-  <div class="hero-bg">
-    <video class="hero-video" src="images/top1.mp4" autoplay muted loop playsinline></video>
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <p class="hero-sub">Medical Artmake by komi</p>
-    <h1 class="hero-title">
-      派手さではなく、<br>
-      <em>似合うを。</em>
-    </h1>
-    <p class="hero-desc">半蔵門で受ける、大人の医療アートメイク。<br>看護師のアーティストが、医師管理の個室で。骨格・肌質・毎日の暮らしに合わせて、濃くしすぎない自然な仕上がりを一緒につくります。</p>
-    <div class="hero-btns">
-      <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで相談・予約する</a>
-      <a href="cases" class="btn btn-outline">症例を見る</a>
+<section class="kv" data-kv>
+  <div class="kv-inner">
+    <div class="kv-copy">
+      <p class="kv-area">Medical Artmake by komi</p>
+      <h1 class="kv-title">派手さではなく、<br><em>似合うを。</em></h1>
+      <p class="kv-desc">半蔵門で受ける、大人の医療アートメイク。<br>看護師のアーティストが、医師管理の個室で。<span class="kv-desc-more">骨格・肌質・毎日の暮らしに合わせて、濃くしすぎない自然な仕上がりを一緒につくります。</span></p>
+      <div class="kv-btns">
+        <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで相談・予約する</a>
+        <a href="cases" class="btn btn-outline">症例を見る</a>
+      </div>
+      <ul class="kv-meta">
+        <li>東京・半蔵門</li>
+        <li><a href="#schedule" data-kv-next>次回施術日を見る</a></li>
+        <li>完全予約制</li>
+      </ul>
     </div>
-  </div>
-  <div class="hero-scroll">
-    <span>scroll</span>
-    <div class="scroll-line"></div>
+    <figure class="kv-media">
+      <picture class="kv-poster">
+        <source srcset="images/hero/hands-poster.webp" type="image/webp">
+        <img src="images/hero/hands-poster.jpg" width="480" height="600" alt="眉アートメイクの施術中の手元（東京・半蔵門 komi）" fetchpriority="high" decoding="async">
+      </picture>
+      <video class="kv-video" muted loop playsinline preload="none" poster="images/hero/hands-poster.jpg" data-src-pc="images/hero/hands.mp4" data-src-sp="images/hero/hands.mp4" aria-hidden="true"></video>
+    </figure>
   </div>
 </section>
 
@@ -208,7 +211,7 @@
     <p style="max-width:640px;margin:0 auto;font-size:13px;font-weight:300;color:var(--text);line-height:2;">KOMI ARTMAKE（コミ アートメイク）は、看護師国家資格を持つ専任アーティストkomiが、提携医療クリニック内で医師管理のもと行う医療アートメイクです。眉・アイライン・リップ・ヘアライン・ヘアスカルプ・パラメディカルに対応し、東京・半蔵門（一番町まつりかクリニック）のほか、茨城・つくば、群馬・太田・高崎で施術しています。施術実績は3,000件以上です。</p>
   </div>
 </section>
-<section class="tokyo-schedule">
+<section class="tokyo-schedule" id="schedule">
   <div class="container">
     <p class="schedule-label">NEXT TOKYO SESSION</p>
     <h3 class="schedule-title">次回の東京施術日</h3>
@@ -216,7 +219,7 @@
     <!-- 直近の空き枠チップ -->
     <div style="display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0 24px;">
       <span style="font-family:var(--font-serif-en);font-size:11px;letter-spacing:0.2em;color:var(--text-light);">Tokyo / Hanzomon &nbsp;|&nbsp; 直近の空き</span>
-      <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">10/6 火 午前</span>
+      <span data-next-session style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">10/6 火 午前</span>
       <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">10/8 木 午前</span>
       <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">10/20 火 午前</span>
       <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">10/27 火</span>
@@ -806,6 +809,7 @@
 </div>
 
 <script src="js/main.js?v=20260727b"></script>
+<script src="js/hero-media.js?v=20261003a"></script>
 <script src="js/ux-refinement.js?v=20260920"></script>
 </body>
 </html>

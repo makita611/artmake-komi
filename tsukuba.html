@@ -34,7 +34,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css?v=20260727b">
+<link rel="stylesheet" href="css/style.css?v=20261003a">
 
 <style>
 
@@ -225,19 +225,31 @@
 
 
 
-<div class="lp-hero">
-
-  <div class="lp-hero-bg"><video class="lp-hero-video" src="images/top1.mp4" autoplay muted loop playsinline></video></div>
-
-    <div class="lp-hero-inner">
-    <div class="lp-hero-content">
-      <p class="lp-hero-area">Ibaraki / Tsukuba</p>
-      <h1 class="lp-hero-title"><span style="display:block;font-family:var(--font-serif-ja);font-size:clamp(14px,2vw,18px);font-weight:400;color:var(--gold);letter-spacing:0.1em;margin-bottom:14px;">つくば・茨城の眉毛アート／医療アートメイク</span>派手さではなく、<br>似合うを。</h1>
-      <p class="lp-hero-desc">つくばで出会う、あなただけに馴染む医療アートメイク。<br>看護師のアーティストが、医師管理の個室で丁寧に。</p>
-      <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで相談・予約する</a>
+<section class="kv" data-kv>
+  <div class="kv-inner">
+    <div class="kv-copy">
+      <p class="kv-area">Ibaraki / Tsukuba</p>
+      <h1 class="kv-title"><span class="kv-lead">つくば・茨城の眉毛アート／医療アートメイク</span>派手さではなく、<br><em>似合うを。</em></h1>
+      <p class="kv-desc">つくばで出会う、あなただけに馴染む医療アートメイク。<br>看護師のアーティストが、医師管理の個室で丁寧に。</p>
+      <div class="kv-btns">
+        <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで相談・予約する</a>
+        <a href="#cases" class="btn btn-outline">症例を見る</a>
+      </div>
+      <ul class="kv-meta">
+        <li>つくば市・駐車場あり</li>
+        <li>施術日は月に数日</li>
+        <li>完全予約制</li>
+      </ul>
     </div>
+    <figure class="kv-media">
+      <picture class="kv-poster">
+        <source srcset="images/hero/hands-poster.webp" type="image/webp">
+        <img src="images/hero/hands-poster.jpg" width="480" height="600" alt="眉アートメイクの施術中の手元（つくば・茨城 komi）" fetchpriority="high" decoding="async">
+      </picture>
+      <video class="kv-video" muted loop playsinline preload="none" poster="images/hero/hands-poster.jpg" data-src-pc="images/hero/hands.mp4" data-src-sp="images/hero/hands.mp4" aria-hidden="true"></video>
+    </figure>
   </div>
-</div>
+</section>
 
 
 
@@ -979,6 +991,7 @@
 </div>
 
 <script src="js/main.js?v=20260727b"></script>
+<script src="js/hero-media.js?v=20261003a"></script>
 
 </body>
 

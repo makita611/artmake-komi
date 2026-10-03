@@ -1149,3 +1149,149 @@ ul { list-style: none; }
 /* ===== スマホ動画 全幅 ===== */
 @media(max-width:768px){ .video-wrap { margin-left: -32px; margin-right: -32px; max-width: none; } }
 @media(max-width:600px){ .video-wrap { margin-left: -20px; margin-right: -20px; } }
+
+/* ===== KV（トップ・エリアLP共通ヒーロー）=====
+   静止画(poster)を即表示 → 読込後に短い無音ループを重ねる。
+   素材は4:5なのでPCは右側パネル、スマホは上部全幅。cover はヒーロー例外として許可。 */
+.kv {
+  position: relative;
+  background: #1d1410;
+  color: #fff;
+  overflow: hidden;
+  min-height: min(760px, 100vh);
+  min-height: min(760px, 100svh);
+  display: flex;
+  align-items: center;
+  padding: calc(var(--header-h) + 48px) 0 56px;
+}
+.kv-inner {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 64px;
+  align-items: end;
+}
+.kv-copy { position: relative; z-index: 2; padding-bottom: 8px; }
+.kv-area {
+  font-family: var(--font-serif-en);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.kv-lead {
+  display: block;
+  font-family: var(--font-serif-ja);
+  font-size: clamp(13px, 1.6vw, 16px);
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+}
+.kv-title {
+  font-family: var(--font-serif-ja);
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 300;
+  line-height: 1.55;
+  letter-spacing: 0.06em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.kv-title em {
+  font-style: italic;
+  font-family: var(--font-serif-en);
+  font-size: 1.08em;
+  color: var(--beige-dark);
+}
+.kv-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 2;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 32px;
+  max-width: 34em;
+}
+.kv-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.kv-meta {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 0;
+  margin-top: 24px;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: rgba(245,240,232,0.78);
+}
+.kv-meta li + li::before { content: "/"; margin: 0 10px; color: rgba(196,163,110,0.6); }
+.kv-meta a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.kv-sub-link { margin-top: 14px; font-size: 12px; font-weight: 300; }
+.kv-sub-link a { color: rgba(245,240,232,0.7); text-decoration: underline; text-underline-offset: 3px; }
+
+.kv-media {
+  position: relative;
+  margin: 0;
+  height: min(600px, calc(100vh - var(--header-h) - 104px));
+  height: min(600px, calc(100svh - var(--header-h) - 104px));
+  min-height: 420px;
+  aspect-ratio: 4 / 5;
+  background: var(--brown);
+  overflow: hidden;
+}
+.kv-poster, .kv-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 素材と枠が同じ4:5なのでPCでは実質切れない */
+  display: block;
+}
+.kv-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.kv-video { opacity: 0; transition: opacity 1.2s ease; }
+.kv.is-playing .kv-video { opacity: 1; }
+.kv-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to right, rgba(29,20,16,0.35) 0%, rgba(29,20,16,0) 30%);
+}
+
+@media (max-width: 899px) {
+  .kv {
+    display: block;
+    min-height: 0;
+    padding: var(--header-h) 0 36px;
+  }
+  .kv-inner { display: flex; flex-direction: column; align-items: stretch; padding: 0; gap: 0; }
+  .kv-media {
+    order: -1;
+    width: 100%;
+    height: min(125vw, 50vh);
+    height: min(125vw, 50svh);
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+  .kv-poster, .kv-video, .kv-poster img { object-position: 50% 40%; }
+  .kv-media::after {
+    background: linear-gradient(to bottom, rgba(29,20,16,0) 55%, rgba(29,20,16,0.95) 100%);
+  }
+  .kv-copy { margin-top: -56px; padding: 0 20px; }
+  .kv-area { font-size: 11px; margin-bottom: 12px; }
+  .kv-title { font-size: clamp(26px, 7.4vw, 32px); margin-bottom: 12px; }
+  .kv-desc { font-size: 12.5px; line-height: 1.85; margin-bottom: 20px; }
+  .kv-desc-more { display: none; }
+  .kv-btns { flex-wrap: nowrap; gap: 10px; }
+  .kv-btns .btn { padding: 14px 12px; font-size: 13px; letter-spacing: 0.06em; text-align: center; white-space: nowrap; }
+  .kv-btns .btn-line { flex: 1.5; }
+  .kv-btns .btn-outline { flex: 1; }
+  .kv-meta { margin-top: 16px; font-size: 11.5px; }
+  .kv-meta li + li::before { margin: 0 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kv-video { display: none; }
+}
