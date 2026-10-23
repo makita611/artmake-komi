@@ -1,3 +1,8 @@
+/*
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=31536000
+
 /internal/*
   X-Robots-Tag: noindex, nofollow, noarchive
   Referrer-Policy: no-referrer
