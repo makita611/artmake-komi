@@ -11,7 +11,7 @@
 <link rel="canonical" href="https://artmake-komi.com/column/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=20260727b">
+<link rel="stylesheet" href="../css/style.css?v=20261004a">
 <style>
 .col-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .col-card { background: var(--white); border: 0.5px solid var(--border); transition: border-color 0.2s; }
@@ -23,6 +23,17 @@
 .col-date { font-size: 11px; color: var(--text-muted); font-family: var(--font-serif-en); letter-spacing: 0.08em; }
 @media(max-width:900px){ .col-grid{grid-template-columns:repeat(2,1fr);} }
 @media(max-width:600px){ .col-grid{grid-template-columns:1fr;} }
+.col-filter { margin: 0 0 32px; scroll-margin-top: calc(var(--header-h) + 16px); }
+.col-filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
+.col-filter-label { font-size: 12px; color: var(--text-light); margin-right: 4px; }
+.col-filter a { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--brown); text-decoration: none; border: 0.5px solid var(--border); background: var(--white); padding: 7px 14px; }
+.col-filter a:hover { border-color: var(--gold); }
+.col-filter a.active { background: var(--brown); border-color: var(--brown); color: #fff; }
+.col-filter-n { font-size: 10.5px; color: var(--text-muted); }
+.col-filter a.active .col-filter-n { color: rgba(255,255,255,0.7); }
+.col-filter-status { font-size: 12px; color: var(--gold); min-height: 1.5em; margin-top: 4px; }
+.col-card[hidden] { display: none; }
+@media(max-width:600px){ .col-filter-row { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; margin-right: -20px; padding-right: 20px; } .col-filter a, .col-filter-label { flex: 0 0 auto; white-space: nowrap; } }
 </style>
 </head>
 <body>
@@ -84,6 +95,26 @@
       <span class="section-label">Articles</span>
       <h2 class="section-title">記事一覧</h2>
     </div>
+    <nav class="col-filter" data-col-filter aria-label="コラムを絞り込む">
+      <div class="col-filter-row">
+        <span class="col-filter-label">部位で見る：</span>
+        <a href="./" data-part="all">すべて</a>
+        <a href="?part=mayu" data-part="mayu">眉</a>
+        <a href="?part=mens" data-part="mens">男性の眉</a>
+        <a href="?part=eyeline" data-part="eyeline">アイライン</a>
+        <a href="?part=lip" data-part="lip">リップ</a>
+        <a href="?part=hair" data-part="hair">ヘアライン・スカルプ</a>
+        <a href="?part=para" data-part="para">パラメディカル</a>
+        <a href="?part=amara" data-part="amara">アマラピンク</a>
+      </div>
+      <div class="col-filter-row">
+        <span class="col-filter-label">目的で見る：</span>
+        <a href="?part=basic" data-part="basic">はじめての方・選び方</a>
+        <a href="?part=fix" data-part="fix">修正・除去</a>
+        <a href="?part=area" data-part="area">地域から探す</a>
+      </div>
+      <p class="col-filter-status" data-col-status aria-live="polite"></p>
+    </nav>
     <div class="col-grid">
 <!-- ARTICLES_START -->
       <article class="col-card">
@@ -206,7 +237,7 @@
           <span class="col-date">2026.10.09</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="area">
         <a href="am-mito" class="col-card-link">
           <span class="col-cat">エリア情報</span>
           <h2 class="col-title">【水戸・ひたちなか・日立】水戸からアートメイクを受けるなら｜医療アートメイクの選び方と、つくば院までの通い方</h2>
@@ -214,7 +245,7 @@
           <span class="col-date">2026.10.03</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="area">
         <a href="am-kensei" class="col-card-link">
           <span class="col-cat">エリア情報</span>
           <h2 class="col-title">【古河・下妻・筑西・結城】茨城県西でアートメイクを受けるなら｜つくば院・太田院、通いやすいのはどっち？</h2>
@@ -222,7 +253,7 @@
           <span class="col-date">2026.10.03</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="area">
         <a href="am-tsuchiura" class="col-card-link">
           <span class="col-cat">エリア情報</span>
           <h2 class="col-title">【土浦・牛久・阿見】土浦でアートメイクを受けるなら｜医療アートメイクの選び方と、つくば院までの通い方</h2>
@@ -230,7 +261,7 @@
           <span class="col-date">2026.10.03</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="fix lip">
         <a href="am-yakuzai-jokyo" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">アートメイクや唇のシミは薬剤除去で薄くできる？仕組み・経過・回数を実例で解説</h2>
@@ -238,7 +269,7 @@
           <span class="col-date">2026.09.26</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="hair">
         <a href="am-hairscalp-toha" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">ヘアスカルプ（頭皮アートメイク／SMP）とは？仕組み・料金・持続期間をまとめて解説</h2>
@@ -246,7 +277,7 @@
           <span class="col-date">2026.09.22</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="mayu">
         <a href="am-mayuge-toha" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">眉毛アートメイクとは？仕組み・技法・料金・持続期間をまとめて解説</h2>
@@ -254,7 +285,7 @@
           <span class="col-date">2026.09.22</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="eyeline">
         <a href="am-megane-contact" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">メガネ・コンタクトレンズ利用者のアイラインアートメイク｜メイク崩れとつけまつげの悩み</h2>
@@ -262,7 +293,7 @@
           <span class="col-date">2026.09.19</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="mayu eyeline">
         <a href="am-sports-suiei" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">スポーツ・水泳をする方とアートメイク｜汗・水に強い眉とアイラインという選択肢</h2>
@@ -270,7 +301,7 @@
           <span class="col-date">2026.09.16</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-kisetsu-kikou" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">季節・気候とアートメイクの関係｜夏の汗・冬の乾燥とダウンタイムケア</h2>
@@ -278,7 +309,7 @@
           <span class="col-date">2026.09.14</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-tojitsu-nagare" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">アートメイク施術当日の流れ｜カウンセリングからアフターケア説明まで</h2>
@@ -286,7 +317,7 @@
           <span class="col-date">2026.09.13</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-shorai-sonae" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">将来のセルフケア困難に備えるアートメイクという考え方</h2>
@@ -294,7 +325,7 @@
           <span class="col-date">2026.09.12</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="para">
         <a href="am-paramedical-kizuato.html" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">パラメディカルアートメイクとは？傷跡・白斑・ストレッチマークをカモフラージュする仕組み</h2>
@@ -302,7 +333,7 @@
           <span class="col-date">2026.09.11</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="area">
         <a href="artmake-gunma" class="col-card-link">
           <span class="col-cat">エリア情報</span>
           <h2 class="col-title">群馬でアートメイクを受けるには？高崎・太田エリアの選び方</h2>
@@ -310,7 +341,7 @@
           <span class="col-date">2026.09.11</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="area">
         <a href="am-saitama-higashi" class="col-card-link">
           <span class="col-cat">エリア情報</span>
           <h2 class="col-title">【三郷・八潮・吉川・越谷・草加・春日部】埼玉東部でアートメイクを受けるなら</h2>
@@ -318,7 +349,7 @@
           <span class="col-date">2026.09.11</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="area">
         <a href="am-tochigi" class="col-card-link">
           <span class="col-cat">エリア情報</span>
           <h2 class="col-title">【宇都宮・栃木】でアートメイクを受けるなら｜宇都宮線・新幹線で東京の提携院へ通う選び方</h2>
@@ -326,7 +357,7 @@
           <span class="col-date">2026.09.11</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="hair">
         <a href="am-enkei-hairline" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">円形脱毛症とヘアラインアートメイク｜皮膚科治療と並行して考えられるケア</h2>
@@ -334,7 +365,7 @@
           <span class="col-date">2026.09.10</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="para">
         <a href="am-hokuro.html" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">ほくろアートメイクとは？位置・大きさの決め方と消えたほくろの復活まで</h2>
@@ -342,7 +373,7 @@
           <span class="col-date">2026.09.09</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="mayu eyeline">
         <a href="am-senior-eyemake" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">シニア世代のアイメイクの悩みとアートメイクという選択肢</h2>
@@ -350,7 +381,7 @@
           <span class="col-date">2026.09.08</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="hair">
         <a href="am-hairline.html" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">ヘアラインアートメイクとは？生え際の後退・M字・薄毛の見え方をカバーする仕組みと料金</h2>
@@ -358,7 +389,7 @@
           <span class="col-date">2026.09.07</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="mayu para">
         <a href="am-koganzai-mayuge" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">抗がん剤治療で眉毛が抜けたときのケアとしてのアートメイク</h2>
@@ -366,7 +397,7 @@
           <span class="col-date">2026.09.06</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="para">
         <a href="am-nyurin-nyutou" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">乳輪乳頭アートメイクとは？乳がん術後の乳房再建におけるアピアランスケアの選択肢</h2>
@@ -374,7 +405,7 @@
           <span class="col-date">2026.09.05</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-jitan-biyo-bijinesu" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">忙しい人のための時短美容という考え方｜アートメイクで毎日のメイク時間を効率化する</h2>
@@ -382,7 +413,7 @@
           <span class="col-date">2026.09.04</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-koukai-shinai-erabikata" class="col-card-link">
           <span class="col-cat">選び方</span>
           <h2 class="col-title">後悔しないアートメイクの選び方｜資格・カウンセリング・アフターケアの確認ポイント</h2>
@@ -390,7 +421,7 @@
           <span class="col-date">2026.09.03</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic mayu lip eyeline">
         <a href="am-artmake-toha" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">アートメイクとは？眉・リップ・アイラインでできること、効果の仕組みと持続期間</h2>
@@ -398,7 +429,7 @@
           <span class="col-date">2026.09.01</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="mayu">
         <a href="am-eyebrow-color" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">眉アートメイクの色選び｜グレー系・ブラウン系・髪色に合わせた決め方</h2>
@@ -406,7 +437,7 @@
           <span class="col-date">2026.08.19</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-iryouhikoujo" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">アートメイクは医療費控除の対象になる？保険適用外の理由と支払い方法</h2>
@@ -414,7 +445,7 @@
           <span class="col-date">2026.08.16</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="mayu fix">
         <a href="am-shusei" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">他院修正・やり直しアートメイク｜濃すぎ・左右差・古い眉を直す方法</h2>
@@ -422,7 +453,7 @@
           <span class="col-date">2026.07.25</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="lip">
         <a href="am-lip-color.html" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">リップアートメイクの色選び｜くすみ改善・血色感・似合う色の決め方</h2>
@@ -430,7 +461,7 @@
           <span class="col-date">2026.08.10</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="fix">
         <a href="am-jokyo.html" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">アートメイクの除去｜レーザー・除去液の違いと「消したい」を叶える方法を正直に解説</h2>
@@ -438,7 +469,7 @@
           <span class="col-date">2026.08.07</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="mayu fix">
         <a href="am-henshoku.html" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">眉アートメイクが青い・赤い・緑になるのはなぜ？変色の原因と対処を正直に解説</h2>
@@ -446,7 +477,7 @@
           <span class="col-date">2026.08.05</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="mayu">
         <a href="am-eyebrow-design.html" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">眉アートメイクのデザイン｜平行・アーチ・骨格別の似合う眉の決め方</h2>
@@ -454,7 +485,7 @@
           <span class="col-date">2026.08.03</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-clinic-vs-salon" class="col-card-link">
           <span class="col-cat">選び方・安全性</span>
           <h2 class="col-title">医療アートメイクとサロンの違い｜茨城で失敗しない選び方と違法サロンの見分け方</h2>
@@ -462,7 +493,7 @@
           <span class="col-date">2026.08.02</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic mayu lip">
         <a href="am-kaisu" class="col-card-link">
           <span class="col-cat">施術の基本</span>
           <h2 class="col-title">アートメイクは何回必要？眉・リップの回数・間隔と定着までの流れを解説</h2>
@@ -470,7 +501,7 @@
           <span class="col-date">2026.08.02</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="amara">
         <a href="am-amarapink" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">アマラピンクとは？針も色素も使わない黒ずみケアの仕組み・経過・回数を正直に解説</h2>
@@ -478,7 +509,7 @@
           <span class="col-date">2026.07.31</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="area">
         <a href="am-tx-chiba" class="col-card-link">
           <span class="col-cat">エリア情報</span>
           <h2 class="col-title">【柏・松戸・流山・守谷】TX＆常磐線沿線でアートメイクを受けるなら｜千葉北西部・茨城南部の選び方</h2>
@@ -486,7 +517,7 @@
           <span class="col-date">2026.07.25</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="mayu mens">
         <a href="am-mens" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">メンズ眉アートメイク｜男性の自然でバレない眉の作り方・料金・ダウンタイム</h2>
@@ -507,7 +538,7 @@
           <span class="col-date">2026.07.07</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="area">
         <a href="am-takasaki" class="col-card-link">
           <span class="col-cat">エリア情報</span>
           <h2 class="col-title">【高崎】群馬でアートメイクなら｜駐車場完備の医療アートメイククリニックの選び方</h2>
@@ -515,7 +546,7 @@
           <span class="col-date">2026.06.20</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="area">
         <a href="am-ota" class="col-card-link">
           <span class="col-cat">エリア情報</span>
           <h2 class="col-title">【太田】群馬でアートメイクなら｜車で通える医療アートメイククリニックの選び方</h2>
@@ -523,7 +554,7 @@
           <span class="col-date">2026.06.20</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="eyeline">
         <a href="am-eyeliner" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">アイラインアートメイクの料金・痛み・ダウンタイム｜上下の違いと失敗しない選び方</h2>
@@ -531,7 +562,7 @@
           <span class="col-date">2026.06.20</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic mayu lip">
         <a href="am-price" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">アートメイクの値段｜眉・リップの1回・2回料金と総額</h2>
@@ -539,7 +570,7 @@
           <span class="col-date">2026.09.21 updated</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-mri-tattoo" class="col-card-link">
           <span class="col-cat">安全性</span>
           <h2 class="col-title">アートメイクをしているとMRI検査は受けられない？タトゥーとの違いも解説</h2>
@@ -547,7 +578,7 @@
           <span class="col-date">2026.06.19</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="lip">
         <a href="am-lip-downtime" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">リップアートメイクの腫れはいつまで？ダウンタイムの経過と過ごし方を詳しく解説</h2>
@@ -555,7 +586,7 @@
           <span class="col-date">2026.06.17</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-jizoku" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">アートメイクは何年持つ？色落ち・消える仕組みと長持ちさせる5つのコツ</h2>
@@ -563,7 +594,7 @@
           <span class="col-date">2026.06.15</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-tekisei" class="col-card-link">
           <span class="col-cat">選び方</span>
           <h2 class="col-title">アートメイクに向いてない人・向いている人の特徴｜後悔しないための選び方</h2>
@@ -571,7 +602,7 @@
           <span class="col-date">2026.06.13</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="area">
         <a href="am-tokyo-hanzomon" class="col-card-link">
           <span class="col-cat">エリア情報</span>
           <h2 class="col-title">千代田区で医療アートメイクを受けるなら｜選び方・料金・半蔵門のアクセス</h2>
@@ -579,7 +610,7 @@
           <span class="col-date">2026.06.13</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="area">
         <a href="am-tsukuba" class="col-card-link">
           <span class="col-cat">エリア情報</span>
           <h2 class="col-title">【つくば】アートメイクおすすめクリニックの選び方！茨城・つくばエクスプレス沿線で失敗しない医療アートメイク</h2>
@@ -587,7 +618,7 @@
           <span class="col-date">2026.06.06</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-downtime" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">【仕事はどうする？】アートメイクのダウンタイム徹底ガイド！いつから出社できる？赤み・腫れの隠し方まで</h2>
@@ -595,7 +626,7 @@
           <span class="col-date">2026.06.06</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="mayu">
         <a href="am-eyebrow-type" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">眉アートメイクの「ワーキング（毛並み）」と「パウダー」どっちがいい？4つの違いと失敗しない選び方</h2>
@@ -603,7 +634,7 @@
           <span class="col-date">2026.06.06</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-kinki" class="col-card-link">
           <span class="col-cat">安全性</span>
           <h2 class="col-title">アートメイクができない人・施術前に知っておくべきリスクと禁忌</h2>
@@ -611,7 +642,7 @@
           <span class="col-date">2026.05.30</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-pigment" class="col-card-link">
           <span class="col-cat">安全性</span>
           <h2 class="col-title">アートメイクの染料（ピグメント）の安全性と成分を徹底解説</h2>
@@ -619,7 +650,7 @@
           <span class="col-date">2026.05.30</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-supppin" class="col-card-link">
           <span class="col-cat">体験・データ</span>
           <h2 class="col-title">アートメイクをする理由1位は「すっぴんでも綺麗でいたい」100人アンケートで分かった効果・料金・満足度のリアル</h2>
@@ -627,7 +658,7 @@
           <span class="col-date">2026.05.29</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="lip">
         <a href="am-lip-herpes" class="col-card-link">
           <span class="col-cat">施術別</span>
           <h2 class="col-title">リップアートメイクとヘルペス｜予防・対策・受けられるケースを正直に解説</h2>
@@ -635,7 +666,7 @@
           <span class="col-date">2026.05.28</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-clinic-erabi" class="col-card-link">
           <span class="col-cat">選び方</span>
           <h2 class="col-title">アートメイクのクリニック選び方｜安さで後悔しないために知っておきたいこと</h2>
@@ -643,14 +674,14 @@
           <span class="col-date">2026.05.28</span>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="area">
         <a href="artmake-ibaraki" class="col-card-link">
           <span class="col-cat">エリアガイド</span>
           <h2 class="col-title">茨城でアートメイクを受けるには？つくば・土浦・水戸エリアの選び方</h2>
           <p class="col-summary">茨城県で医療アートメイクをお探しの方へ。県内エリアごとの通いやすさと、クリニック選びで失敗しない3つのポイントをkomiが解説します。</p>
         </a>
       </article>
-      <article class="col-card">
+      <article class="col-card" data-parts="basic">
         <a href="am-itami" class="col-card-link">
           <span class="col-cat">基礎知識</span>
           <h2 class="col-title">アートメイクは痛い？麻酔あり・施術別の痛みを正直に解説</h2>
@@ -714,5 +745,6 @@
   </a>
 </div>
 <script src="../js/main.js?v=20260727b"></script>
+<script src="../js/column-filter.js?v=20261004a"></script>
 </body>
 </html>

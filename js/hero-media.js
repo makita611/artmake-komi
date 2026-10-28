@@ -9,6 +9,13 @@
   var chip = document.querySelector('[data-next-session]');
   if (slot && chip) slot.textContent = '次回施術日 ' + chip.textContent.trim();
 
+  // ヒーロー表示中は固定のLINE/Instagramボタンを隠す（CTAとの重なり防止）
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (e) {
+      document.body.classList.toggle('kv-in-view', e[0].intersectionRatio > 0.35);
+    }, { threshold: [0, 0.35, 1] }).observe(kv);
+  }
+
   var v = kv.querySelector('.kv-video');
   if (!v) return;
   var mm = window.matchMedia;
