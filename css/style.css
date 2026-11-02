@@ -1338,3 +1338,6 @@ ul { list-style: none; }
 /* ヒーローのCTAが見えている間は固定ボタンを隠す（スマホで「症例を見る」に重なるため） */
 .float-social { transition: opacity 0.3s ease; }
 body.kv-in-view .float-social { opacity: 0; pointer-events: none; }
+
+.footer-area a { color: inherit; text-decoration: none; }
+.footer-area a:hover { color: rgba(255,255,255,0.7); }
