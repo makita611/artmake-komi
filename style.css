@@ -947,3 +947,5 @@ ul { list-style: none; }
 
 .footer-area a { color: inherit; text-decoration: none; }
 .footer-area a:hover { color: rgba(255,255,255,0.7); }
+@media(min-width:769px){ .float-social a.float-line-btn { width: auto; border-radius: 28px; padding: 0 22px 0 18px; gap: 8px; }
+  .float-line-btn::after { content: "LINEで予約・相談"; color: #fff; font-size: 14px; letter-spacing: 0.06em; white-space: nowrap; } }
