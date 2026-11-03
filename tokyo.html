@@ -250,11 +250,20 @@
       <div class="schedule-bar-divider"></div>
       <span class="schedule-bar-label">直近の空き</span>
       <div class="schedule-bar-dates">
-        <span class="schedule-date-chip" data-next-session>LINEでご確認ください</span>
+        <span class="schedule-date-chip" data-slot-date="2026-11-10">11/10(火)</span>
+        <span class="schedule-date-chip" data-slot-date="2026-11-12">11/12(木)</span>
+        <span class="schedule-date-chip" data-slot-date="2026-11-17">11/17(火)</span>
+        <span class="schedule-date-chip" data-slot-date="2026-11-19">11/19(木)</span>
+        <span class="schedule-date-chip" data-slot-date="2026-11-30">11/30(月)</span>
+        <span class="schedule-date-chip" data-slot-fallback style="display:none;">直近の空きはLINEでご確認ください</span>
       </div>
     </div>
-    <p class="schedule-note">※ 他院・地方出張との兼ね合いにより、東京（一番町）の施術枠は毎月限定です。最新の空き状況・ご予約はLINEよりお問い合わせください。日程調整が可能な場合もございます。</p>
-  </div>
+    <p class="schedule-note">※ 上記以外でも日程調整が可能な場合があります。ご連絡のタイミングにより、前後のご予約の関係で既に埋まっている場合もありますので、LINEでご確認ください。</p>
+  <script>
+(function(){var t=new Date();t.setHours(0,0,0,0);var chips=document.querySelectorAll('[data-slot-date]'),live=0;
+chips.forEach(function(c){if(new Date(c.getAttribute('data-slot-date')+'T00:00:00')<t){c.style.display='none';}else{live++;}});
+var fb=document.querySelectorAll('[data-slot-fallback]');fb.forEach(function(e){e.style.display=live?'none':'';});})();
+</script></div>
 </div>
 <section class="tokyo-intent-section" aria-labelledby="tokyo-intent-title">
   <div class="container">

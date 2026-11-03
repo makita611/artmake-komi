@@ -277,10 +277,21 @@
     <!-- 直近の空き枠チップ -->
     <div style="display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0 24px;">
       <span style="font-family:var(--font-serif-en);font-size:11px;letter-spacing:0.2em;color:var(--text-light);">Tokyo / Hanzomon &nbsp;|&nbsp; 直近の空き</span>
-      <span data-next-session style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">LINEでご確認ください</span>
+      <span data-slot-date="2026-11-10" style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">11/10(火)</span>
+      <span data-slot-date="2026-11-12" style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">11/12(木)</span>
+      <span data-slot-date="2026-11-17" style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">11/17(火)</span>
+      <span data-slot-date="2026-11-19" style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">11/19(木)</span>
+      <span data-slot-date="2026-11-30" style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">11/30(月)</span>
+      <span data-slot-fallback style="display:none;padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">直近の空きはLINEでご確認ください</span>
     </div>
 
     <p class="schedule-date">日程はLINEよりお問い合わせください</p>
+    <p style="max-width:560px;margin:12px auto 0;font-size:12px;font-weight:300;line-height:1.9;color:var(--text-muted);">※ 上記以外でも日程調整が可能な場合があります。ご連絡のタイミングにより、前後のご予約の関係で既に埋まっている場合もありますので、LINEでご確認ください。</p>
+    <script>
+(function(){var t=new Date();t.setHours(0,0,0,0);var chips=document.querySelectorAll('[data-slot-date]'),live=0;
+chips.forEach(function(c){if(new Date(c.getAttribute('data-slot-date')+'T00:00:00')<t){c.style.display='none';}else{live++;}});
+var fb=document.querySelectorAll('[data-slot-fallback]');fb.forEach(function(e){e.style.display=live?'none':'';});})();
+</script>
 
     <div style="margin-top:28px;">
       <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">詳しい空き状況を確認する</a>
