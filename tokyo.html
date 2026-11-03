@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://artmake-komi.com/ogp.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20261103b">
+<link rel="stylesheet" href="css/style.css?v=20261103c">
 <style>
 .lp-hero{position:relative;height:100vh;min-height:600px;background:var(--brown);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:80px 0;}
 .lp-hero-bg{position:absolute;inset:0;overflow:hidden;}
@@ -250,43 +250,12 @@
       <div class="schedule-bar-divider"></div>
       <span class="schedule-bar-label">直近の空き</span>
       <div class="schedule-bar-dates">
-        <span class="schedule-date-chip" data-next-session>10/6 火 午前</span>
-        <span class="schedule-date-chip">10/8 木 午前</span>
-        <span class="schedule-date-chip">10/20 火 午前</span>
-        <span class="schedule-date-chip">10/27 火</span>
-      </div>
-      <div class="schedule-bar-toggle">
-        <button class="schedule-toggle-btn" onclick="toggleSchedule()">10月の全日程を見る ↓</button>
+        <span class="schedule-date-chip" data-next-session>LINEでご確認ください</span>
       </div>
     </div>
-    <div class="schedule-full" id="scheduleFull">
-      <div class="schedule-full-inner">
-        <div class="schedule-month">
-          <span class="schedule-month-title">October 2026</span>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/6 火 午前</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/8 木 午前</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/20 火 午前</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/27 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-        </div>
-      </div>
-      <p class="schedule-note">※ 他院・地方出張との兼ね合いにより、東京（一番町）の施術枠は毎月限定です。最新の空き状況・ご予約はLINEよりお問い合わせください。日程調整が可能な場合もございます。</p>
-    </div>
+    <p class="schedule-note">※ 他院・地方出張との兼ね合いにより、東京（一番町）の施術枠は毎月限定です。最新の空き状況・ご予約はLINEよりお問い合わせください。日程調整が可能な場合もございます。</p>
   </div>
 </div>
-<script>
-function toggleSchedule(){
-  var el=document.getElementById('scheduleFull');
-  var btn=document.querySelector('.schedule-toggle-btn');
-  if(el.classList.contains('is-open')){
-    el.classList.remove('is-open');
-    btn.textContent='10月の全日程を見る ↓';
-  } else {
-    el.classList.add('is-open');
-    btn.textContent='閉じる ↑';
-  }
-}
-</script>
-
 <section class="tokyo-intent-section" aria-labelledby="tokyo-intent-title">
   <div class="container">
     <p class="section-label">Tokyo consultation</p>
@@ -791,6 +760,7 @@ function toggleSchedule(){
         <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで相談・予約する</a>
         <a href="https://www.instagram.com/artmake_komi/" target="_blank" rel="noopener" class="btn btn-insta">Instagramで相談する</a>
       </div>
+<div class="cta-qr"><a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener"><img loading="lazy" src="images/lineqr.png" alt="LINE QRコード" width="120" height="120"></a><p>PCでご覧の方は、スマホでQRを読み込むと<br>LINEで空き状況の確認・ご予約ができます。</p></div>
       <p style="margin-top:20px;"><a href="clinics" style="font-size:12px;font-weight:300;color:var(--text-light);text-decoration:underline;text-underline-offset:3px;">つくば・群馬・香川など東京以外の地域をお探しの方はこちら →</a></p>
     </div>
   </div>

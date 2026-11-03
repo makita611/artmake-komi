@@ -949,3 +949,8 @@ ul { list-style: none; }
 .footer-area a:hover { color: rgba(255,255,255,0.7); }
 @media(min-width:769px){ .float-social a.float-line-btn { width: auto; border-radius: 28px; padding: 0 22px 0 18px; gap: 8px; }
   .float-line-btn::after { content: "LINEで予約・相談"; color: #fff; font-size: 14px; letter-spacing: 0.06em; white-space: nowrap; } }
+
+.cta-qr { display: none; }
+@media(min-width:769px){ .cta-qr { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 28px auto 0; text-align: left; }
+  .cta-qr img { width: 120px; height: 120px; background: #fff; padding: 6px; display: block; }
+  .cta-qr p { color: rgba(245,240,232,0.8); font-size: 12px; font-weight: 300; line-height: 1.9; letter-spacing: 0.04em; margin: 0; } }

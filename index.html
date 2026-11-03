@@ -101,7 +101,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20261103b">
+<link rel="stylesheet" href="css/style.css?v=20261103c">
 <style>
 /* 予約の流れ */
 .res-flow{max-width:640px;margin:0 auto;}
@@ -277,34 +277,10 @@
     <!-- 直近の空き枠チップ -->
     <div style="display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0 24px;">
       <span style="font-family:var(--font-serif-en);font-size:11px;letter-spacing:0.2em;color:var(--text-light);">Tokyo / Hanzomon &nbsp;|&nbsp; 直近の空き</span>
-      <span data-next-session style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">10/6 火 午前</span>
-      <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">10/8 木 午前</span>
-      <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">10/20 火 午前</span>
-      <span style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">10/27 火</span>
+      <span data-next-session style="padding:4px 13px;border:0.5px solid var(--gold);font-size:12px;color:var(--brown);letter-spacing:0.04em;">LINEでご確認ください</span>
     </div>
 
     <p class="schedule-date">日程はLINEよりお問い合わせください</p>
-
-    <!-- 全日程アコーディオン -->
-    <button onclick="toggleScheduleIdx()" id="scheduleToggleIdx" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:300;color:var(--text-muted);letter-spacing:0.1em;margin:12px 0 0;font-family:var(--font-sans);">10月の全日程を見る ↓</button>
-    <div id="scheduleFullIdx" style="display:none;margin:16px auto 0;max-width:640px;text-align:left;background:#2a2118;padding:24px 28px;">
-      <div>
-          <span style="font-family:var(--font-serif-en);font-size:10px;letter-spacing:0.25em;color:var(--gold);display:block;margin-bottom:12px;">October 2026</span>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/6 火 午前</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/8 木 午前</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/20 火 午前</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-          <div class="schedule-row"><span class="schedule-row-date is-tokyo">10/27 火</span><span class="schedule-row-status is-tokyo">◉ 東京・一番町　受付中</span></div>
-        </div>
-      <p style="margin-top:16px;font-size:11px;font-weight:300;color:rgba(200,190,180,0.45);line-height:1.9;border-top:0.5px solid rgba(196,163,110,0.15);padding-top:12px;">※ 他院・地方出張との兼ね合いにより、東京（一番町）の施術枠は毎月限定です。</p>
-    </div>
-    <script>
-    function toggleScheduleIdx(){
-      var el=document.getElementById('scheduleFullIdx');
-      var btn=document.getElementById('scheduleToggleIdx');
-      if(el.style.display==='block'){el.style.display='none';btn.textContent='9・10月の全日程を見る ↓';}
-      else{el.style.display='block';btn.textContent='閉じる ↑';}
-    }
-    </script>
 
     <div style="margin-top:28px;">
       <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">詳しい空き状況を確認する</a>
@@ -805,6 +781,7 @@
         <a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener" class="btn btn-line">LINEで予約する</a>
         <a href="https://www.instagram.com/artmake_komi/" target="_blank" rel="noopener" class="btn btn-insta">Instagramで相談</a>
       </div>
+<div class="cta-qr"><a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener"><img loading="lazy" src="images/lineqr.png" alt="LINE QRコード" width="120" height="120"></a><p>PCでご覧の方は、スマホでQRを読み込むと<br>LINEで空き状況の確認・ご予約ができます。</p></div>
     </div>
   </div>
 </section>
