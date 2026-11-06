@@ -21,6 +21,16 @@
 .col-title { font-family: var(--font-serif-ja); font-size: 16px; font-weight: 300; color: var(--brown); line-height: 1.7; letter-spacing: 0.04em; margin-bottom: 12px; }
 .col-summary { font-size: 12px; font-weight: 300; color: var(--text-light); line-height: 1.9; margin-bottom: 16px; }
 .col-date { font-size: 11px; color: var(--text-muted); font-family: var(--font-serif-en); letter-spacing: 0.08em; }
+.col-start { background: var(--beige-light); border: 0.5px solid var(--border); padding: 24px 28px; margin: 0 0 36px; }
+.col-start-title { font-family: var(--font-serif-ja); font-size: 15px; font-weight: 400; color: var(--brown); letter-spacing: 0.06em; margin: 0 0 12px; }
+.col-start-list { list-style: none; margin: 0; padding: 0; counter-reset: cs; }
+.col-start-list li { border-top: 0.5px solid var(--border); counter-increment: cs; }
+.col-start-list a { display: block; padding: 12px 4px 12px 30px; position: relative; font-size: 13px; font-weight: 300; color: var(--brown); text-decoration: none; line-height: 1.8; }
+.col-start-list a::before { content: counter(cs); position: absolute; left: 6px; color: var(--gold); font-family: var(--font-serif-en); }
+.col-start-list a:hover { color: var(--gold); }
+.col-start-q { display: block; font-size: 11px; color: var(--gold); letter-spacing: 0.08em; }
+.col-start-cta { font-size: 12px; color: var(--text-light); margin: 12px 0 0; }
+.col-start-cta a { color: var(--brown); text-decoration: underline; }
 @media(max-width:900px){ .col-grid{grid-template-columns:repeat(2,1fr);} }
 @media(max-width:600px){ .col-grid{grid-template-columns:1fr;} }
 .col-filter { margin: 0 0 32px; scroll-margin-top: calc(var(--header-h) + 16px); }
@@ -94,6 +104,17 @@
     <div class="section-header">
       <span class="section-label">Articles</span>
       <h2 class="section-title">記事一覧</h2>
+    </div>
+    <div class="col-start">
+      <h3 class="col-start-title">まずここから｜はじめての方に読まれている5本</h3>
+      <ol class="col-start-list">
+        <li><a href="am-price"><span class="col-start-q">いくらかかる？</span>アートメイクの料金・相場｜部位別の費用と2回セット</a></li>
+        <li><a href="am-itami"><span class="col-start-q">痛くない？</span>アートメイクは痛い？麻酔あり・施術別の痛み</a></li>
+        <li><a href="am-downtime"><span class="col-start-q">仕事は休む？</span>ダウンタイム徹底ガイド｜いつから出社できる？</a></li>
+        <li><a href="am-jizoku"><span class="col-start-q">どのくらい持つ？</span>アートメイクは何年持つ？色落ちと長持ちのコツ</a></li>
+        <li><a href="am-clinic-erabi"><span class="col-start-q">どこで受ける？</span>クリニックの選び方｜安さで後悔しないために</a></li>
+      </ol>
+      <p class="col-start-cta">読んでも迷うときは、<a href="https://lin.ee/8AGmhyG" target="_blank" rel="noopener">LINEで気軽に相談</a>できます。</p>
     </div>
     <nav class="col-filter" data-col-filter aria-label="コラムを絞り込む">
       <div class="col-filter-row">
