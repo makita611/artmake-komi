@@ -122,10 +122,9 @@ function toggleFaq(btn) {
 }
 
 /* ===== CTAクリック計測（GA4へ cta_click を送る。item_label=ボタン位置 / link_url=遷移先 / cta_type=種類）=====
-   gtag形式でdataLayerに積むと、GTMのGoogleタグ(G-WGZM6XBKS8)がそのままGA4へ送る。既存の line_click / instagram_click は別途GTM側が送る。 */
+   dataLayerにcta_clickイベントを積み、GTM(カスタムイベント cta_click のトリガー+GA4イベントタグ)がGA4へ送る。既存の line_click / instagram_click は別途GTM側が送る。 */
 (function () {
   window.dataLayer = window.dataLayer || [];
-  function gtag() { window.dataLayer.push(arguments); }
 
   function ctaType(a) {
     var href = a.getAttribute('href') || '';
@@ -163,7 +162,8 @@ function toggleFaq(btn) {
     var type = ctaType(a);
     if (!type) return;
     var href = a.href || '';
-    gtag('event', 'cta_click', {
+    window.dataLayer.push({
+      event: 'cta_click',
       cta_type: type,
       item_label: position(a),
       link_url: href.slice(0, 100),
