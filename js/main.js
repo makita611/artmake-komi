@@ -120,3 +120,55 @@ function toggleFaq(btn) {
   document.querySelectorAll('.faq-question').forEach(b => { b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
   if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
 }
+
+/* ===== CTAクリック計測（GA4へ cta_click を送る。item_label=ボタン位置 / link_url=遷移先 / cta_type=種類）=====
+   gtag形式でdataLayerに積むと、GTMのGoogleタグ(G-WGZM6XBKS8)がそのままGA4へ送る。既存の line_click / instagram_click は別途GTM側が送る。 */
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+
+  function ctaType(a) {
+    var href = a.getAttribute('href') || '';
+    var txt = (a.textContent || '').replace(/\s+/g, '');
+    if (/lin\.ee|line\.me/.test(href)) return 'line';
+    if (/instagram\.com/.test(href)) return 'instagram';
+    if (/^tel:/.test(href)) return 'tel';
+    if (/#price|料金/.test(href) || /料金|総額|費用/.test(txt)) return 'price';
+    if (/case|#cases|#case-story/.test(href) || /症例/.test(txt)) return 'cases';
+    if (/(^|\/)contact(\.html)?(\?|#|$)/.test(href) || /お問い合わせ|お問合せ/.test(txt)) return 'contact';
+    if (/(^|\/)clinics?(\.html)?(\?|#|$)/.test(href)) return 'clinics';
+    return '';
+  }
+
+  function position(a) {
+    if (a.closest('.float-line-btn, .float-insta-btn, [class*="float-"]')) return 'floating';
+    if (a.closest('.kv')) return 'hero';
+    if (a.closest('.site-header, .mobile-nav')) return 'header';
+    if (a.closest('footer, .site-footer')) return 'footer';
+    if (a.closest('.cta-section')) return 'bottom_cta';
+    if (a.closest('.faq-section')) return 'faq';
+    if (a.closest('.cs-section')) return 'case_story';
+    if (a.closest('.quick-nav, [data-quick-nav]')) return 'quick_nav';
+    if (a.closest('.col-start')) return 'column_start';
+    if (a.closest('.col-grid, .col-card')) return 'column_list';
+    if (a.closest('article, .article-body, .column-body')) return 'article';
+    var sec = a.closest('section');
+    if (sec) return (sec.id || (sec.className || '').split(/\s+/)[0] || 'section').slice(0, 40);
+    return 'other';
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var type = ctaType(a);
+    if (!type) return;
+    var href = a.href || '';
+    gtag('event', 'cta_click', {
+      cta_type: type,
+      item_label: position(a),
+      link_url: href.slice(0, 100),
+      click_text: (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 50),
+      page_path: location.pathname
+    });
+  }, true);
+})();
