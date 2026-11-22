@@ -3,7 +3,7 @@
 
 症例データは cases-*.html の CASE_DETAILS（gen系スクリプト管理）から読むだけで、そちらは編集しない。
 差し込み先は <!-- CASE_STORY_START --> 〜 <!-- CASE_STORY_END -->。無ければヒーロー(.kv)の直後に作る。
-選定方針（2026-10-03 masa）: 眉が主役。東京/トップ=男性眉+男性スカルプ、群馬=眉、リメイク系は出さない。
+選定方針（2026-10-03 masa／2026-11-22改）: 眉が主役。東京/トップ=女性の眉→女性のリップ→メンズ眉の順、群馬=眉、リメイク系は出さない。他県施術の症例は施術院・地域をカード内に明記する。
 使い方: py internal/build_case_story.py   （sites/artmake で実行）
 """
 import html, re
@@ -18,10 +18,11 @@ CASES = {
     "DacrkSNEr5_": ("cases-scalp", 1, ("column/am-hairscalp-toha", "ヘアスカルプのコラムを読む")),
     "Dcf5N_YkkaV": ("cases-eyebrow", 3, ("column/am-eyebrow-type", "毛並み/パウダーの違いを読む")),
     "Dazv5vJErPt": ("cases-eyebrow", 3, ("column/am-eyebrow-type", "毛並み/パウダーの違いを読む")),
+    "DaksCz6Etg_": ("cases-lip", 4, ("column/am-lip-color", "リップの色選びを読む")),
 }
 PAGES = {
-    "index.html":    ["DZKJKZ6Eqc3", "DafKmt7kupz", "DacrkSNEr5_"],
-    "tokyo.html":    ["DZKJKZ6Eqc3", "DafKmt7kupz", "DacrkSNEr5_"],
+    "index.html":    ["Dcf5N_YkkaV", "DaksCz6Etg_", "DZKJKZ6Eqc3"],
+    "tokyo.html":    ["Dcf5N_YkkaV", "DaksCz6Etg_", "DZKJKZ6Eqc3"],
     "tsukuba.html":  ["Dcf5N_YkkaV", "DZKJKZ6Eqc3", "Dazv5vJErPt"],
     "ota.html":      ["Dazv5vJErPt", "Dcf5N_YkkaV", "DafKmt7kupz"],
     "takasaki.html": ["Dazv5vJErPt", "Dcf5N_YkkaV", "DafKmt7kupz"],
@@ -39,11 +40,15 @@ def load_details():
                 continue
             d = {"title": re.search(r"<h3>(.*?)</h3>", art).group(1),
                  "meta": re.search(r'<p class="cd-meta">(.*?)</p>', art).group(1),
-                 "imgs": re.findall(r'<img[^>]+src="([^"]+)"', art)}
+                 "imgs": re.findall(r'<img[^>]+src="([^"]+)"', art),
+                 "text": re.sub(r"<[^>]+>", "", (re.search(r'class="cd-text">(.*?)</p>', art, re.S) or [None, ""])[1])}
             for dt, dd in re.findall(r"<dt>(.*?)</dt><dd>(.*?)</dd>", art):
                 d[dt] = dd
             out[m.group(1)] = d
     return out
+
+
+fn_tokyo = [False]
 
 
 def card(code, d):
@@ -52,13 +57,20 @@ def card(code, d):
     part, _, sub = d["title"].partition("｜")
     rows = "".join(f"<dt>{f}</dt><dd>{d[f]}</dd>" for f in FIELDS if f in d)
     alt = html.escape(f"{part} 症例写真（{d['meta'].split('・')[-1]}）")
+    place = d["meta"].split("｜")[-1]
+    note = ""
+    if place and not place.startswith("東京") and fn_tokyo[0]:
+        note = f'<p class="cs-note-place">※東京以外の提携院（{html.escape(place)}）でkomiが担当した症例です。</p>'
+    m = re.search(r"写真は([^。]*?のもの)", d.get("text", ""))
+    shot = f"<dt>撮影時点</dt><dd>{html.escape(m.group(1))}</dd>" if m else ""
     return f'''      <article class="cs-card">
         <div class="cs-img"><img loading="lazy" src="{img}" alt="{alt}" width="720" height="900"></div>
         <div class="cs-body">
           <p class="cs-tag">{part}</p>
           <h3 class="cs-title">{sub or part}</h3>
           <p class="cs-meta">{d["meta"]}</p>
-          <dl class="cs-dl">{rows}</dl>
+          {note}
+          <dl class="cs-dl">{rows}{shot}</dl>
           <div class="cs-links">
             <a href="{page}">症例の詳細を見る →</a>
             <a href="{col_href}">{col_label} →</a>
@@ -97,6 +109,7 @@ def main():
     for fn, codes in PAGES.items():
         p = ROOT / fn
         s = p.read_text(encoding="utf-8")
+        fn_tokyo[0] = fn in ("tokyo.html", "index.html")
         block = section(codes, details)
         if "<!-- CASE_STORY_START" in s:
             s = re.sub(r"<!-- CASE_STORY_START.*?<!-- CASE_STORY_END -->", lambda m: block, s, flags=re.S)
@@ -104,7 +117,8 @@ def main():
             i = s.index("data-kv>")
             j = s.index("</section>", i) + len("</section>")
             s = s[:j] + "\n\n" + block + s[j:]
-        p.write_text(s, encoding="utf-8")
+        with open(p, "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(s)
         print("updated", fn, codes)
 
 
