@@ -1358,3 +1358,8 @@ body.kv-in-view .float-social { opacity: 0; pointer-events: none; }
 .footer-logo-img { width: 88px; height: 88px; display: block; background: #fff; border-radius: 50%; padding: 6px; object-fit: contain; }
 .footer-logo { margin-bottom: 14px; }
 @media (max-width: 768px) { .logo-img { height: 46px; width: 46px; } }
+.logo { gap: 10px; }
+.logo-text { display: flex; flex-direction: column; line-height: 1.25; }
+.logo-name { font-family: var(--font-serif-en); font-size: 18px; letter-spacing: 0.14em; color: var(--brown); }
+.logo-sub { font-size: 11px; letter-spacing: 0.06em; color: var(--text-light); white-space: nowrap; }
+@media (max-width: 768px) { .logo-name { font-size: 15px; } .logo-sub { font-size: 10px; letter-spacing: 0.02em; } .logo { gap: 8px; } }
