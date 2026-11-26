@@ -776,7 +776,8 @@ ul { list-style: none; }
 .case-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--beige);
   transition: transform 0.5s ease;
 }
 .case-img-wrap:hover .case-img { transform: scale(1.05); }
@@ -1247,10 +1248,10 @@ ul { list-style: none; }
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 素材と枠が同じ4:5なのでPCでは実質切れない */
+  object-fit: contain; /* 素材と枠が同じ4:5。比率が違う画面では余白を出して見切れを防ぐ */
   display: block;
 }
-.kv-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.kv-poster img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .kv-video { opacity: 0; transition: opacity 1.2s ease; }
 .kv.is-playing .kv-video { opacity: 1; }
 .kv-media::after {
@@ -1276,7 +1277,7 @@ ul { list-style: none; }
     min-height: 0;
     aspect-ratio: auto;
   }
-  .kv-poster, .kv-video, .kv-poster img { object-position: 50% 40%; }
+  .kv-poster, .kv-video, .kv-poster img { object-position: 50% 50%; }
   .kv-media::after {
     background: linear-gradient(to bottom, rgba(29,20,16,0) 55%, rgba(29,20,16,0.95) 100%);
   }
@@ -1285,10 +1286,11 @@ ul { list-style: none; }
   .kv-title { font-size: clamp(26px, 7.4vw, 32px); margin-bottom: 12px; }
   .kv-desc { font-size: 12.5px; line-height: 1.85; margin-bottom: 20px; }
   .kv-desc-more { display: none; }
-  .kv-btns { flex-wrap: nowrap; gap: 10px; }
+  .kv-btns { flex-wrap: wrap; gap: 10px; }
   .kv-btns .btn { padding: 14px 12px; font-size: 13px; letter-spacing: 0.06em; text-align: center; white-space: nowrap; }
   .kv-btns .btn-line { flex: 1.5; }
   .kv-btns .btn-outline { flex: 1; }
+  .kv-btns .btn-outline + .btn-outline { flex-basis: 100%; }
   .kv-meta { margin-top: 16px; font-size: 11.5px; }
   .kv-meta li + li::before { margin: 0 8px; }
 }

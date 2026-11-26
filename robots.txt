@@ -1,3 +1,5 @@
+# 方針: 公開ページは検索エンジンとAI検索(回答での引用を含む)の巡回を許可します。
+# /internal/ は社内用のため全クローラ対象外です。AI向けの要約は /llms.txt にあります。
 User-agent: *
 Allow: /
 Disallow: /internal/

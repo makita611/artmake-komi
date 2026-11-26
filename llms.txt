@@ -1,45 +1,55 @@
 # KOMI ARTMAKE（komi）
 
-> アートメイクアーティストkomiによる医療アートメイク・アマラピンク（メラニンケア）・パラメディカルアートメイク。施術はすべて提携医療クリニック内で、完全予約制で行う。拠点は東京・半蔵門のほか、茨城・つくば、栃木・壬生町、群馬（太田・高崎）など。症例3,000件以上。
+> 看護師資格を持つアートメイクアーティストkomiによる医療アートメイク・アマラピンク・パラメディカルアートメイク。施術はすべて提携医療クリニック内で、完全予約制で行う。
 
-- 施術場所: 提携医療クリニック内（東京・半蔵門／茨城・つくば／栃木・壬生町／群馬・太田／群馬・高崎 ほか、横浜・香川・長野・福岡の提携院）
-- 相談・予約: LINE公式（https://lin.ee/8AGmhyG）またはInstagram（https://www.instagram.com/artmake_komi/）
-- 料金は院によって異なる場合がある。最新情報は各ページまたは提携院で確認
+last_updated: 2026-11-27
+
+## このサイトの情報の使い方
+
+- 料金・施術日・空き状況は変わるため、ここには書かない。料金は提携院ページと各エリアページ、空き状況はLINE公式で確認する。
+- 施術は自由診療。仕上がりや経過には個人差があり、リスクがある。
+
+## 公式ページ（情報の正本）
+
+- [提携クリニックと料金表](https://artmake-komi.com/clinics)
+- [相談・予約（LINE公式）](https://lin.ee/8AGmhyG)
+- [運営者情報](https://artmake-komi.com/operator)
+- [アーティスト komi](https://artmake-komi.com/artists)（症例3,000件以上）
 
 ## 施術メニュー
 
-- [医療アートメイク（眉・リップ・アイライン・ヘアライン）](https://artmake-komi.com/artmake): メニューと料金
-- [アマラピンク](https://artmake-komi.com/amarapink): 針も色素も使わず、専用薬剤の塗布でメラニンを外へ出していく黒ずみケア。乳輪・デリケートゾーン・唇・ボディが対象。数日〜2週間ほど皮むけがあり、約1か月で仕上がる
+- [医療アートメイク（眉・リップ・アイライン・ヘアライン）](https://artmake-komi.com/artmake)
+- [アマラピンク](https://artmake-komi.com/amarapink): 針も色素も使わず、専用薬剤の塗布でメラニンを外へ出していくケア
 - [パラメディカルアートメイク](https://artmake-komi.com/paramedical): 傷跡・白斑などを目立ちにくくする施術
-- [男性のアートメイク](https://artmake-komi.com/men-artmake): メンズ眉・ヘアスカルプ
+- [男性のアートメイク](https://artmake-komi.com/men-artmake)
 
-## エリア別（場所・施術日・料金・予約）
+## 施術場所
 
-- [茨城・つくば](https://artmake-komi.com/tsukuba): B-leafメディカル内科小児科クリニック内（茨城県つくば市小野崎446-1、駐車場完備、つくば駅から関東鉄道バス「小野崎南」徒歩5分）。施術日は基本、月曜・水曜（他の曜日はLINEで相談）。眉（毛並み／パウダー）は1回¥66,000・2回セット¥120,000、ミックス眉は1回¥77,000・2回セット¥131,000（税込、診察料・麻酔料・薬代込み）。男性の眉も対応。完全予約制（LINE）。
-- [東京・千代田区（半蔵門）](https://artmake-komi.com/tokyo): 一番町まつりかクリニック内（東京都千代田区一番町4-65 一番町大石ビル1階101号室、半蔵門駅5番出口徒歩3分・麹町駅徒歩5分）。施術日は月に数日で毎月限定（直近の空きはページ上部の日程バーまたはLINE）。眉は1回目¥66,000〜・2回目¥55,000〜（税込、診察料・麻酔料・薬代込み）。男性の眉・ヘアスカルプも対応。完全個室、完全予約制（LINE）。
-- [栃木・壬生町（宇都宮の隣）](https://artmake-komi.com/tochigi): 全室個室の美容皮膚科内（〒321-0201 栃木県下都賀郡壬生町安塚765-1、駐車場あり、医師管理）。施術日は限定でLINEで最新日程を確認。完全予約制（LINE）。支払いは現金・クレジットカード。料金は各ページ参照。
-- [群馬・太田](https://artmake-komi.com/ota): 〒373-0816 群馬県太田市東矢島町284。営業時間は火〜日10:00〜19:00、定休日は月曜、駐車場完備。完全予約制（LINE）。料金は各ページ参照。
-- [群馬・高崎](https://artmake-komi.com/takasaki): 〒370-0046 群馬県高崎市江木町1718-4。営業時間は火〜日10:00〜19:00、定休日は月曜、駐車場16台完備。完全予約制（LINE）。料金は各ページ参照。
-- [長野・佐久](https://artmake-komi.com/nagano): 佐久平エンゼルクリニック the Beauty 内（長野県佐久市長土呂1210-1、佐久平駅より車で約5分、駐車場あり）。眉（毛並み または パウダー）は1回¥66,000・2回セット¥110,000、毛並み＋パウダーは1回¥77,000・2回セット¥121,000（税込、診察料・麻酔料・薬代込み、セット有効期限3か月）。施術日は限られるためLINEで確認。完全予約制。
-- [香川・高松](https://artmake-komi.com/kagawa): 真弓愛メディカルクリニック内（〒761-8054 香川県高松市東ハゼ町12-7 GRACIAS TAKAMATSU 2階・3階、バス停「東室新町」徒歩約3分、駐車場あり）。眉（毛並み または パウダー）は1回目¥77,000・2回目¥60,500・3回目以降¥55,000、別途初回診察料¥3,300（税込・麻酔料・薬代込み、2回セット有効期限は半年）。施術日は限られるためLINEで確認。完全予約制。
-- [提携クリニック一覧](https://artmake-komi.com/clinics)
-
-共通: 相談はオンライン無料。対面カウンセリングの料金は院によって異なる（東京・つくばは税込¥5,500、栃木は¥10,000、太田は無料）。担当は看護師資格のアーティストkomi（症例3,000件以上）で、施術はすべて提携医療クリニック内で医師管理のもと行う。
+- [東京・千代田区（半蔵門）一番町まつりかクリニック](https://artmake-komi.com/tokyo)
+- [茨城・つくば B-leafメディカル内科小児科クリニック](https://artmake-komi.com/tsukuba)
+- [栃木・壬生町 みぶ整形外科クリニック（美容皮膚科）](https://artmake-komi.com/tochigi)
+- [群馬・太田 シンシアガーデンクリニック太田院](https://artmake-komi.com/ota)
+- [群馬・高崎 シンシアガーデンクリニック高崎院](https://artmake-komi.com/takasaki)
+- [長野・佐久 佐久平エンゼルクリニック the Beauty](https://artmake-komi.com/nagano)
+- [香川・高松 真弓愛メディカルクリニック](https://artmake-komi.com/kagawa)
+- 横浜・福岡の提携院は[提携院ページ](https://artmake-komi.com/clinics)を参照
 
 ## はじめての方へ
 
-- [初めてのアートメイク Q&A（不安・痛み・料金・当日の流れ）](https://artmake-komi.com/hajimete)
-- [アートメイクとは？](https://artmake-komi.com/column/am-artmake-toha)
-- [アマラピンクとは？仕組み・経過・回数](https://artmake-komi.com/column/am-amarapink)
-- [アートメイクは痛い？](https://artmake-komi.com/column/am-itami)
-- [アートメイクの回数](https://artmake-komi.com/column/am-kaisu)
-- [アートメイクは何年持つ？](https://artmake-komi.com/column/am-jizoku)
-- [アートメイクができない人・禁忌](https://artmake-komi.com/column/am-kinki)
+- [初めてのアートメイク Q&A](https://artmake-komi.com/hajimete)
+- [アートメイクとは](https://artmake-komi.com/column/am-artmake-toha)
+- [料金と総額](https://artmake-komi.com/column/am-price)
+- [痛みと麻酔](https://artmake-komi.com/column/am-itami)
+- [ダウンタイム](https://artmake-komi.com/column/am-downtime)
+- [回数](https://artmake-komi.com/column/am-kaisu)
+- [何年持つか](https://artmake-komi.com/column/am-jizoku)
+- [MRI検査との関係](https://artmake-komi.com/column/am-mri-tattoo)
+- [受けられない方・禁忌](https://artmake-komi.com/column/am-kinki)
+- [アフターケアと受診の目安](https://artmake-komi.com/aftercare)
 - [クリニックの選び方](https://artmake-komi.com/column/am-clinic-erabi)
+- [アマラピンクの経過](https://artmake-komi.com/column/am-amarapink)
 
 ## 症例・その他
 
 - [症例写真](https://artmake-komi.com/cases)
-- [アーティスト komi](https://artmake-komi.com/artists)
 - [コラム一覧](https://artmake-komi.com/column/)
-- [運営者情報](https://artmake-komi.com/operator)
